@@ -1,4 +1,6 @@
+/* eslint-disable prettier/prettier */
 import { NavigateFunction } from "react-router-dom";
+
 import { getFromLocal, setToLocal } from "../../utils/browserMemo";
 import { showConfirmSwal, showLoadingSwal, showMsgSwal } from "../../utils/swal";
 import { getCodePercent, sendRegisterRequest } from "@/assets/services/axios/requests/shared/courses";
@@ -9,6 +11,7 @@ import { getCodePercent, sendRegisterRequest } from "@/assets/services/axios/req
 const registerToCourse = async (refetch: () => void, navigate: NavigateFunction, courseID: string, price: number) => {
 
   const walletValue = getFromLocal("wallet") || 0;
+
   if (walletValue < price) {
     showConfirmSwal({
       title: "موجودی کیف پول کافی نیست",
@@ -22,8 +25,10 @@ const registerToCourse = async (refetch: () => void, navigate: NavigateFunction,
       }
     })
   } else {
-    const loadingSwal = showLoadingSwal({task: "ثبت نام در دوره"})
+    const loadingSwal = await showLoadingSwal({task: "ثبت نام در دوره"})
     const registerReq = await sendRegisterRequest(courseID, price);
+
+    // @ts-ignore
     loadingSwal.close();
 
     if (registerReq) {
@@ -40,6 +45,7 @@ const registerToCourse = async (refetch: () => void, navigate: NavigateFunction,
           if (result.isConfirmed) {
             const loadingSwal = showLoadingSwal({task: "دریافت اطلاعات"})
             await refetch();
+            // @ts-ignore
             loadingSwal.close();
           }
         }

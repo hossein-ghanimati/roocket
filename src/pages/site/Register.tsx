@@ -49,6 +49,7 @@ const Register = memo(() => {
           onSubmit={async (values) => {
             const loadinSwal = showLoadingSwal({task: "ثبت نام"})
             const token = await renderUserRegistering(values)
+            // @ts-ignore
             loadinSwal.close()
             
             if (token) {

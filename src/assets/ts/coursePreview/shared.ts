@@ -51,6 +51,7 @@ const renderRegisterToCourse = (
           reuslt.isConfirmed ?
             validateCode(refetch, navigate, courseID, price, reuslt.value)
             :
+            // @ts-ignore
             reuslt?.dismiss === "cancel" && registerToCourse(refetch, navigate, courseID, price)
         }
       })
