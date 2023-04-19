@@ -8,7 +8,7 @@ export default function Login() {
 
   const [username, setsername] = useState('')
   const [password, setpasswrod] = useState('')
-  const [loading, setloading] = useState(false)
+  const [_, setloading] = useState(false)
 
   async function Loginf(event) {
 
