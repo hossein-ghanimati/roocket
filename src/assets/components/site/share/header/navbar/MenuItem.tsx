@@ -1,9 +1,9 @@
 import MenuItemType from "@/assets/types/site/menuItem.type";
 import { memo } from "react";
-import { FaAngleDown, FaAngleLeft } from "react-icons/fa6";
+import { FaAngleDown } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";
 
-const MenuItem = memo(({ id, title, href, subItems }: MenuItemType) => {
+const MenuItem = memo(({ title, href, subItems }: MenuItemType) => {
   return (
     <li className="group relative">
       <div className="flex items-center justify-between gap-1 cursor-pointer">
