@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind utilities;
+@tailwind components;
+
+@layer base{
+  @font-face {
+    font-family: yekan;
+    src: url("/public/font/yekan/Yekan-Bakh-FaNum-07-Heavy.woff");
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: yekan;
+    src: url("/public/font/yekan/Yekan-Bakh-FaNum-07-Heavy.woff");
+    font-weight: 700;
+  }
+  @font-face {
+    font-family: shabnam;
+    src: url("/public/font/shabnam/Shabnam-FD.woff");
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: shabnam;
+    src: url("/public/font/shabnam/Shabnam-Medium-FD.woff");
+    font-weight: 500;
+  }
+  @font-face {
+    font-family: shabnam;
+    src: url("/public/font/shabnam/Shabnam-Bold-FD.woff");
+    font-weight: 700;
+  }
+
+
+  #app{
+    direction: rtl;
+  }
+}
+
+@layer utilities{
+  .mobile-menu-item__input:checked ~ .mobile-menu-item__dropdown{
+    @apply 
+      block
+      opacity-100
+    ;
+      
+  }
+}

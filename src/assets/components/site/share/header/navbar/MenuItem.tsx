@@ -1,0 +1,50 @@
+import MenuItemType from "@/assets/types/site/menuItem.type";
+import { memo } from "react";
+import { FaAngleDown, FaAngleLeft } from "react-icons/fa6";
+import { NavLink } from "react-router-dom";
+
+const MenuItem = memo(({ id, title, href, subItems }: MenuItemType) => {
+  return (
+    <li className="group relative">
+      <div className="flex items-center justify-between gap-1 cursor-pointer">
+        <NavLink
+          to={`/courses/${href}`}
+          className={({ isActive }) =>
+            `font-medium  ${isActive ? "text-gray-700 dark:text-white" : "text-gray-500 dark:text-gray-300"}`
+          }
+        >
+          {title}
+        </NavLink>
+
+        {subItems?.length && (
+          <FaAngleDown className="transition text-gray-500 dark:text-gray-300 group-hover:rotate-180" />
+        )}
+      </div>
+
+      {subItems?.length && (
+        <div
+          className="group-hover:block hidden absolute top-full pt-5 "
+        >
+          <ul
+            className={`w-48 m-2 p-2 space-y-1 rounded bg-gray-200 dark:bg-gray-700 `}
+          >
+            {subItems?.map((subItem) => (
+              <li key={subItem.id}>
+                <NavLink
+                  to={`/course/${subItem.href}`}
+                  className={({ isActive }) =>
+                    `font-medium  ${isActive ? "text-gray-700 dark:text-white" : "text-gray-500 dark:text-gray-300"}`
+                  }
+                >
+                  {subItem.title}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </li>
+  );
+});
+
+export default MenuItem;
