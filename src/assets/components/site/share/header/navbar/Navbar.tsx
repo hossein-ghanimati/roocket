@@ -113,7 +113,7 @@ const Navbar = memo(() => {
     <div className="hidden lg:flex items-center justify-center w-11/12 h-16 mx-auto rounded-b-3xl bg-gray-200 dark:bg-gray-700 ">
       {menuList.length && (
         <ul className="flex items-center justify-center gap-7">
-          <li className="font-medium">
+          <li className="font-medium hover:text-gray-700 hover:dark:text-white">
             <NavLink
               to="/"
               className={({ isActive }) =>
@@ -125,7 +125,7 @@ const Navbar = memo(() => {
               خانه
             </NavLink>
           </li>
-          <li className="font-medium">
+          <li className="font-medium hover:text-gray-700 hover:dark:text-white">
             <NavLink
               to="/courses"
               className={({ isActive }) =>

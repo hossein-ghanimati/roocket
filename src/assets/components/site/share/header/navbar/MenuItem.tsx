@@ -10,7 +10,7 @@ const MenuItem = memo(({ title, href, subItems }: MenuItemType) => {
         <NavLink
           to={`/courses/${href}`}
           className={({ isActive }) =>
-            `font-medium  ${isActive ? "text-gray-700 dark:text-white" : "text-gray-500 dark:text-gray-300"}`
+            `font-medium hover:text-gray-700 hover:dark:text-white ${isActive ? "text-gray-700 dark:text-white" : "text-gray-500 dark:text-gray-300"}`
           }
         >
           {title}
@@ -26,14 +26,14 @@ const MenuItem = memo(({ title, href, subItems }: MenuItemType) => {
           className="group-hover:block hidden absolute top-full pt-5 "
         >
           <ul
-            className={`w-48 m-2 p-2 space-y-1 rounded bg-gray-200 dark:bg-gray-700 `}
+            className={`w-48 m-2 p-2 space-y-1 rounded-md border border-gray-300 dark:border-gray-800 bg-gray-200 dark:bg-gray-700 shadow-lg`}
           >
             {subItems?.map((subItem) => (
               <li key={subItem.id}>
                 <NavLink
                   to={`/course/${subItem.href}`}
                   className={({ isActive }) =>
-                    `font-medium  ${isActive ? "text-gray-700 dark:text-white" : "text-gray-500 dark:text-gray-300"}`
+                    `font-medium hover:text-gray-700 hover:dark:text-white  ${isActive ? "text-gray-700 dark:text-white" : "text-gray-500 dark:text-gray-300"}`
                   }
                 >
                   {subItem.title}
