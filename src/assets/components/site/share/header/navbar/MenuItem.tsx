@@ -23,7 +23,7 @@ const MenuItem = memo(({ title, href, subItems }: MenuItemType) => {
 
       {subItems?.length && (
         <div
-          className="group-hover:block hidden absolute top-full pt-5 "
+          className="group-hover:block hidden absolute top-full pt-5 z-10"
         >
           <ul
             className={`w-48 m-2 p-2 space-y-1 rounded-md border border-gray-300 dark:border-gray-800 bg-gray-200 dark:bg-gray-700 shadow-lg`}

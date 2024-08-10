@@ -1,8 +1,11 @@
+import Landing from '@/assets/components/site/home/landing/Landing'
 import { memo } from 'react'
 
 const Home = memo(() => {
   return (
-    <div>Home</div>
+    <div id="home">
+      <Landing/>
+    </div>
   )
 })
 
