@@ -2,14 +2,15 @@ import { memo } from "react";
 import { Link } from "react-router-dom";
 
 type SectionHeaderProps = {
+  id: string;
   title: string;
   href: string;
   hrefTitle: string;
 };
 
-const SectionHeader = memo(({ title, href, hrefTitle }: SectionHeaderProps) => {
+const SectionHeader = memo(({id, title, href, hrefTitle }: SectionHeaderProps) => {
   return (
-    <div className="flex items-center justify-between sm:flex-row flex-col mb-20">
+    <div id={id} className="flex items-center justify-between sm:flex-row flex-col mb-20">
       <div className="flex items-center self-start sm:mb-0 mb-3">
         <svg
           className="text-dark-550 dark:text-white ml-4"
@@ -35,13 +36,13 @@ const SectionHeader = memo(({ title, href, hrefTitle }: SectionHeaderProps) => {
             fill-opacity="0.7"
           ></circle>
         </svg>
-        <h3 className="text-biscay-700 dark:text-white font-extrabold sm:text-4xl text-2xl">
-          {title}
+        <h3 className="text-biscay-700 dark:text-white font-bold font-yekan sm:text-4xl text-2xl">
+          <a href={`#${id}`}>{title}</a>
         </h3>
       </div>
       <div className="self-end">
         <Link to={href} className="flex items-center transform group">
-          <span className="text-dark-550 dark:group-hover:text-gray-20 dark:text-white font-normal text-22 ml-2 transition duration-200 group-hover:text-dark-700">
+          <span className="text-dark-550 dark:group-hover:text-gray-20 dark:text-white font-normal text-[22px] ml-2 transition duration-200 group-hover:text-dark-700">
             {hrefTitle}
           </span>
           <svg
