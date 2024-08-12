@@ -5,12 +5,18 @@ type Props = {
   href: string
   imgSrc: string
   title: string
+  isFinish: boolean
+  description: string
+  price: number
 };
 
 const CourseBox = memo(({
   href,
   imgSrc,
-  title
+  title,
+  isFinish,
+  description,
+  price
 }: Props) => {
   return (
     <div className="xl:col-span-3 md:col-span-4 sm:col-span-6 col-span-12 mb-15">
@@ -23,7 +29,7 @@ const CourseBox = memo(({
             <img
               className="w-full h-full object-cover transform transition duration-200 hover:scale-110"
               src={`/public/courses/${imgSrc}`}
-              alt="آموزش پروژه محور طراحی سایت"
+              alt={title}
             />
           </Link>
         </div>
@@ -45,7 +51,9 @@ const CourseBox = memo(({
                   fill="currentColor"
                 ></circle>
               </svg>
-              در حال برگزاری
+              {
+                isFinish ? "به اتمام رسیده" : "درحال برگزاری"
+              }
             </span>
 
             <Link to={`/course/${href}`} className="mb-2 inline-block">
@@ -54,8 +62,7 @@ const CourseBox = memo(({
               </span>
             </Link>
             <p className="mb-2 text-gray-360 dark:text-gray-940 text-sm font-normal  overflow-hidden leading-6">
-              آموزش پروژه محور طراحی سایت به شما کمک می‌کند که به سادگی بتوانید
-              پروژه‌های طراحی سایت خود را پیاده‌سازی کنید.
+              {description}
             </p>
           </div>
 
@@ -146,7 +153,9 @@ const CourseBox = memo(({
 
                 <div className="flex items-center">
                   <span className="dark:text-white font-bold lg:text-3xl text-xl text-biscay-700">
-                    990,000
+                    {
+                      price.toLocaleString()
+                    }
                   </span>
                   <svg
                     className="mr-1 "
