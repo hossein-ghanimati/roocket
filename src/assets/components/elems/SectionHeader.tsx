@@ -26,14 +26,14 @@ const SectionHeader = memo(({id, title, href, hrefTitle }: SectionHeaderProps) =
             cy="13"
             r="7"
             fill="currentColor"
-            fill-opacity="0.4"
+            fillOpacity="0.4"
           ></circle>
           <circle
             cx="15"
             cy="4"
             r="4"
             fill="currentColor"
-            fill-opacity="0.7"
+            fillOpacity="0.7"
           ></circle>
         </svg>
         <h3 className="text-biscay-700 dark:text-white font-bold font-yekan sm:text-4xl text-2xl">

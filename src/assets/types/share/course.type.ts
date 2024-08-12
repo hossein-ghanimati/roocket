@@ -3,7 +3,7 @@ import CommentType from "./comment.type";
 import SessionType from "./session.type";
 
 
-type CourseType = {
+export type SingleCourseType = {
   id: string;
   name: string;
   description: string;
@@ -25,4 +25,24 @@ type CourseType = {
   isUserRegisteredToThisCourse: boolean
 }
 
-export default CourseType
+export type CourseBoxType = {
+    _id: string;
+    name: string;
+    description: string;
+    cover: string;
+    support: string;
+    shortName: string;
+    price: number
+    isComplete: number
+    status: string;
+    categoryID: CategoryType
+    creator: string
+    createdAt: string;
+    updatedAt: string
+    __v: number
+    discount: number;
+    registers: number;
+    courseAverageScore: number;
+  
+}
+

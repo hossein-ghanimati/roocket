@@ -3,3 +3,5 @@ const sendGetReq = async (path: string) => {
   const response = await getReq.json()
   return response
 }
+
+export default sendGetReq
