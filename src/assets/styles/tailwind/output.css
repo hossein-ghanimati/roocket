@@ -631,6 +631,10 @@ video {
   bottom: 0px;
 }
 
+.bottom-16 {
+  bottom: 4rem;
+}
+
 .bottom-\[10\%\] {
   bottom: 10%;
 }
@@ -683,6 +687,14 @@ video {
   top: 100%;
 }
 
+.left-0 {
+  left: 0px;
+}
+
+.-bottom-5 {
+  bottom: -1.25rem;
+}
+
 .-z-30 {
   z-index: -30;
 }
@@ -701,10 +713,6 @@ video {
 
 .z-40 {
   z-index: 40;
-}
-
-.order-2 {
-  order: 2;
 }
 
 .order-1 {
@@ -765,6 +773,10 @@ video {
   margin-bottom: 0.75rem;
 }
 
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
 .mb-6 {
   margin-bottom: 1.5rem;
 }
@@ -799,10 +811,6 @@ video {
 
 .mt-8 {
   margin-top: 2rem;
-}
-
-.mb-4 {
-  margin-bottom: 1rem;
 }
 
 .box-border {
@@ -1815,14 +1823,6 @@ video {
 
 .font-semibold {
   font-weight: 600;
-}
-
-.\!leading-21 {
-  line-height: 88px !important;
-}
-
-.leading-10 {
-  line-height: 2.5rem;
 }
 
 .\!leading-10 {
@@ -3597,6 +3597,10 @@ video {
 }
 
 @media (min-width: 640px) {
+  .sm\:left-0 {
+    left: 0px;
+  }
+
   .sm\:mt-4 {
     margin-top: 1rem;
   }
@@ -3609,8 +3613,16 @@ video {
     display: none;
   }
 
+  .sm\:h-32 {
+    height: 8rem;
+  }
+
   .sm\:w-1\/2 {
     width: 50%;
+  }
+
+  .sm\:w-24 {
+    width: 6rem;
   }
 
   .sm\:overflow-visible {
@@ -3637,11 +3649,6 @@ video {
 }
 
 @media (min-width: 768px) {
-  .md\:my-6 {
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-  }
-
   .md\:mb-6 {
     margin-bottom: 1.5rem;
   }
@@ -3697,18 +3704,46 @@ video {
     line-height: 1;
   }
 
-  .lg\:\!leading-10 {
-    line-height: 2.5rem !important;
-  }
-
   .lg\:\!leading-21 {
     line-height: 88px !important;
   }
 }
 
 @media (min-width: 1280px) {
-  .xl\:order-1 {
-    order: 1;
+  .xl\:bottom-0 {
+    bottom: 0px;
+  }
+
+  .xl\:-top-3 {
+    top: -0.75rem;
+  }
+
+  .xl\:-top-3\.5 {
+    top: -0.875rem;
+  }
+
+  .xl\:left-36 {
+    left: 9rem;
+  }
+
+  .xl\:left-1\/2 {
+    left: 50%;
+  }
+
+  .xl\:-bottom-5 {
+    bottom: -1.25rem;
+  }
+
+  .xl\:-bottom-10 {
+    bottom: -2.5rem;
+  }
+
+  .xl\:-bottom-12 {
+    bottom: -3rem;
+  }
+
+  .xl\:-bottom-20 {
+    bottom: -5rem;
   }
 
   .xl\:order-none {
