@@ -11,7 +11,8 @@ const LatesCourses = memo(() => {
   useEffect(() => {
     (async function () {
       const coursesData: CourseBoxType[] = await sendGetReq("courses");
-      setCourses(coursesData);
+      
+      setCourses(coursesData.splice(0, 8))
     })();
   }, []);
 

@@ -3,7 +3,7 @@ import { memo } from "react";
 import { FaAngleDown } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";
 
-const MenuItem = memo(({ title, href, subItems }: MenuItemType) => {
+const MenuItem = memo(({ title, href, submenus }: MenuItemType) => {
   return (
     <li className="group relative">
       <div className="flex items-center justify-between gap-1 cursor-pointer">
@@ -16,20 +16,20 @@ const MenuItem = memo(({ title, href, subItems }: MenuItemType) => {
           {title}
         </NavLink>
 
-        {subItems?.length && (
+        {submenus?.length ? (
           <FaAngleDown className="transition text-gray-500 dark:text-gray-300 group-hover:rotate-180" />
-        )}
+        ): ""}
       </div>
 
-      {subItems?.length && (
+      {submenus?.length ? (
         <div
           className="group-hover:block hidden absolute top-full pt-5 z-10"
         >
           <ul
             className={`w-48 m-2 p-2 space-y-1 rounded-md border border-gray-300 dark:border-gray-800 bg-gray-200 dark:bg-gray-700 shadow-lg`}
           >
-            {subItems?.map((subItem) => (
-              <li key={subItem.id}>
+            {submenus?.map((subItem) => (
+              <li key={subItem._id}>
                 <NavLink
                   to={`/course/${subItem.href}`}
                   className={({ isActive }) =>
@@ -42,7 +42,7 @@ const MenuItem = memo(({ title, href, subItems }: MenuItemType) => {
             ))}
           </ul>
         </div>
-      )}
+      ): ""}
     </li>
   );
 });
