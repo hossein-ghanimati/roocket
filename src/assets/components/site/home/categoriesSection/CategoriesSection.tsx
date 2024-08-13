@@ -52,7 +52,7 @@ const CategoriesSection = memo(() => {
               ))
             : Array.from(Array(8).keys())?.map((i) => (
                 <SwiperSlide key={i} className="!size-max">
-                  <SkeletonBox />
+                  <SkeletonBox isGridChild={false}/>
                 </SwiperSlide>
               ))}
         </Swiper>

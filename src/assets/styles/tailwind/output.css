@@ -1116,6 +1116,10 @@ video {
   width: max-content;
 }
 
+.w-screen {
+  width: 100vw;
+}
+
 .min-w-10 {
   min-width: 2.5rem;
 }

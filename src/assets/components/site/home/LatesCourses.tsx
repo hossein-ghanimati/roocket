@@ -30,7 +30,7 @@ const LatesCourses = memo(() => {
             ? courses.map((course) => (
                 <CourseBox key={course._id} {...course} />
               ))
-            : Array.from(Array(8).keys()).map((i) => <SkeletonBox key={i} />)}
+            : Array.from(Array(8).keys()).map((i) => <SkeletonBox isGridChild key={i} />)}
         </div>
       </div>
     </section>
