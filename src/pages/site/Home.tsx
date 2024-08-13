@@ -1,14 +1,14 @@
-import Landing from '@/assets/components/site/home/landing/Landing'
-import LatesCourses from '@/assets/components/site/home/latesCourses/LatesCourses'
-import { memo } from 'react'
+import CategoriesSection from "@/assets/components/site/home/categoriesSection/CategoriesSection";
+import Landing from "@/assets/components/site/home/landing/Landing";
+import LatesCourses from "@/assets/components/site/home/LatesCourses";
+import { memo } from "react";
 
-const Home = memo(() => {
-  return (
-    <div id="home">
-      <Landing/>
-      <LatesCourses/>
-    </div>
-  )
-})
+const Home = memo(() => (
+  <div id="home">
+    <Landing />
+    <LatesCourses />
+    <CategoriesSection />
+  </div>
+));
 
-export default Home
+export default Home;

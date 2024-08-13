@@ -9,7 +9,7 @@ const Left = memo(() => {
         className="mx-auto mb-4 md:mb-6"
       />
 
-      <div className="absolute -bottom-5 left-0 xl:left-1/2 xl:-bottom-20 w-12 h-16 sm:w-24 sm:h-32">
+      <div className="absolute bottom-5 sm:-bottom-5 left-0 xl:left-1/2 xl:-bottom-20 w-12 h-16 sm:w-24 sm:h-32">
         <svg
           className="text-gray-920 dark:text-gray-930"
           width="currentWidth"

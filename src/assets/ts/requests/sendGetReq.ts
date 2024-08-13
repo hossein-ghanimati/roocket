@@ -1,7 +1,11 @@
 const sendGetReq = async (path: string) => {
   const getReq = await fetch(`http://localhost:4000/v1/${path}`)
-  const response = await getReq.json()
-  return response
+  if (getReq.ok) {
+    const response = await getReq.json()
+    return response
+  } 
+
+  return null  
 }
 
 export default sendGetReq

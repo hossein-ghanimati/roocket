@@ -1,0 +1,24 @@
+.swiper-pagination {
+  position: absolute;
+  bottom: 10px; /* فاصله از پایین */
+   /* وسط‌چین کردن پیجینیشن افقی */
+  display: flex;
+  gap: 8px; /* فاصله بین دکمه‌های پیجینیشن */
+  align-items: center;
+  justify-content: center;
+}
+
+.swiper-pagination-bullet {
+  background-color: rgb(100 116 139 / 1); /* رنگ پیجینیشن */
+  width: 8px;
+  height: 8px;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: rgb(41, 41, 41); /* رنگ پیجینیشن فعال */
+  width: 12px;
+  height: 12px;
+}
+.dark .swiper-pagination-bullet-active{
+  background-color: rgb(255 255 255 / 1)
+}

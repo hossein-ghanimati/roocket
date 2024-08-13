@@ -22,6 +22,9 @@ module.exports = {
       padding: "1rem",
     },
     screens: {
+      'xs': '548px',
+      // => @media (min-width: 548px) { ... }
+
       'sm': '640px',
       // => @media (min-width: 640px) { ... }
 

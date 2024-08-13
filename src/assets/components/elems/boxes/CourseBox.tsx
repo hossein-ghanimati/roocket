@@ -23,7 +23,7 @@ const CourseBox = memo(
     courseAverageScore,
   }: CourseBoxType) => {
     return (
-      <div className="xl:col-span-3 md:col-span-4 sm:col-span-6 col-span-12 mb-16">
+      <div className="xl:col-span-3 lg:col-span-4 xs:col-span-6 col-span-12 mb-16">
         <div className="shadow-smswiper-slide-active rounded-lg bg-white dark:bg-gray-900 relative pt-32 flex justify-center h-full">
           <div className="absolute -top-12 w-full  px-4 ">
             <Link
@@ -31,7 +31,7 @@ const CourseBox = memo(
               className=" inline-block h-40 overflow-hidden w-full rounded-lg"
             >
               <img
-                className="w-full h-full object-cover transform transition duration-200 hover:scale-110"
+                className="w-full h-full bg-cover transform transition duration-200 hover:scale-110"
                 src={`http://localhost:4000/courses/covers/${cover}`}
                 alt={name}
               />
