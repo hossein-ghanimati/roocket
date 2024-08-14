@@ -4,6 +4,7 @@ import LatesCourses from "@/assets/components/site/home/LatesCourses";
 import NewArticles from "@/assets/components/site/home/newArticles/NewArticles";
 import Propaganda from "@/assets/components/site/home/Propaganda";
 import RoocketFeedback from "@/assets/components/site/home/roocketFeedback/RoocketFeedback";
+import SiteDescription from "@/assets/components/site/home/SiteDescription";
 import { memo } from "react";
 
 const Home = memo(() => (
@@ -14,6 +15,7 @@ const Home = memo(() => (
     <RoocketFeedback />
     <NewArticles/>
     <Propaganda/>
+    <SiteDescription />
   </div>
 ));
 

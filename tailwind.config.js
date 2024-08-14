@@ -80,7 +80,11 @@ module.exports = {
       },
       fontSize: {
         27: "1.6875rem",
+        33: "33px",
         36: "2.25rem",
+      },
+      maxHeight: {
+        "2/5vh": "40vh"
       }
     },
   },
