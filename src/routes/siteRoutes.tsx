@@ -12,10 +12,11 @@ import { RouteObject } from "react-router-dom"
 const siteRoutes: RouteObject[] = [
   {path: "/", element: <Home/>},
   {path: "articles", element: <Articles/>},
-  {path: "article/:id", element: <ArticlePreview/>},
+  {path: "articles/:category", element: <Articles/>},
+  {path: "article/:name", element: <ArticlePreview/>},
   {path: "courses", element: <Courses/>},
   {path: "courses/:category", element: <Courses/>},
-  {path: "course/:id", element: <CoursePreview/>},
+  {path: "course/:name", element: <CoursePreview/>},
   {path: "episode/:id", element: <Episode/>},
   {path: "basket", element: <Basket/>},
   {path: "search/:value", element: <Search/>},
