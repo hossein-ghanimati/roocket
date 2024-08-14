@@ -77,6 +77,10 @@ module.exports = {
       },
       rotate: {
         215: "215 deg"
+      },
+      fontSize: {
+        27: "1.6875rem",
+        36: "2.25rem",
       }
     },
   },
