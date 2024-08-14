@@ -4,7 +4,7 @@ const SiteDescription = memo(() => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <section className="mb-10">
+    <section className="mb-10" id="description">
       <div className="container">
         <div
           x-data="{showMore:false}"
