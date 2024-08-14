@@ -17,7 +17,7 @@ const MenuList = memo(() => {
     <ul className="py-4 my-4 border-y border-gray-300 dark:border-gray-500 space-y-4">
       <li className="font-medium">
         <NavLink
-          to="/"
+          to="/#latest-courses"
           className={({ isActive }) =>
             isActive
               ? "text-gray-700 dark:text-gray-100"

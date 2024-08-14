@@ -5,7 +5,7 @@ type Props = {selector: string}
 const SwiperNextPrev = memo(({selector}: Props) => {
   return (
     <div className="absolute top-20 w-10/12 right-1/2 translate-x-1/2 flex items-center gap-2 z-10">
-          <button className={`${selector}-prev text-gray-500 click:text-white size-8 flex items-center justify-center`}>
+          <button className={`${selector}-swiper-prev text-gray-500 click:text-white size-8 flex items-center justify-center`}>
             <svg              
               width="23"
               height="16"

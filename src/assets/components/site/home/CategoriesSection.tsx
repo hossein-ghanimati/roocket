@@ -57,7 +57,7 @@ const CategoriesSection = memo(() => {
               ))}
         </Swiper>
         
-        <SwiperNextPrev selector="categories-swiper"/>
+        <SwiperNextPrev selector="categories"/>
       </div>
     </section>
   );

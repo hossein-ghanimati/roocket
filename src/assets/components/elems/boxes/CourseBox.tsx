@@ -149,7 +149,7 @@ const CourseBox = memo(
                           strokeWidth="0.761705"
                         ></path>
                       </svg>
-                      {discount}
+                      {registers}
                     </button>{" "}
                   </div>
 

@@ -64,6 +64,19 @@ module.exports = {
       },
       lineHeight: {
         21: "88px"
+      },
+      gridTemplateColumns: {
+        24: "repeat(24, minmax(0, 1fr))",
+      },
+      gridColumn: {
+        // تعریف کلاس سفارشی برای grid-column
+        '13': 'span 13 / span 13',
+      },
+      boxShadow: {
+        teacherCardSHadow: "0px 1.60568px 61.0158px #fffdfd14"
+      },
+      rotate: {
+        215: "215 deg"
       }
     },
   },
