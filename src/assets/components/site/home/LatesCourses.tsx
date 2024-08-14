@@ -17,7 +17,7 @@ const LatesCourses = memo(() => {
   }, []);
 
   return (
-    <section className="md:mb-32 mb-13">
+    <section className="mb-13">
       <div className="container">
         <SectionHeader
           id="latest-courses"

@@ -10,7 +10,7 @@ type SkeletonBoxProps = {
 const SkeletonBox = memo(({isGridChild}: SkeletonBoxProps) => {
   return (
     <Card
-      className={`skeleton-box ${isGridChild ? "xl:col-span-3 md:col-span-4 sm:col-span-6 col-span-12" : "w-screen sm:w-[380px]"} space-y-5 p-4`}
+      className={`skeleton-box ${isGridChild ? "xl:col-span-3 md:col-span-4 sm:col-span-6 col-span-12" : "min-w-60 sm:w-[380px]"} space-y-5 p-4`}
       radius="lg"
     >
       <Skeleton className="rounded-lg">

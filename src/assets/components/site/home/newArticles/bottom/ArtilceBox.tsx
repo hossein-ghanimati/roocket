@@ -11,7 +11,7 @@ const ArtilceBox = memo(({
 }: ArticleType) => {  
   return (
     <div className="mb-6 ">
-      <div className="shadow-md xl:shadow-lg p-4 flex flex-col dark:bg-dark-930 bg-white rounded h-full">
+      <div className="shadow-md xl:shadow-lg p-4 flex flex-col dark:bg-gray-950 bg-white rounded h-full">
         <Link
           className="rounded flex w-full md:h-40 sm:h-60 h-44 overflow-hidden"
           to={`/article/${shortName}`}
