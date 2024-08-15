@@ -1,47 +1,48 @@
 import MenuItemType from "@/assets/types/site/menuItem.type";
-import { memo, useEffect, useState } from "react";
+import { memo, useEffect, useMemo, useState } from "react";
 import MenuItem from "./MenuItem";
 import { NavLink } from "react-router-dom";
 import sendGetReq from "@/assets/ts/requests/sendGetReq";
+import staticMenuData from "@/assets/data/staticMenuData";
+import StaticItem from "./StaticItem";
 
 const MenuList = memo(() => {
   const [menuList, setMenuList] = useState<MenuItemType[]>([]);
   useEffect(() => {
     (async function () {
-      const menus = await sendGetReq('menus')
-      setMenuList(menus)
-    }())
+      const menus = await sendGetReq("menus");
+      setMenuList(menus);
+    })();
   }, []);
 
   return (
     <ul className="py-4 my-4 border-y border-gray-300 dark:border-gray-500 space-y-4">
-      <li className="font-medium">
-        <NavLink
-          to="/#latest-courses"
-          className={({ isActive }) =>
-            isActive
-              ? "text-gray-700 dark:text-gray-100"
-              : "text-gray-500 dark:text-gray-400"
-          }
-        >
-          خانه
-        </NavLink>
-      </li>
-      <li className="font-medium">
-        <NavLink
-          to="/courses"
-          className={({ isActive }) =>
-            isActive
-              ? "text-gray-700 dark:text-gray-100"
-              : "text-gray-500 dark:text-gray-400"
-          }
-        >
-          دوره ها
-        </NavLink>
-      </li>
-      {menuList.map((menuItem) => (
-        <MenuItem key={menuItem._id} {...menuItem} />
-      ))}
+      {useMemo(
+        () =>
+          [...staticMenuData]
+            .splice(0, staticMenuData.length - 1)
+            .map((item) => (
+              <StaticItem key={`mobile-static__${item.href}`} {...item} />
+            )),
+        []
+      )}
+
+      {useMemo(
+        () =>
+          menuList.length
+            ? menuList.map((menuItem) => (
+                <MenuItem key={menuItem._id} {...menuItem} />
+              ))
+            : "",
+        [menuList]
+      )}
+
+      {useMemo(
+        () => (
+          <StaticItem {...staticMenuData[staticMenuData.length - 1]} />
+        ),
+        []
+      )}
     </ul>
   );
 });
