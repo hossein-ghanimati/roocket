@@ -26,10 +26,10 @@ const MenuItem = memo(({ title, href, submenus }: MenuItemType) => {
           className="group-hover:block hidden absolute top-full pt-5 z-10"
         >
           <ul
-            className={`w-48 m-2 p-2 space-y-1 rounded-md border border-gray-300 dark:border-gray-800 bg-gray-200 dark:bg-gray-700 shadow-lg`}
+            className={`w-56 m-2 p-2 space-y-1 rounded-md border border-gray-300 dark:border-gray-800 bg-gray-200 dark:bg-gray-700 shadow-lg`}
           >
             {submenus?.map((subItem) => (
-              <li key={subItem._id}>
+              <li key={subItem._id} className="line-clamp-1">
                 <NavLink
                   to={`/course/${subItem.href}`}
                   className={({ isActive }) =>

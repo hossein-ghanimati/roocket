@@ -1,7 +1,6 @@
 import MenuItemType from "@/assets/types/site/menuItem.type";
 import { memo, useEffect, useMemo, useState } from "react";
 import MenuItem from "./MenuItem";
-import { NavLink } from "react-router-dom";
 import sendGetReq from "@/assets/ts/requests/sendGetReq";
 import staticMenuData from "@/assets/data/staticMenuData";
 import StaticItem from "./StaticItem";

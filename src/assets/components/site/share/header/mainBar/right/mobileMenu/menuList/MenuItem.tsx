@@ -35,7 +35,7 @@ const MenuItem = memo(({ _id, title, href, submenus }: MenuItemType) => {
               <li key={subItem._id}>
                 <NavLink 
                   to={`/course/${subItem.href}`}
-                  className={({isActive}) => `font-medium  ${isActive ? "text-gray-700 dark:text-gray-100" : "text-gray-500 dark:text-gray-400"}`}
+                  className={({isActive}) => `font-medium line-clamp-1  ${isActive ? "text-gray-700 dark:text-gray-100" : "text-gray-500 dark:text-gray-400"}`}
                 >
                   {subItem.title}
                 </NavLink>

@@ -1229,12 +1229,12 @@ video {
   width: 80%;
 }
 
-.w-48 {
-  width: 12rem;
-}
-
 .w-5 {
   width: 1.25rem;
+}
+
+.w-52 {
+  width: 13rem;
 }
 
 .w-6 {
@@ -1272,6 +1272,10 @@ video {
 .w-max {
   width: -moz-max-content;
   width: max-content;
+}
+
+.w-56 {
+  width: 14rem;
 }
 
 .min-w-10 {
@@ -1331,8 +1335,16 @@ video {
   min-width: max-content;
 }
 
+.min-w-52 {
+  min-width: 13rem;
+}
+
 .max-w-sm {
   max-width: 24rem;
+}
+
+.max-w-56 {
+  max-width: 14rem;
 }
 
 .flex-1 {
@@ -1557,6 +1569,10 @@ video {
 
 .gap-7 {
   gap: 1.75rem;
+}
+
+.gap-5 {
+  gap: 1.25rem;
 }
 
 .space-x-2 > :not([hidden]) ~ :not([hidden]) {
@@ -5205,6 +5221,10 @@ video {
 
   .xl\:gap-20 {
     gap: 5rem;
+  }
+
+  .xl\:gap-7 {
+    gap: 1.75rem;
   }
 
   .xl\:py-12 {
