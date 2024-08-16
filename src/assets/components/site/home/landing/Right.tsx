@@ -1,15 +1,33 @@
 import { memo } from "react";
 import { Link } from "react-router-dom";
+import { Typewriter } from 'react-simple-typewriter'
 
 const Right = memo(() => {
   return (
     <div className="col-span-6 z-0 order-1 xl:order-none  xl:text-right text-center xl:mt-0 sm:mt-510 mt-345">
       <h2 className="text-biscay-700 dark:text-white font-yekan font-bold  text-3xl sm:text-4xl md:text-5xl lg:text-6xl  xl:max-w-lg-m xl:mb-4 lg:!leading-21">
-        داستان برنامه‌نویس شدنت از اینجا شروع میشه!
+        داستان برنامه‌نویس شدنت از 
+          اینجا
+          شروع میشه!
       </h2>
       <p className="mt-2 sm:mt-4 text-gray-500 dark:text-gray-300 font-normal sm:text-lg md:text-xl lg:text-2xl xl:max-w-xl-m !leading-10 mb-8">
-        یادگیری برنامه‌نویسی آرزو نیست، فقط نیاز هست، تلاش و تمرین داشته باشید،
-        بقیه‌اش با راکت
+         یادگیری برنامه‌نویسی آرزو نیست، فقط نیاز هست که
+          <span className="text-gray-700 dark:text-gray-100">
+            <Typewriter
+              
+              delaySpeed={3000}
+              deleteSpeed={30}
+              loop={true}
+              typeSpeed={100}
+              words={[
+                ' تلاش و تمرین ',
+                ' دوره مناسب ',
+                ' نقشه راه درست ',
+                ' تیم راکت رو '
+              ]}
+            />
+          </span>
+         داشته باشید.
       </p>
       <Link
         to="/courses"
