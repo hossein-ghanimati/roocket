@@ -6,6 +6,7 @@ import routes from "./routes/routes";
 import { OverlayContexProvider } from "./assets/contexes/site/overlay.contex";
 import Overlay from "./assets/components/site/share/modals/Overlay";
 import { ThemeContext } from "./assets/contexes/site/theme.context";
+import ScrollToTop from "./ScrollToTop";
 
 const App: React.FC = memo((): JSX.Element => {
   const router = useRoutes(routes);
@@ -20,6 +21,7 @@ const App: React.FC = memo((): JSX.Element => {
         className="font-iranyekanBakh overflow-x-hidden bg-custom-white dark:bg-gray-800 text-gray-700 dark:text-gray-100 font-shabnam font-normal text-base select-none min-h-screen"
       >
         <OverlayContexProvider>
+          <ScrollToTop/>
           <Overlay />
           {router}
         </OverlayContexProvider>

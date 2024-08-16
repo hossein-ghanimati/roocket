@@ -5,9 +5,14 @@ import NewArticles from "@/assets/components/site/home/newArticles/NewArticles";
 import Propaganda from "@/assets/components/site/home/Propaganda";
 import RoocketFeedback from "@/assets/components/site/home/roocketFeedback/RoocketFeedback";
 import SiteDescription from "@/assets/components/site/home/SiteDescription";
-import { memo } from "react";
+import { memo, useEffect } from "react";
 
-const Home = memo(() => (
+const Home = memo(() => {
+  useEffect(() => {
+    scrollTo(0, 0);
+  }, [])
+
+  return ( 
   <div id="home">
     <Landing />
     <LatesCourses />
@@ -17,6 +22,6 @@ const Home = memo(() => (
     <Propaganda/>
     <SiteDescription />
   </div>
-));
+)});
 
 export default Home;
