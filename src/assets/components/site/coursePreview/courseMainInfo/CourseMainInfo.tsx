@@ -33,6 +33,11 @@ const CourseMainInfo = memo(
     price,
     comments,
   }: Props) => {
+
+    const registerToCourse = () => {
+
+    }
+
     return (
       <section className="mt-10 mb-9">
         <div className="container">
@@ -65,10 +70,13 @@ const CourseMainInfo = memo(
                   <div className="flex lg:flex-row flex-col items-center justify-between lg:ml-3">
                     <div className="flex items-center lg:flex-row flex-col">
                       <button
-                        disabled={price === undefined}
-                        className="flex items-center font-bold md:text-lg text-sm group text-white bg-blue-700 disabled:bg-opacity-30 disabled:border-opacity-30 md:h-14 h-10 md:px-9 px-4 rounded \ transition duration-200 hover:bg-transparent hover:text-blue-700 border border-blue-700"
+                        disabled={price === undefined || isUserRegisteredToThisCourse}
+                        className="flex items-center font-bold md:text-lg text-sm group text-white bg-blue-700 disabled:bg-opacity-50 disabled:border-opacity-30 md:h-14 h-10 md:px-9 px-4 rounded \ transition duration-200 hover:bg-transparent hover:text-blue-700 border border-blue-700"
                       >
-                        خرید نقدی دوره (امکان دانلود)
+                        {
+                          
+                          isUserRegisteredToThisCourse ? "شما دانشجوی این دوره هستید" : "خرید نقدی دوره (امکان دانلود)"
+                        }
                         <svg
                           className="mr-1 mb-1"
                           width="23"
