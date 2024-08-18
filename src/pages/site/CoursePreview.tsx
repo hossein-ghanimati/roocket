@@ -1,9 +1,10 @@
 import CourseMainInfo from "@/assets/components/site/coursePreview/courseMainInfo/CourseMainInfo";
-import sendGetReq from "@/assets/ts/requests/sendGetReq";
+import sendGetReq from "@/assets/ts/utils/requests/sendGetReq";
 import { getFromLocal } from "@/assets/ts/utils/browserMemo";
 import { SingleCourseType } from "@/assets/types/share/course.type";
 import { memo, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { renderCourseData } from "@/assets/ts/coursePreview/shared";
 
 const CoursePreview = memo(() => {
   const [course, setCourse] = useState<SingleCourseType | null>(null)
@@ -13,18 +14,7 @@ const CoursePreview = memo(() => {
   useEffect(() => {
 
     if (params.name) {
-      (async function(){
-        const getReq = await fetch(`http://localhost:4000/v1/courses/${params.name}`, {
-          headers: {
-            Authorization: `Bearer ${getFromLocal("token")}`
-          }
-        })
-        const courseData = await getReq.json();
-
-        setCourse(courseData)        
-        console.log("Course Data => ", courseData);
-        
-      }())
+      renderCourseData(params.name, setCourse)
     } else {
       navigate("/");
     }

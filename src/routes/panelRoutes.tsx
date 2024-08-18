@@ -4,6 +4,7 @@ import PanelCourses from "@/pages/panel/PanelCourses";
 import PanelProfile from "@/pages/panel/PanelProfile";
 import PanelTicketPreview from "@/pages/panel/PanelTicketPreview";
 import PanelTickets from "@/pages/panel/PanelTickets";
+import PanelWallet from "@/pages/panel/PanelWallet";
 import { RouteObject } from "react-router-dom";
 
 const panelRoutes : RouteObject[] = [
@@ -12,7 +13,8 @@ const panelRoutes : RouteObject[] = [
   {path: "courses", element: <PanelCourses/>},
   {path: "profile", element: <PanelProfile/>},
   {path: "tickets", element: <PanelTickets/>},
-  {path: "ticket-preview/:id", element: <PanelTicketPreview/>},
+  {path: "wallet", element: <PanelWallet/>},
+  {path: "ticket/:id", element: <PanelTicketPreview/>},
 ]
 
 export default panelRoutes

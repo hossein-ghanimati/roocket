@@ -2,7 +2,7 @@ import SectionHeader from "@/assets/components/elems/SectionHeader";
 import SkeletonBox from "@/assets/components/elems/boxes/SkeletonBox";
 import CategoryType from "@/assets/types/share/category.type";
 import { memo, useEffect, useState } from "react";
-import sendGetReq from "@/assets/ts/requests/sendGetReq";
+import sendGetReq from "@/assets/ts/utils/requests/sendGetReq";
 import CategoryBox from "@/assets/components/elems/boxes/CategoryBox";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";

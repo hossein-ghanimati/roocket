@@ -1,7 +1,7 @@
 import SectionHeader from "@/assets/components/elems/SectionHeader";
 import CourseBox from "@/assets/components/elems/boxes/CourseBox";
 import SkeletonBox from "@/assets/components/elems/boxes/SkeletonBox";
-import sendGetReq from "@/assets/ts/requests/sendGetReq";
+import sendGetReq from "@/assets/ts/utils/requests/sendGetReq";
 import { CourseBoxType } from "@/assets/types/share/course.type";
 import { memo, useEffect, useState } from "react";
 

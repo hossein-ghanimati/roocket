@@ -1,7 +1,7 @@
 import { memo, useEffect, useMemo, useState } from "react";
 import MenuItem from "./MenuItem";
 import MenuItemType from "@/assets/types/site/menuItem.type";
-import sendGetReq from "@/assets/ts/requests/sendGetReq";
+import sendGetReq from "@/assets/ts/utils/requests/sendGetReq";
 import staticMenuData from "@/assets/data/staticMenuData";
 import StaticItem from "./StaticItem";
 

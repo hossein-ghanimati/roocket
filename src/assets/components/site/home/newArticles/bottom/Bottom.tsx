@@ -1,4 +1,4 @@
-import sendGetReq from "@/assets/ts/requests/sendGetReq";
+import sendGetReq from "@/assets/ts/utils/requests/sendGetReq";
 import ArticleType from "@/assets/types/share/article.type";
 import { memo, useEffect, useState } from "react";
 import ArtilceBox from "./ArtilceBox";

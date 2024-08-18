@@ -1,8 +1,13 @@
 import CommentType from "@/assets/types/share/comment.type";
 import { Skeleton } from "@nextui-org/skeleton";
-import { memo } from "react";
+import { memo, useCallback } from "react";
 import { TiHeartFullOutline } from "react-icons/ti";
 import { IoMdShare } from "react-icons/io";
+import { checkUserToken } from "@/assets/ts/utils/useActions";
+import { showConfirmSwal, showInputSwal, showMsgSwal } from "@/assets/ts/utils/swal";
+import { useNavigate } from "react-router-dom";
+import { getFromLocal } from "@/assets/ts/utils/browserMemo";
+import { renderRegisterToCourse } from "@/assets/ts/coursePreview/shared";
 
 
 
@@ -12,7 +17,7 @@ type Props = {
   description?: string;
   cover?: string;
   shortName?: string;
-  id?: string;
+  _id?: string;
   courseStudentsCount?: number;
   isUserRegisteredToThisCourse?: boolean;
   discount?: number;
@@ -26,17 +31,16 @@ const CourseMainInfo = memo(
     description,
     cover,
     shortName,
-    id,
+    _id,
     courseStudentsCount,
     isUserRegisteredToThisCourse,
     discount,
     price,
     comments,
   }: Props) => {
+    const navigate = useNavigate()
 
-    const registerToCourse = () => {
-
-    }
+    
 
     return (
       <section className="mt-10 mb-9">
@@ -70,6 +74,7 @@ const CourseMainInfo = memo(
                   <div className="flex lg:flex-row flex-col items-center justify-between lg:ml-3">
                     <div className="flex items-center lg:flex-row flex-col">
                       <button
+                        onClick={() => (_id !== undefined && price !== undefined) && renderRegisterToCourse(navigate, _id, price)}
                         disabled={price === undefined || isUserRegisteredToThisCourse}
                         className="flex items-center font-bold md:text-lg text-sm group text-white bg-blue-700 disabled:bg-opacity-50 disabled:border-opacity-30 md:h-14 h-10 md:px-9 px-4 rounded \ transition duration-200 hover:bg-transparent hover:text-blue-700 border border-blue-700"
                       >
