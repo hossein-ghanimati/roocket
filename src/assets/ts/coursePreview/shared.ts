@@ -3,11 +3,27 @@ import { getFromLocal, setToLocal } from "../utils/browserMemo";
 import { showConfirmSwal, showInputSwal, showMsgSwal } from "../utils/swal";
 import { checkUserToken } from "../utils/useActions";
 import { getCodePercent, getCourseData, sendRegisterRequest } from "./funcs/utils"
+import { SingleCourseType } from "@/assets/types/share/course.type";
 
-const renderCourseData = async (courseName: string, set: Function) => {
-  const courseData = await getCourseData(courseName)
-  set(courseData)
-  console.log("CourseData =>", courseData);
+const renderCourseData = async (navigate: NavigateFunction, courseName: string, set: Function) => {
+  const courseData:SingleCourseType = await getCourseData(courseName)
+  if (courseData) {
+    set(courseData)
+    console.log("CourseData =>", courseData);
+    document.title = courseData.name;    
+  }else{
+    showConfirmSwal({
+      title: "دوره ای یافت نشد",
+      text: "لطفا با لینک های معتبر وارد صفحه بشید",
+      icon: "warning",
+      btnText: "مشاهده دوره ها",
+      cancelText: "رفتن به خانه",
+      callBack: result => {
+        result.isConfirmed ? navigate("/courses") : navigate("/")
+      }
+      
+    })
+  }
 }
 
 const registerToCourse = async (navigate: NavigateFunction, courseID: string, price: number) => {
@@ -39,7 +55,7 @@ const registerToCourse = async (navigate: NavigateFunction, courseID: string, pr
         cancelText: "فعلا نه",
         btnText: "رفرش کن",
         callBack: result => {
-          result.isConfirmed && location.reload()
+          result.isConfirmed && navigate(0)
         }
       })
     } else {

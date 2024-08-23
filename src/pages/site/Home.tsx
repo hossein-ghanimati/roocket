@@ -9,7 +9,7 @@ import { memo, useEffect } from "react";
 
 const Home = memo(() => {
   useEffect(() => {
-    scrollTo(0, 0);
+    document.title = "راکت | خانه"
   }, [])
 
   return ( 
