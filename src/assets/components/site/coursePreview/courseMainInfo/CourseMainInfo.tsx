@@ -1,12 +1,9 @@
 import CommentType from "@/assets/types/share/comment.type";
 import { Skeleton } from "@nextui-org/skeleton";
-import { memo, useCallback } from "react";
+import { memo } from "react";
 import { TiHeartFullOutline } from "react-icons/ti";
 import { IoMdShare } from "react-icons/io";
-import { checkUserToken } from "@/assets/ts/utils/useActions";
-import { showConfirmSwal, showInputSwal, showMsgSwal } from "@/assets/ts/utils/swal";
 import { useNavigate } from "react-router-dom";
-import { getFromLocal } from "@/assets/ts/utils/browserMemo";
 import { renderRegisterToCourse } from "@/assets/ts/coursePreview/shared";
 
 
@@ -34,7 +31,6 @@ const CourseMainInfo = memo(
     _id,
     courseStudentsCount,
     isUserRegisteredToThisCourse,
-    discount,
     price,
     comments,
   }: Props) => {
@@ -49,7 +45,7 @@ const CourseMainInfo = memo(
             <div>
               <div className="flex lg:flex-row flex-col items-center xl:px-10 sm:px-5 px-3">
                 <div className="lg:w-8/12 w-full flex flex-col lg:text-right text-center">
-                  <div className="flex  items-center md:mb-5 mb-3 ">
+                  <div id="description" className="flex  items-center md:mb-5 mb-3 ">
                     <h1 className="text-biscay-700 dark:text-white md:text-4xl text-2xl font-bold inline-block w-full">
                       {name || (
                         <Skeleton className="rounded w-1/2">
@@ -58,7 +54,7 @@ const CourseMainInfo = memo(
                       )}
                     </h1>
                   </div>
-                  <p className="text-gray-500 dark:text-gray-300 md:text-xl  text-base font-normal md:leading-8 leading-7 mb-5">
+                  <p  className="text-gray-500 dark:text-gray-300 md:text-xl  text-base font-normal md:leading-8 leading-7 mb-5">
                     {description || (
                       <>
                         <Skeleton className="rounded w-full">
