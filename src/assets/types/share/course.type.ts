@@ -4,7 +4,7 @@ import SessionType from "./session.type";
 
 
 export type SingleCourseType = {
-  id: string;
+  _id: string;
   name: string;
   description: string;
   cover: string;

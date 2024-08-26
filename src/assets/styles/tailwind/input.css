@@ -4,23 +4,42 @@
 
 @layer base{
   :root{
-    scroll-behavior: smooth;
+    @apply 
+      scroll-smooth
+    ;
   }
-  ::-webkit-scrollbar {
-    width: 5px;
+
+  ::-webkit-scrollbar-track,
+  .has-horizontal-scroll::-webkit-scrollbar-track,
+  .has-vertical-scroll::-webkit-scrollbar-track{
+    @apply 
+      bg-[#dad9d9]
+    ;
   }
-  ::-webkit-scrollbar-track {
-    background-color: #dad9d9;
+
+  ::-webkit-scrollbar-thumb,
+  .has-horizontal-scroll::-webkit-scrollbar-thumb,
+  .has-vertical-scroll::-webkit-scrollbar-thumb{
+    @apply 
+      bg-[#808080]
+      rounded-md
+      cursor-n-resize
+    ;
   }
-  ::-webkit-scrollbar-thumb {
-    background-color: gray;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
-    cursor:n-resize;
+
+  ::-webkit-scrollbar,
+  .has-horizontal-scroll::-webkit-scrollbar {
+    @apply 
+      w-2
+    ;
   }
+
+  .has-vertical-scroll::-webkit-scrollbar {
+    @apply 
+      h-1
+    ;
+  }
+  
 
   @font-face {
     font-family: yekan;
@@ -61,5 +80,9 @@
       opacity-100
     ;
       
+  }
+
+  .has-vertical-scroll{
+
   }
 }

@@ -2,6 +2,7 @@ import { memo } from 'react'
 import Propaganda from './Propaganda'
 import Navbar from './Navbar'
 import Garanti from './Garanti'
+import Sessions from './Sessions'
 
 const MainDetails = memo(() => {
   return (
@@ -11,6 +12,7 @@ const MainDetails = memo(() => {
       <Propaganda/>
       <Navbar/>
       <Garanti/>
+      <Sessions />
     </div>
   )
 })

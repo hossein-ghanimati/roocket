@@ -1,41 +1,16 @@
-import CommentType from "@/assets/types/share/comment.type";
+
 import { Skeleton } from "@nextui-org/skeleton";
-import { memo } from "react";
+import { memo, useContext } from "react";
 import { TiHeartFullOutline } from "react-icons/ti";
 import { IoMdShare } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 import { renderRegisterToCourse } from "@/assets/ts/coursePreview/shared";
+import { CourseContext } from "@/assets/contexes/site/course.contex";
 
 
-
-
-type Props = {
-  name?: string;
-  description?: string;
-  cover?: string;
-  shortName?: string;
-  _id?: string;
-  courseStudentsCount?: number;
-  isUserRegisteredToThisCourse?: boolean;
-  discount?: number;
-  price?: number;
-  comments?: CommentType[];
-};
-
-const CourseMainInfo = memo(
-  ({
-    name,
-    description,
-    cover,
-    shortName,
-    _id,
-    courseStudentsCount,
-    isUserRegisteredToThisCourse,
-    price,
-    comments,
-  }: Props) => {
+const CourseMainInfo = memo(() => {
     const navigate = useNavigate()
-
+    const course = useContext(CourseContext)
     
 
     return (
@@ -47,7 +22,7 @@ const CourseMainInfo = memo(
                 <div className="lg:w-8/12 w-full flex flex-col lg:text-right text-center">
                   <div id="description" className="flex  items-center md:mb-5 mb-3 ">
                     <h1 className="text-biscay-700 dark:text-white md:text-4xl text-2xl font-bold inline-block w-full">
-                      {name || (
+                      {course?.name || (
                         <Skeleton className="rounded w-1/2">
                           <div className="h-8  rounded bg-default-300"></div>
                         </Skeleton>
@@ -55,7 +30,7 @@ const CourseMainInfo = memo(
                     </h1>
                   </div>
                   <p  className="text-gray-500 dark:text-gray-300 md:text-xl  text-base font-normal md:leading-8 leading-7 mb-5">
-                    {description || (
+                    {course?.description || (
                       <>
                         <Skeleton className="rounded w-full">
                           <div className="h-3  rounded bg-default-300"></div>
@@ -70,13 +45,13 @@ const CourseMainInfo = memo(
                   <div className="flex lg:flex-row flex-col items-center justify-between lg:ml-3">
                     <div className="flex items-center lg:flex-row flex-col">
                       <button
-                        onClick={() => (_id !== undefined && price !== undefined) && renderRegisterToCourse(navigate, _id, price)}
-                        disabled={price === undefined || isUserRegisteredToThisCourse}
+                        onClick={() => (course?._id !== undefined && course?.price !== undefined) && renderRegisterToCourse(navigate, course?._id, course?.price)}
+                        disabled={course?.price === undefined || course?.isUserRegisteredToThisCourse}
                         className="flex items-center font-bold md:text-lg text-sm group text-white bg-blue-700 disabled:bg-opacity-50 disabled:border-opacity-30 md:h-14 h-10 md:px-9 px-4 rounded \ transition duration-200 hover:bg-transparent hover:text-blue-700 border border-blue-700"
                       >
                         {
                           
-                          isUserRegisteredToThisCourse ? "شما دانشجوی این دوره هستید" : "خرید نقدی دوره (امکان دانلود)"
+                          course?.isUserRegisteredToThisCourse ? "شما دانشجوی این دوره هستید" : "خرید نقدی دوره (امکان دانلود)"
                         }
                         <svg
                           className="mr-1 mb-1"
@@ -124,13 +99,13 @@ const CourseMainInfo = memo(
                         <div className="flex flex-col lg:items-end lg:mt-0 mt-2 items-center">
                           <div className="flex items-center text-biscay-700 dark:text-white justify-end">
                             <span className=" text-5xl font-bold">
-                              {price !== undefined ? price == 0 ? "رایگان" : price.toLocaleString() : (
+                              {course?.price !== undefined ? course?.price == 0 ? "رایگان" : course?.price.toLocaleString() : (
                                 <Skeleton className="rounded w-20">
                                   <div className="h-8  rounded bg-default-300"></div>
                                 </Skeleton>
                               )}
                             </span>
-                            {price ? (
+                            {course?.price ? (
                               <svg
                                 className="mr-2"
                                 width="25"
@@ -155,10 +130,10 @@ const CourseMainInfo = memo(
                 </div>
 
                 <div className="lg:w-2/6 w-full relative lg:order-last order-first lg:mr-14 lg:h-64 sm:h-80 h-48 lg:mb-0 mb-5 overflow-hidden rounded">
-                  {cover ? (
+                  {course?.cover ? (
                     <img
                       className="size-full bg-cover transform transition duration-200 hover:scale-110"
-                      src={`http://localhost:4000/courses/covers/${cover}`}
+                      src={`http://localhost:4000/courses/covers/${course?.cover}`}
                       alt="آموزش پروژه محور طراحی سایت"
                     />
                   ) : (
@@ -173,11 +148,11 @@ const CourseMainInfo = memo(
                 <ul className="flex items-center">
                   <li className="ml-7 flex items-center cursor-pointer group">
                     <div className="flex items-center">
-                      {courseStudentsCount !== undefined ? (
+                      {course?.courseStudentsCount !== undefined ? (
                         <>
                           <TiHeartFullOutline className="size-7"/>
                           <span className="text-dark-550 dark:text-dark-200 font-medium text-17 mt-1 group-hover:text-red-450">
-                            {courseStudentsCount * 5}
+                            {course?.courseStudentsCount * 5}
                           </span>
                         </>
                       ) : (
@@ -188,8 +163,8 @@ const CourseMainInfo = memo(
                     </div>
                   </li>
                   <li className="ml-7 flex items-center cursor-pointer group">
-                    <a href="#comments-list" className="flex items-center">                      
-                      {comments !== undefined ? (
+                    <a href="#comments" className="flex items-center">                      
+                      {course?.comments !== undefined ? (
                         <>
                           <svg
                             className="ml-1"
@@ -207,7 +182,7 @@ const CourseMainInfo = memo(
                             ></path>
                           </svg>
                           <span className="text-dark-550 font-medium text-17 mt-1 dark:text-dark-200 group-hover:text-green-700">
-                            {comments.length}
+                            {course?.comments.length}
                           </span>
                         </>
                       ) : (
@@ -219,7 +194,7 @@ const CourseMainInfo = memo(
                   </li>                  
                 </ul>
                 <div className="flex sm:mt-0 mt-5 items-center">
-                  <button disabled={shortName === undefined} onClick={() => navigator.share({url: location.href, title: name, text: description})}>
+                  <button disabled={course?.shortName === undefined} onClick={() => navigator.share({url: location.href, title: course?.name, text: course?.description})}>
                     <IoMdShare className="size-6"/>
                   </button>
                 </div>

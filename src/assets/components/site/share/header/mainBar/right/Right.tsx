@@ -23,7 +23,7 @@ const Right = memo(() => {
         <button onClick={() => openMenu()}>
           <RiMenu4Fill className="size-8"/>
         </button>
-        <MobileMenu isMenuOpen={isMenuOpen} onClose={() => closeMenu()}/>            
+        <MobileMenu isMenuOpen={isMenuOpen} onClose={closeMenu}/>            
       </div>
 
       <div className="hidden lg:block">
