@@ -2,18 +2,18 @@ import { memo } from 'react'
 import Propaganda from './Propaganda'
 import Navbar from './Navbar'
 import Garanti from './Garanti'
-import Sessions from './Sessions'
+import SessionsSection from './sessions/SessionsSection'
 
 const MainDetails = memo(() => {
   return (
-    <div
+    <aside
       className='col-span-8 xl:col-span-9'
     >
       <Propaganda/>
       <Navbar/>
       <Garanti/>
-      <Sessions />
-    </div>
+      <SessionsSection />
+    </aside>
   )
 })
 

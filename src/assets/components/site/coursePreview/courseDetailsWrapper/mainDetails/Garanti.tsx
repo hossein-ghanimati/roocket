@@ -2,7 +2,7 @@ import { memo } from "react";
 
 const Garanti = memo(() => {
   return (
-    <div
+    <section
       id="garanti"
       className="bg-white dark:bg-gray-900  relative sm:pt-7 pt-48 shadow-sm rounded-lg sm:px-9 px-3 pb-8 mb-8"
     >
@@ -51,7 +51,7 @@ const Garanti = memo(() => {
           </a>
         </div>
       </div>
-    </div>
+    </section>
   );
 });
 

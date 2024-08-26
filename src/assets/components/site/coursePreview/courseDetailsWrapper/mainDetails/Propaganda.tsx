@@ -2,7 +2,7 @@ import { memo } from "react";
 
 const Propaganda = memo(() => {
   return (
-    <div className="space-y-4 mb-4 lg:mb-8 ">
+    <section className="space-y-4 mb-4 lg:mb-8 ">
       <a
       target="_blank"
         href="https://pachim.sh"
@@ -15,7 +15,7 @@ const Propaganda = memo(() => {
           />
         </div>
       </a>
-    </div>
+    </section>
   );
 });
 
