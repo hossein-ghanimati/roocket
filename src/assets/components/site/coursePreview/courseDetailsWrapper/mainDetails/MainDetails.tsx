@@ -3,6 +3,7 @@ import Propaganda from './Propaganda'
 import Navbar from './Navbar'
 import Garanti from './Garanti'
 import SessionsSection from './sessions/SessionsSection'
+import CommentsSection from './commentsSection/comments/CommentsSection'
 
 const MainDetails = memo(() => {
   return (
@@ -13,6 +14,7 @@ const MainDetails = memo(() => {
       <Navbar/>
       <Garanti/>
       <SessionsSection />
+      <CommentsSection />
     </aside>
   )
 })
