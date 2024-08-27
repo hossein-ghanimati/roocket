@@ -11,12 +11,12 @@ const Sessions = memo(() => {
     <Accordion 
       variant="splitted"
       selectedKeys={selectedKeys}
-      onSelectionChange={setSelectedKeys as any}
+      onSelectionChange={setSelectedKeys as any}      
     >
       <AccordionItem 
         key="1" 
         aria-label="Accordion 1" 
-        className="bg-transparent shadow-none border border-gray-300 dark:border-gray-500 shadow-lg" 
+        className="bg-transparent  border border-gray-300 dark:border-gray-500 shadow-lg" 
         title={
           <p>
             <span className="sm:text-xl text-sm  font-semibold sm:pl-7 pl-2 sm:ml-5 ml-2 border-l dark:border-opacity-30 border-gray-200 inline-block">جلسات</span>
