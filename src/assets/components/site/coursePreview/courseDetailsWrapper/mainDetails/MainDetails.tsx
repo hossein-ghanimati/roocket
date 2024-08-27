@@ -3,7 +3,7 @@ import Propaganda from './Propaganda'
 import Navbar from './Navbar'
 import Garanti from './Garanti'
 import SessionsSection from './sessions/SessionsSection'
-import CommentsSection from './commentsSection/comments/CommentsSection'
+import CommentsSection from './commentsSection/CommentsSection'
 
 const MainDetails = memo(() => {
   return (

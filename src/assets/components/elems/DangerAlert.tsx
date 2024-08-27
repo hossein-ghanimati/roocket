@@ -5,7 +5,7 @@ type Props = {
 };
 
 const DangerAlert = memo(({ text = "مشکلی پیش آمده ..." }: Props) => (
-  <div className="bg-red-100 dark:bg-red-200 text-red-900 sm:text-lg md:text-xl font-bold font-yekan px-4 py-8 rounded-lg shadow">
+  <div className="bg-red-100 dark:bg-red-200 text-red-900 sm:text-lg md:text-xl font-bold font-yekan px-4 py-8 rounded-lg shadow line-clamp-1">
     {text}
   </div>
 ));
