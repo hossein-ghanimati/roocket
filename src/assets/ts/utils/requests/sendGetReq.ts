@@ -1,4 +1,4 @@
-const sendGetReq = async (path: string, isAuth: boolean) => {
+const sendGetReq = async (path: string) => {
   const getReq = await fetch(`http://localhost:4000/v1/${path}`)
   if (getReq.ok) {
     const response = await getReq.json()

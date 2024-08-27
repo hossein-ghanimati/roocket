@@ -1,18 +1,11 @@
-import { FormEventHandler, memo, useMemo, useState } from "react";
+import { formSubmitHandler } from "@/assets/ts/newsLetter/shared";
+import { memo, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 
 const About = memo(() => {
   const [inputValue, setInputValue] = useState("");
   const [isSending, setIsSending] = useState(false);
-
-  const formSubmitHandler: FormEventHandler<HTMLFormElement> = (e) => {
-    e.preventDefault();
-    setIsSending(true);
-    setTimeout(() => {
-      setInputValue("");
-      setIsSending(false);
-    }, 1000);
-  };
+  
 
   return (
     <div className="md:col-span-4">
@@ -70,7 +63,7 @@ const About = memo(() => {
       )}
 
       <div className="relative mt-11 dark:bg-dark-890">
-        <form onSubmit={formSubmitHandler}>
+        <form onSubmit={e => formSubmitHandler(e, inputValue, setInputValue, setIsSending)}>
           {useMemo(
             () => (
               <svg
