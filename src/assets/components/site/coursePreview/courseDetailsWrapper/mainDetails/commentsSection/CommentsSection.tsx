@@ -1,6 +1,6 @@
-import { memo } from "react"
-import SendingComment from "./sendingComment/SendingComment"
-import Comments from "./comments/Comments"
+import { memo } from "react";
+import SendingComment from "./sendingComment/SendingComment";
+import Comments from "./comments/Comments";
 
 const CommentsSection = memo(() => {
   return (
@@ -11,7 +11,6 @@ const CommentsSection = memo(() => {
       <SendingComment />
       <Comments />
     </section>
-  )
-}
-)
-export default CommentsSection
+  );
+});
+export default CommentsSection;

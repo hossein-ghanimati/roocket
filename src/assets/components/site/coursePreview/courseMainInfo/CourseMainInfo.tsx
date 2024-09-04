@@ -5,7 +5,7 @@ import { TiHeartFullOutline } from "react-icons/ti";
 import { IoMdShare } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 import { renderRegisterToCourse } from "@/assets/ts/coursePreview/shared";
-import { CourseContext } from "@/assets/contexes/site/course.contex";
+import { CourseContext } from "@/assets/contexts/site/course.context";
 
 
 const CourseMainInfo = memo(() => {

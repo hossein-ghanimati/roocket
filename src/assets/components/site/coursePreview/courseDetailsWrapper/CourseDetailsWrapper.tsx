@@ -1,7 +1,7 @@
 import { memo, useContext } from "react"
 import MainDetails from "./mainDetails/MainDetails"
 import AsideDetails from "./asideDetails/AsideDetails"
-import { CourseContext } from "@/assets/contexes/site/course.contex"
+import { CourseContext } from "@/assets/contexts/site/course.context"
 
 const CourseDetailsWrapper = memo(() => {
   const course = useContext(CourseContext)

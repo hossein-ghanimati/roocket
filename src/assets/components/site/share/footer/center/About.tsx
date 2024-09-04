@@ -101,7 +101,7 @@ const About = memo(() => {
             () => (
               <div className="h-10 rounded dark:bg-dark-890 dark:border-gray-880 border-gray-100 border-t border-r border-b dark:border-opacity-5 border-1">
                 <input
-                  type="text"
+                  type="email"
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   className="border-none dark:rounded outline-none dark:bg-transparent m-0 h-full w-full pl-24 dark:placeholder-gray-880 dark:text-white  placeholder-gray-400 text-gray-400 text-xs py-2 pr-8"

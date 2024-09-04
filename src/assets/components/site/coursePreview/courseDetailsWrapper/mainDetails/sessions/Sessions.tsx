@@ -1,5 +1,5 @@
 import { Accordion, AccordionItem } from "@nextui-org/accordion";
-import { CourseContext } from "@/assets/contexes/site/course.contex";
+import { CourseContext } from "@/assets/contexts/site/course.context";
 import { memo, useContext, useState } from "react";
 import Session from "./Session";
 import DangerAlert from "@/assets/components/elems/DangerAlert";

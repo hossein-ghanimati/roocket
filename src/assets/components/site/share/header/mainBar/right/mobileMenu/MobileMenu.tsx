@@ -1,4 +1,4 @@
-import MenuActions from "./MenuActions"
+import MenuActions from "./menuActions/MenuActions"
 import MenuHeader from "./MenuHeader"
 import MenuList from "./menuList/MenuList"
 

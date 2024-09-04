@@ -2,7 +2,7 @@
 import React, { memo, useContext } from "react";
 
 import "./assets/styles/tailwind/output.css";
-import { ThemeContext } from "./assets/contexes/site/theme.context";
+import { ThemeContext } from "./assets/contexts/site/theme.context";
 import AppContent from "./AppContent";
 
 const AppWrapper: React.FC = memo((): JSX.Element => {

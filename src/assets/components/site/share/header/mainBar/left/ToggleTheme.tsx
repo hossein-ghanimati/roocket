@@ -1,5 +1,5 @@
 import Icon from "@/assets/components/elems/Icon";
-import { ThemeContext } from "@/assets/contexes/site/theme.context";
+import { ThemeContext } from "@/assets/contexts/site/theme.context";
 import { memo, useContext, useMemo } from "react";
 import { BsMoonStarsFill } from "react-icons/bs";
 import { PiSunFill } from "react-icons/pi";

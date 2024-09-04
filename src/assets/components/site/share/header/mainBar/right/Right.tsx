@@ -2,11 +2,11 @@ import Logo from "@/assets/components/elems/Logo";
 import { memo, useCallback, useContext, useState } from "react";
 import { RiMenu4Fill } from "react-icons/ri";
 import MobileMenu from "./mobileMenu/MobileMenu";
-import { OverlayContex } from "@/assets/contexes/site/overlay.contex";
+import { OverlayContext } from "@/assets/contexts/site/overlay.context";
 
 const Right = memo(() => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const overlaySetting = useContext(OverlayContex)
+  const overlaySetting = useContext(OverlayContext)
 
   const openMenu = useCallback(() => {
     overlaySetting?.showOverlay();

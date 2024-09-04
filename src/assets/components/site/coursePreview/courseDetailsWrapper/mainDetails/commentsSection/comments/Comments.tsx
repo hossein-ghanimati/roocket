@@ -1,5 +1,5 @@
 import DangerAlert from "@/assets/components/elems/DangerAlert"
-import { CourseContext } from "@/assets/contexes/site/course.contex"
+import { CourseContext } from "@/assets/contexts/site/course.context"
 import { memo, useContext } from "react"
 
 const Comments = memo(() => {
