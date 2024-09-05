@@ -26,7 +26,16 @@ const Sessions = memo(() => {
         }
       >
         {
-          course.sessions.map((session, index) => <Session key={session._id} number={index + 1} {...session}/>)
+          course.sessions.map((session, index) => 
+            <Session 
+              key={session._id} 
+              number={index + 1} 
+              isUserRegistered={course.isUserRegisteredToThisCourse} 
+              courseID={course._id}
+              coursePrice={course.price}
+              {...session}
+            />
+          )
         }
       </AccordionItem>      
     </Accordion>

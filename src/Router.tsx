@@ -5,7 +5,7 @@ import ScrollToTop from "./ScrollToTop";
 
 const Router = memo(() => {
   const router = useRoutes(routes);
-
+  
   return (
     <>
       <ScrollToTop/>

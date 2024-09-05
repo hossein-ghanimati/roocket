@@ -3,6 +3,7 @@ import CommentType from "./comment.type";
 import SessionType from "./session.type";
 
 
+
 export type SingleCourseType = {
   _id: string;
   name: string;
@@ -46,3 +47,8 @@ export type CourseBoxType = {
   
 }
 
+
+
+export type UserCourseType = Omit<CourseBoxType, 
+  "registers" | "courseAverageScore"
+>

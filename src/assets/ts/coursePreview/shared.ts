@@ -97,8 +97,9 @@ const renderRegisterToCourse = (navigate: NavigateFunction, courseID: string, pr
         hasClose: true,
         callBack: reuslt => {
           reuslt.isConfirmed ?
-            validateCode(navigate, courseID, price, reuslt.value) :
-            registerToCourse(navigate, courseID, price)
+            validateCode(navigate, courseID, price, reuslt.value) 
+          :          
+            reuslt?.dismiss === "cancel" && registerToCourse(navigate, courseID, price)
         }
       })
       : registerToCourse(navigate, courseID, price)

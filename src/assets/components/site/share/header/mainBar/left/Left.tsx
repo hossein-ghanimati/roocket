@@ -1,4 +1,4 @@
-import { memo, useContext } from "react";
+import { memo } from "react";
 
 import { FaBagShopping } from "react-icons/fa6";
 import Icon from "../../../../../elems/Icon";

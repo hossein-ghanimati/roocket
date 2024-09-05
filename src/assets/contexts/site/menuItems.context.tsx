@@ -19,8 +19,6 @@ const MenuItemsContextProvider: FC<PropsWithChildren> = memo(({ children }) => {
       setMenuList(menus);
     })();
   }, []);
-
-  console.log("log in menuItem Content Provider.");
   
 
   return (
