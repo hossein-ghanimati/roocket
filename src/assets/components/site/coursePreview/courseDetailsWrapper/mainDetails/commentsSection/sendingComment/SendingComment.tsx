@@ -7,7 +7,7 @@ const SendingComment = memo(() => {
 
   return (
    <>
-      <SendingHeader setIsOpenForm={setIsOpenForm}/>
+      <SendingHeader isOpenForm={isOpenForm} setIsOpenForm={setIsOpenForm}/>
       {      
         isOpenForm ? <SendingContent/> : ""
       }

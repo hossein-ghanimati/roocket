@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction, memo, useMemo } from "react";
 
 const SendingHeader = memo((
-  {setIsOpenForm}: {setIsOpenForm: Dispatch<SetStateAction<boolean>>}
+  {isOpenForm, setIsOpenForm}: {isOpenForm: boolean ,setIsOpenForm: Dispatch<SetStateAction<boolean>>}
 ) => {
   return (
     <>
@@ -13,7 +13,7 @@ const SendingHeader = memo((
               دیدگاه و پرسش
             </h2>
 
-            <div className="flex flex-wrap  justify-center sm:w-fit w-full relative">
+            <div className={`flex flex-wrap  justify-center sm:w-fit w-full relative ${isOpenForm ? "hidden" : ""}`}>
               <button
                 className="group border justify-center sm:mt-0 mt-4 sm:w-fit-content w-full border-blue-700 bg-blue-700 text-sm dark:hover:bg-transparent dark:hover:text-white dark:hover:border-white text-white px-3 h-12 rounded flex items-center font-semibold transition duration-200 hover:bg-white hover:text-blue-700 hover:shadow-sm"
                 onClick={() => setIsOpenForm(true)}
@@ -55,7 +55,7 @@ const SendingHeader = memo((
             </div>
           </div>
         ),
-        []
+        [isOpenForm]
       )}
     </>
   );
