@@ -5,10 +5,12 @@ import {
   PropsWithChildren,
   createContext,
   memo,
+  useContext,
   useEffect,
   useState,
 } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { AuthContext } from "../share/auth.context";
 
 
 
@@ -19,10 +21,11 @@ const CourseContextProvider: FC<PropsWithChildren> =
     const [course, setCourse] = useState<SingleCourseType | null>(null);
     const navigate = useNavigate();
     const params = useParams();
+    const auth = useContext(AuthContext)
 
     useEffect(() => {
       renderCourseData(navigate, params.name || "", setCourse);
-    }, [params.name]);
+    }, [params.name, auth?.user?._id]);
 
     return (
       <CourseContext.Provider value={course}>
