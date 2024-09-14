@@ -11,6 +11,8 @@ const renderCourses = async (
   setCourses: Dispatch<SetStateAction<CourseBoxType[] | null>>
 ) => {
   const courses: CourseBoxType[] = await sendGetReq(`courses${categoryName.length ? `/category/${categoryName}` : ""}`)
+  console.log("Courses -->", courses);
+  
   if (courses?.length) {
     setCourses(courses)
   }else{
