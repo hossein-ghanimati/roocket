@@ -11,6 +11,7 @@ import {
 } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../share/auth.context";
+import useDocTitle from "@/assets/hooks/useDocTitle";
 
 
 
@@ -22,6 +23,8 @@ const CourseContextProvider: FC<PropsWithChildren> =
     const navigate = useNavigate();
     const params = useParams();
     const auth = useContext(AuthContext)
+
+    useDocTitle(course?.name || "جزئیات دوره", [course?.name])
 
     useEffect(() => {
       renderCourseData(navigate, params.name || "", setCourse);

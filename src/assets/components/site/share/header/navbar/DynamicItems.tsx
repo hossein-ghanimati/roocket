@@ -1,5 +1,5 @@
 import { MenuItemsContext } from "@/assets/contexts/site/menuItems.context";
-import React, { useContext } from "react";
+import { useContext } from "react";
 import MenuItem from "./MenuItem";
 
 const DynamicItems = () => {

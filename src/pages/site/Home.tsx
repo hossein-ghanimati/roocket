@@ -5,15 +5,14 @@ import NewArticles from "@/assets/components/site/home/newArticles/NewArticles";
 import Propaganda from "@/assets/components/site/home/Propaganda";
 import RoocketFeedback from "@/assets/components/site/home/roocketFeedback/RoocketFeedback";
 import SiteDescription from "@/assets/components/site/home/SiteDescription";
-import { memo, useEffect } from "react";
+import useDocTitle from "@/assets/hooks/useDocTitle";
+import { memo } from "react";
 
 const Home = memo(() => {
-  useEffect(() => {
-    document.title = "راکت | خانه"
-  }, [])
+  useDocTitle("راکت | خانه")
 
   return ( 
-  <div id="home">
+  <main id="home">
     <Landing />
     <LatesCourses />
     <CategoriesSection />
@@ -21,7 +20,7 @@ const Home = memo(() => {
     <NewArticles/>
     <Propaganda/>
     <SiteDescription />
-  </div>
+  </main>
 )});
 
 export default Home;

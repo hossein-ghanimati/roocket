@@ -9,9 +9,9 @@ const renderCourseData = async (navigate: NavigateFunction, courseName: string, 
   const courseData:SingleCourseType = await getCourseData(courseName)
   if (courseData) {
     set(courseData)
-    console.log("CourseData =>", courseData);
-    document.title = courseData.name;    
+    console.log("CourseData =>", courseData);    
   }else{
+    document.title = "دوره ای یافت نشد"
     showConfirmSwal({
       title: "دوره ای یافت نشد",
       text: "لطفا با لینک های معتبر وارد صفحه بشید",

@@ -4,23 +4,13 @@ import { Link } from "react-router-dom";
 
 const CourseBox = memo(
   ({
-    _id,
     name,
     description,
     cover,
-    support,
     shortName,
     price,
     isComplete,
-    status,
-    categoryID,
-    creator,
-    createdAt,
-    updatedAt,
-    __v,
-    discount,
     registers,
-    courseAverageScore,
   }: CourseBoxType) => {
     return (
       <div className="xl:col-span-3 lg:col-span-4 xs:col-span-6 col-span-12 mb-16">

@@ -1,8 +1,23 @@
-import { memo } from 'react'
+import { renderCourses } from '@/assets/ts/courses/shared'
+import { CourseBoxType } from '@/assets/types/share/course.type'
+import { memo, useEffect, useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 
 const Courses = memo(() => {
+  const [courses, setCourses] = useState<CourseBoxType[] |null>(null)
+  const navigate = useNavigate()
+  const params = useParams()
+
+  useEffect(() => {
+    
+      renderCourses(navigate, params.category || "", setCourses)
+    
+  }, [params?.category])
+
   return (
-    <h1>courses</h1>
+    <main className='courses'>
+      
+    </main>
   )
 })
 

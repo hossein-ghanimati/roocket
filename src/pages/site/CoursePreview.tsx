@@ -4,15 +4,15 @@ import CourseDetailsWrapper from "@/assets/components/site/coursePreview/courseD
 import { CourseContextProvider } from "@/assets/contexts/site/course.context";
 
 const CoursePreview = memo(() => {
-  
-
   return (
-    <CourseContextProvider>
-      <div id="course-preview" className="container">
-        <CourseMainInfo/>
-        <CourseDetailsWrapper/>
-      </div>
-    </CourseContextProvider>
+    <main id="course-preview">
+      <CourseContextProvider>
+        <div id="course-preview" className="container">
+          <CourseMainInfo />
+          <CourseDetailsWrapper />
+        </div>
+      </CourseContextProvider>
+    </main>
   );
 });
 

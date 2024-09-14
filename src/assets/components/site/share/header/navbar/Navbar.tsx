@@ -1,7 +1,4 @@
-import { memo, useEffect, useMemo, useState } from "react";
-import MenuItem from "./MenuItem";
-import MenuItemType from "@/assets/types/site/menuItem.type";
-import sendGetReq from "@/assets/ts/utils/requests/sendGetReq";
+import { memo } from "react";
 import staticMenuData from "@/assets/data/staticMenuData";
 import StaticItem from "./StaticItem";
 import DynamicItems from "./DynamicItems";
