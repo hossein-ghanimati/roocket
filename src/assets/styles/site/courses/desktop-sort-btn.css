@@ -1,0 +1,19 @@
+.sort-btn {
+  display: inline-block;
+  border-top-width: 2px;
+  border-bottom-width: 2px;
+  border-color: #0000;
+  font-size: .875rem;
+  line-height: 1.5rem;
+  line-height: 64px;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(.4,0,.2,1);
+  transition-duration: .15s
+}
+
+.sort-input:checked ~ .sort-btn{
+  --tw-border-opacity: 1;
+  border-color: rgb(14 165 233/var(--tw-border-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(14 165 233/var(--tw-text-opacity))
+}

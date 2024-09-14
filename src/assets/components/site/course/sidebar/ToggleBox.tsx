@@ -12,7 +12,7 @@ const ToggleBox = ({title}: ToggleBoxProps) => {
           <span className="font-danaDemiBold">{title}</span>
           <input
             className="toggle__input"
-            type="checkbox"
+            type="radio"
             name="only_free"
             value="yes"
           />

@@ -1,4 +1,5 @@
 import Label from '@/assets/components/site/course/Label'
+import DesktopSort from '@/assets/components/site/course/desktopSort/DesktopSort'
 import MobileSort from '@/assets/components/site/course/mobileSort/MobileSort'
 import Sidebar from '@/assets/components/site/course/sidebar/Sidebar'
 import { renderCourses } from '@/assets/ts/courses/shared'
@@ -28,6 +29,7 @@ const Courses = memo(() => {
           <Sidebar/>
           <section className="col-span-full lg:col-span-8 xl:col-span-9 order-1 lg:order-2">
             <MobileSort />
+            <DesktopSort/>
           </section>
         </div>
       </div>
