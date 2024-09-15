@@ -4,7 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "t": "npx tailwindcss -i ./src/assets/styles/tailwind/input/input.css -o ./src/assets/styles/tailwind/output/output.css --watch",
+    "build:tailwind-main": "npx tailwindcss -i ./src/assets/styles/tailwind/input/input.css -o ./src/assets/styles/tailwind/output/output.css --watch",
+    "build:tailwind-toggle": "npx tailwindcss -i ./src/assets/styles/tailwind/input/site/courses/toggle-box.css -o ./src/assets/styles/tailwind/output/site/courses/toggle-box.css",
+    "t": "run-p  build:tailwind-main build:tailwind-toggle",
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint -c .eslintrc.json ./src/**/**/*.{ts,tsx} --fix",

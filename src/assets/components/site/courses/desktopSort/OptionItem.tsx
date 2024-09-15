@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 
 type OptionItemProps = {
   id: string;
@@ -23,7 +23,7 @@ const OptionItem: FC<OptionItemProps> = ({
         className='desktop-sort-input hidden'
       />
       <span 
-        className={`sort-btn transition-all cursor-pointer leading-[60px] inline-block border-y-2 text-sm  border-blue-400 ${id === checkedID ? "text-blue-400" : "border-opacity-0"}`}
+        className={`sort-btn transition-all cursor-pointer leading-[60px] inline-block border-y-2 text-sm  border-blue-600 dark:border-blue-400 ${id === checkedID ? "text-blue-600 dark:text-blue-400" : "!border-opacity-0"}`}
       >
         {
           title
