@@ -13,7 +13,7 @@ const ToggleBox = ({title}: ToggleBoxProps) => {
         >
           <span>{title}</span>
           <input
-            className="toggle__input absolute size-0 opacity-0"
+            className="toggle__input hidden"
             type="checkbox"
             name="only_free"
             value="yes"

@@ -20,10 +20,15 @@ const OptionItem: FC<OptionItemProps> = ({
         name="desktop-sort-input" 
         checked={id === checkedID}
         onChange={() => onChange(id)}
+        className='desktop-sort-input hidden'
       />
-      <button className='sort-btn'>
-
-      </button>
+      <span 
+        className={`sort-btn transition-all cursor-pointer leading-[60px] inline-block border-y-2 text-sm  border-blue-400 ${id === checkedID ? "text-blue-400" : "border-opacity-0"}`}
+      >
+        {
+          title
+        }
+      </span>
     </label>
   )
 }
