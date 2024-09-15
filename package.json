@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "t": "npx tailwindcss -i ./src/assets/styles/tailwind/input.css -o ./src/assets/styles/tailwind/output.css --watch",
+    "t": "npx tailwindcss -i ./src/assets/styles/tailwind/input/input.css -o ./src/assets/styles/tailwind/output/output.css --watch",
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint -c .eslintrc.json ./src/**/**/*.{ts,tsx} --fix",

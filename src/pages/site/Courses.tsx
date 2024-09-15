@@ -1,6 +1,8 @@
-import Label from '@/assets/components/site/course/Label'
-import MobileSort from '@/assets/components/site/course/mobileSort/MobileSort'
-import Sidebar from '@/assets/components/site/course/sidebar/Sidebar'
+import Label from '@/assets/components/site/courses/Label'
+import CoursesList from '@/assets/components/site/courses/coursesList/CoursesList'
+import DesktopSort from '@/assets/components/site/courses/desktopSort/DesktopSort'
+import MobileSort from '@/assets/components/site/courses/mobileSort/MobileSort'
+import Sidebar from '@/assets/components/site/courses/sidebar/Sidebar'
 import { renderCourses } from '@/assets/ts/courses/shared'
 import { CourseBoxType } from '@/assets/types/share/course.type'
 import { memo, useEffect, useState } from 'react'
@@ -28,6 +30,8 @@ const Courses = memo(() => {
           <Sidebar/>
           <section className="col-span-full lg:col-span-8 xl:col-span-9 order-1 lg:order-2">
             <MobileSort />
+            <DesktopSort/>
+            <CoursesList/>
           </section>
         </div>
       </div>

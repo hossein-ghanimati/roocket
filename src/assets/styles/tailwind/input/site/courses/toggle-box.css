@@ -1,0 +1,6 @@
+.toggle__input:checked ~ .toggle__marker {
+  @apply bg-blue-400;
+}
+.toggle__input:checked ~ .toggle__marker > .toggle__marker-circle {
+  @apply right-[26px];
+}
