@@ -1,5 +1,5 @@
 import { MobileMenuContext } from "@/assets/contexts/site/mobileMenu.context";
-import { memo, useContext, useMemo } from "react";
+import { useContext, useMemo } from "react";
 import { RiMenu4Fill } from "react-icons/ri";
 
 const OpenMenuBtn = () => {
