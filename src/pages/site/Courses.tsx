@@ -1,7 +1,9 @@
 import Label from '@/assets/components/site/courses/Label'
 import CoursesList from '@/assets/components/site/courses/coursesList/CoursesList'
 import DesktopSort from '@/assets/components/site/courses/desktopSort/DesktopSort'
+import MobileSortOptions from '@/assets/components/site/courses/mobileSortOptions/MobileSortOptions'
 import MobileSort from '@/assets/components/site/courses/mobileSort/MobileSort'
+import MobileFilterOptions from '@/assets/components/site/courses/mobileFilterOptions/MobileFilterOptions'
 import Sidebar from '@/assets/components/site/courses/sidebar/Sidebar'
 import { renderCourses } from '@/assets/ts/courses/shared'
 import { CourseBoxType } from '@/assets/types/share/course.type'
@@ -35,6 +37,9 @@ const Courses = memo(() => {
           </section>
         </div>
       </div>
+
+      <MobileSortOptions />
+      <MobileFilterOptions />
     </main>
   )
 })
