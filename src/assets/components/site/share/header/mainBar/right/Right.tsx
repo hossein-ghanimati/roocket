@@ -1,29 +1,14 @@
 import Logo from "@/assets/components/elems/Logo";
-import { memo, useCallback, useContext, useState } from "react";
-import { RiMenu4Fill } from "react-icons/ri";
+import { memo } from "react";
 import MobileMenu from "./mobileMenu/MobileMenu";
-import { OverlayContext } from "@/assets/contexts/site/overlay.context";
+import OpenMenuBtn from "./OpenMenuBtn";
 
 const Right = memo(() => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const overlaySetting = useContext(OverlayContext)
-
-  const openMenu = useCallback(() => {
-    overlaySetting?.showOverlay();
-    setIsMenuOpen(true)
-  }, [])
-  const closeMenu = useCallback(() => {
-    overlaySetting?.hideOverlay();
-    setIsMenuOpen(false)
-  }, [])
-
   return (
     <div>
       <div className="lg:hidden">        
-        <button onClick={() => openMenu()}>
-          <RiMenu4Fill className="size-8"/>
-        </button>
-        <MobileMenu isMenuOpen={isMenuOpen} onClose={closeMenu}/>            
+        <OpenMenuBtn/>
+        <MobileMenu />            
       </div>
 
       <div className="hidden lg:block">

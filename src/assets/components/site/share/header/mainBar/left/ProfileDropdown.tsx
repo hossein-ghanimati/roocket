@@ -153,7 +153,7 @@ const ProfileDropdown = memo(() => {
             </DropdownMenu>
           </Dropdown>
         ),
-        [auth]
+        [auth?.user]
       )}
     </>
   );
