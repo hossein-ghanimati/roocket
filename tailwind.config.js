@@ -13,7 +13,7 @@ module.exports = {
     "jsx",
     "ts",
     "tsx}",
-    "./node_modules/@nextui-org/theme/dist/components/(accordion|avatar|badge|card|dropdown|skeleton|divider|ripple|menu|popover|button|spinner).js"
+    "./node_modules/@nextui-org/theme/dist/components/(accordion|avatar|badge|card|dropdown|pagination|skeleton|divider|ripple|menu|popover|button|spinner).js"
   ],
   prefix: "",
   theme: {

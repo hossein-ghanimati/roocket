@@ -16,6 +16,7 @@ const renderCourses = async (
   if (courses?.length) {
     setCourses(courses)
   }else{
+    setCourses([])
     document.title = "دوره ای ثبت نشده"
     showConfirmSwal({
       title: "دوره ای یافت نشد",
@@ -29,6 +30,7 @@ const renderCourses = async (
     })
   }  
 }
+
 
 export {
   renderCourses

@@ -20,6 +20,7 @@
     "@nextui-org/badge": "^2.0.31",
     "@nextui-org/card": "^2.0.33",
     "@nextui-org/dropdown": "^2.1.29",
+    "@nextui-org/pagination": "^2.0.36",
     "@nextui-org/skeleton": "^2.0.31",
     "@nextui-org/system": "^2.2.5",
     "@nextui-org/theme": "^2.2.9",

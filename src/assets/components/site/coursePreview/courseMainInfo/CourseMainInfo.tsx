@@ -130,12 +130,19 @@ const CourseMainInfo = memo(() => {
                 </div>
 
                 <div className="lg:w-2/6 w-full relative lg:order-last order-first lg:mr-14 lg:h-64 sm:h-80 h-48 lg:mb-0 mb-5 overflow-hidden rounded">
-                  {course?.cover ? (
-                    <img
+                  {course ? (
+                    course.sessions.length ? 
+                     (<video 
+                        src={`http://localhost:4000/courses/covers/${course?.sessions[0].video}`}
+                        poster={`http://localhost:4000/courses/covers/${course?.cover}`}
+                        className="size-full bg-cover shadow-lg rounded h-max"
+                        controls
+                      ></video>)
+                    : (<img
                       className="size-full bg-cover transform transition duration-200 hover:scale-110"
                       src={`http://localhost:4000/courses/covers/${course?.cover}`}
-                      alt="آموزش پروژه محور طراحی سایت"
-                    />
+                      alt={course.name}
+                    />)
                   ) : (
                     <Skeleton className="rounded size-full">
                       <div className="h-8  rounded bg-default-300"></div>

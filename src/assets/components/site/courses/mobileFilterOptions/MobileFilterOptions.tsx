@@ -1,5 +1,6 @@
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import { GoTrash } from "react-icons/go";
+import FilterOption from "./FilterOption";
 
 const MobileFilterOptions = () => {
   return (
@@ -19,46 +20,8 @@ const MobileFilterOptions = () => {
       <div
         className="px-5 divide-y divide-gray-300 dark:divide-gray-500"
       >
-        <label className="relative cursor-pointer select-none w-full flex items-center justify-between py-5">
-          <span className="select-none">
-            فقط دوره های رایگان
-          </span>
-          <input
-            className="toggle__input hidden"
-            type="checkbox"
-            name="only_free"
-            value="yes"
-          />
-          <span className="toggle__marker relative block h-6 w-[46px] rounded-full bg-custom-white dark:bg-gray-800 transition-all duration-150">
-            <span className="toggle__marker-circle absolute top-0 bottom-0 right-1 my-auto size-4 rounded-full bg-white dark:bg-gray-900 transition-all"></span>
-          </span>
-        </label>
-        <label className="relative cursor-pointer select-none w-full flex items-center justify-between py-5">
-          <span className="select-none">در حال پیش فروش</span>
-          <input
-            className="toggle__input hidden"
-            type="checkbox"
-            name="presell"
-            value="yes"
-          />
-          <span className="toggle__marker relative block h-6 w-[46px] rounded-full bg-custom-white dark:bg-gray-800 transition-all duration-150">
-            <span className="toggle__marker-circle absolute top-0 bottom-0 right-1 my-auto size-4 rounded-full bg-white dark:bg-gray-900 transition-all"></span>
-          </span>
-        </label>
-        <label className="relative cursor-pointer select-none w-full flex items-center justify-between py-5">
-          <span className="select-none">
-            دوره ها خریداری شده
-          </span>
-          <input
-            className="toggle__input hidden"
-            type="checkbox"
-            name="enrolled"
-            value="yes"
-          />
-          <span className="toggle__marker relative block h-6 w-[46px] rounded-full bg-custom-white dark:bg-gray-800 transition-all duration-150">
-            <span className="toggle__marker-circle absolute top-0 bottom-0 right-1 my-auto size-4 rounded-full bg-white dark:bg-gray-900 transition-all"></span>
-          </span>
-        </label>
+        <FilterOption title="فقط دوره های رایگان"/>
+        <FilterOption title="دوره های خریداری شده"/>
       </div>
       <div
         className="mt-5 flex h-full items-end px-5 pb-8"

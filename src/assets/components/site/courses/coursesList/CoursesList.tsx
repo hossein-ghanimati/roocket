@@ -1,9 +1,14 @@
-const CoursesList = () => {
+import CoursesPagination from "./CoursesPagination"
+import CoursesWrapper from "./CoursesWrapper"
+import { memo } from "react"
+
+const CoursesList = memo(() => {
   return (
-    <div
-     className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-7"
-    >CoursesList</div>
+    <div>
+      <CoursesWrapper/>
+      <CoursesPagination />
+    </div>
   )
-}
+})
 
 export default CoursesList

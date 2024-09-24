@@ -3,7 +3,10 @@ const getUrlParam = (param: string) => {
   return urlParams.get(param)
 }
 
-const setUrlParam = (param: string, value: string) => {
+type ValueType = string | number | boolean
+
+const setUrlParam = (param: string, value: ValueType) => {
+  value = `${value}`
   const url = new URL(location.href)
   const searchParams = url.searchParams;
 
