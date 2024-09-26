@@ -1,4 +1,4 @@
-import { renderCourses } from "@/assets/ts/courses/shared";
+import { renderCourses, renderCoursesSort } from "@/assets/ts/courses/shared";
 import { getUrlParam } from "@/assets/ts/utils/url";
 import { CourseBoxType } from "@/assets/types/share/course.type";
 import {
@@ -17,7 +17,7 @@ type CoursesContextProps = {
   shownCourses: CourseBoxType[] | null;
   paginationNumber: number;
   setPaginationNumber: Dispatch<SetStateAction<number>>;
-  setNewCourses: (newCourses: CourseBoxType[]) => void;
+  setShownCourses: Dispatch<SetStateAction<CourseBoxType[] | null>>;
 };
 
 const CoursesContext = createContext<null | CoursesContextProps>(null);
@@ -28,7 +28,10 @@ const CoursesContextProvider: FC<PropsWithChildren> = ({ children }) => {
     null
   );
 
-  const [paginationNumber, setPaginationNumber] = useState<number>(Number(getUrlParam("page")) || 1);
+  const [paginationNumber, setPaginationNumber] = useState<number>(
+    Number(getUrlParam("page")) || 1
+  );
+  
 
   const navigate = useNavigate();
   const params = useParams();
@@ -38,12 +41,15 @@ const CoursesContextProvider: FC<PropsWithChildren> = ({ children }) => {
   }, [params?.category]);
 
   useEffect(() => {
-    setShownCourses(mainCourses);
-    setPaginationNumber(1)
+    setShownCourses(renderCoursesSort(mainCourses || [], "all"));
+    setPaginationNumber(Number(getUrlParam("page")) || 1);
   }, [mainCourses]);
 
-  const setNewCourses = (newCourses: CourseBoxType[]) =>
-    setShownCourses(newCourses);
+  
+
+  useEffect(() => {
+    console.log("Shown main Log", shownCourses);    
+  }, [shownCourses])
 
   return (
     <CoursesContext.Provider
@@ -52,12 +58,10 @@ const CoursesContextProvider: FC<PropsWithChildren> = ({ children }) => {
         shownCourses,
         paginationNumber,
         setPaginationNumber,
-        setNewCourses,
+        setShownCourses,
       }}
     >
-      {
-        children
-      }
+      {children}
     </CoursesContext.Provider>
   );
 };

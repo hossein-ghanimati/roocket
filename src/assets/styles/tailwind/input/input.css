@@ -82,7 +82,9 @@
       
   }
 
-  .has-vertical-scroll{
-
+  .text-success-foreground{
+    @apply
+      text-white      
+    ;
   }
 }

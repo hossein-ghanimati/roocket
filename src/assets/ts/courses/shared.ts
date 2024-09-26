@@ -3,6 +3,8 @@ import { Dispatch, SetStateAction } from "react"
 import { NavigateFunction } from "react-router-dom"
 import sendGetReq from "../utils/requests/sendGetReq"
 import { showConfirmSwal } from "../utils/swal"
+import SortOptionsType from "@/assets/types/site/sortOptions.type"
+import { sortByLast, sortByLessExpensive, sortByMoreExpensive, sortByPopular } from "./funcs/shared"
 
 
 const renderCourses = async (
@@ -31,7 +33,32 @@ const renderCourses = async (
   }  
 }
 
+const renderCoursesSort = (courses: CourseBoxType[],courseOption: SortOptionsType): CourseBoxType[] => {
+  
+  let sortedCourses: CourseBoxType[] = courses;
+  switch (courseOption) {
+    case "all":
+      sortByLast(courses)
+      break
+
+    case "more-expensive":
+      sortedCourses = sortByMoreExpensive(courses)   
+      break;
+    case "less-expensive":
+      sortedCourses = sortByLessExpensive(courses)
+      break;
+    case "popular":
+      sortedCourses = sortByPopular(courses)
+      break;
+  }
+
+  
+
+  return sortedCourses
+}
+
 
 export {
-  renderCourses
+  renderCourses,
+  renderCoursesSort
 }

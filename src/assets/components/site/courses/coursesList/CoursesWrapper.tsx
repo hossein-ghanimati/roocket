@@ -4,8 +4,9 @@ import { CoursesContext } from "@/assets/contexts/site/courses.context";
 import { memo, useContext, useMemo } from "react";
 
 const CoursesWrapper = memo(() => {
-  const coursesSetting = useContext(CoursesContext);
-
+  const coursesSetting = useContext(CoursesContext);  
+  console.log("Wrapper Courses -->", coursesSetting?.shownCourses);
+  
   return (
     <div className="grid grid-cols-8 xs:grid-cols-12 lg:grid-cols-8 xl:lg:grid-cols-9 gap-6 sm:gap-7 mt-20">
       {coursesSetting?.shownCourses?.length ? [...(coursesSetting.shownCourses || [])]
@@ -15,7 +16,7 @@ const CoursesWrapper = memo(() => {
             : 0,
           6
         )
-        .map((course) => <CourseBox {...course} />)
+        .map((course) => <CourseBox key={course._id} {...course} />)
         : Array.from(Array(6).keys()).map((i) => <SkeletonBox isGridChild key={i} />)
       }
     </div>

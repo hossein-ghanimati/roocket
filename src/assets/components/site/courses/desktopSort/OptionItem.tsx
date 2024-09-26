@@ -1,10 +1,11 @@
+import SortOptionsType from '@/assets/types/site/sortOptions.type';
 import { FC } from 'react'
 
 type OptionItemProps = {
-  id: string;
+  id: SortOptionsType;
   checkedID: string;
   title: string;
-  onChange: (id: string) => void
+  onChange: (id: SortOptionsType) => void
 }
 
 const OptionItem: FC<OptionItemProps> = ({
