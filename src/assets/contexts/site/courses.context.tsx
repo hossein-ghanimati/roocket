@@ -1,16 +1,19 @@
 import { renderCourses, renderCoursesSort } from "@/assets/ts/courses/shared";
 import { getUrlParam } from "@/assets/ts/utils/url";
 import { CourseBoxType } from "@/assets/types/share/course.type";
+// import SortOptionsType from "@/assets/types/site/sortOptions.type";
 import {
   Dispatch,
   FC,
   PropsWithChildren,
   SetStateAction,
   createContext,
+  useContext,
   useEffect,
   useState,
 } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { CoursesSortContext } from "./coursesSort.context";
 
 type CoursesContextProps = {
   mainCourses: CourseBoxType[] | null;
@@ -23,6 +26,8 @@ type CoursesContextProps = {
 const CoursesContext = createContext<null | CoursesContextProps>(null);
 
 const CoursesContextProvider: FC<PropsWithChildren> = ({ children }) => {
+  const courseSortSetting = useContext(CoursesSortContext);
+
   const [mainCourses, setMainCourses] = useState<CourseBoxType[] | null>(null);
   const [shownCourses, setShownCourses] = useState<CourseBoxType[] | null>(
     null
@@ -31,7 +36,6 @@ const CoursesContextProvider: FC<PropsWithChildren> = ({ children }) => {
   const [paginationNumber, setPaginationNumber] = useState<number>(
     Number(getUrlParam("page")) || 1
   );
-  
 
   const navigate = useNavigate();
   const params = useParams();
@@ -41,15 +45,21 @@ const CoursesContextProvider: FC<PropsWithChildren> = ({ children }) => {
   }, [params?.category]);
 
   useEffect(() => {
-    setShownCourses(renderCoursesSort(mainCourses || [], "all"));
-    setPaginationNumber(Number(getUrlParam("page")) || 1);
-  }, [mainCourses]);
+    setShownCourses(() => {
+      let sortedCourses = renderCoursesSort(
+        mainCourses ? [...mainCourses] : [],
+        courseSortSetting?.sortOption || "all"
+      );
+      console.log("in set courses", sortedCourses);
 
-  
+      return sortedCourses;
+    });
+    setPaginationNumber(Number(getUrlParam("page")) || 1);
+  }, [mainCourses, courseSortSetting?.sortOption]);
 
   useEffect(() => {
-    console.log("Shown main Log", shownCourses);    
-  }, [shownCourses])
+    console.log("Shown main Log", shownCourses);
+  }, [shownCourses]);
 
   return (
     <CoursesContext.Provider

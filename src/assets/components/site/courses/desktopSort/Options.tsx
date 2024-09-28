@@ -1,47 +1,38 @@
-import { useCallback, useContext, useState } from "react";
+import { useCallback, useContext } from "react";
 import OptionItem from "./OptionItem";
-import { CoursesContext } from "@/assets/contexts/site/courses.context";
-import { renderCoursesSort } from "@/assets/ts/courses/shared";
 import SortOptionsType from "@/assets/types/site/sortOptions.type";
-import { setUrlParam } from "@/assets/ts/utils/url";
+import { CoursesSortContext } from "@/assets/contexts/site/coursesSort.context";
 
 const Options = () => {
-  const [checkedID, setCheckedID] = useState("all");
-  const coursesSetting = useContext(CoursesContext)
+  const courseSortSetting = useContext(CoursesSortContext)
 
   const changeHandler = useCallback((id: SortOptionsType) => {
-    setCheckedID(id);    
-    const sortedCourses = renderCoursesSort(coursesSetting?.shownCourses || [] ,id)
-    console.log(sortedCourses);
-    
-    coursesSetting?.setShownCourses(sortedCourses)
-    coursesSetting?.setPaginationNumber(1)
-    setUrlParam("page", 1)
-  }, [coursesSetting]);
+    courseSortSetting?.setOption(id)
+  }, []);
 
   return (
     <div className="flex gap-x-5 lg:gap-x-8 h-full">
       <OptionItem
         onChange={changeHandler}
-        checkedID={checkedID}
+        checkedID={courseSortSetting?.sortOption || "all"}
         id="all"
         title="همه دوره ها"
       />
       <OptionItem
         onChange={changeHandler}
-        checkedID={checkedID}
+        checkedID={courseSortSetting?.sortOption || "all"}
         id="more-expensive"
         title="گرانترین"
       />
       <OptionItem
         onChange={changeHandler}
-        checkedID={checkedID}
+        checkedID={courseSortSetting?.sortOption || "all"}
         id="less-expensive"
         title="ارزانترین"
       />
       <OptionItem
         onChange={changeHandler}
-        checkedID={checkedID}
+        checkedID={courseSortSetting?.sortOption || "all"}
         id="popular"
         title="محبوبترین"
       />

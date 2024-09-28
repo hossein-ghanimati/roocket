@@ -5,15 +5,14 @@ const getUrlParam = (param: string) => {
 
 type ValueType = string | number | boolean
 
-const setUrlParam = (param: string, value: ValueType) => {
+const setUrlParam = (param: string, value: ValueType, customSearchParams = "") => {
   value = `${value}`
-  const url = new URL(location.href)
-  const searchParams = url.searchParams;
+  // const url = new URL(customUrl || location.href)
+  const searchParams = new URLSearchParams(customSearchParams || location.search);
 
   searchParams.set(param, value)
-  url.search = searchParams.toString()
 
-  history.pushState({}, "", url.toString())
+  history.pushState({}, "", `${location.pathname}?${searchParams.toString()}`)
 }
 
 export{

@@ -10,6 +10,7 @@ import { CourseBoxType } from "@/assets/types/share/course.type";
 import { memo, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { CoursesContextProvider } from "@/assets/contexts/site/courses.context";
+import { CoursesSortContextProvider } from "@/assets/contexts/site/coursesSort.context";
 
 const Courses = memo(() => {
   return (
@@ -17,23 +18,25 @@ const Courses = memo(() => {
       id="courses"
       className="max-w-[1920px] mx-auto overflow-x-hidden mt-8 sm:mt-10"
     >
-      <CoursesContextProvider>
-        <div className="container">
-          <Label />
+      <CoursesSortContextProvider>
+        <CoursesContextProvider>
+          <div className="container">
+            <Label />
 
-          <div className="grid grid-cols-12 gap-y-5 md:gap-x-7">
-            <Sidebar />
-            <section className="col-span-full lg:col-span-8 xl:col-span-9 order-1 lg:order-2">
-              <MobileSort />
-              <DesktopSort />
-              <CoursesList />
-            </section>
+            <div className="grid grid-cols-12 gap-y-5 md:gap-x-7">
+              <Sidebar />
+              <section className="col-span-full lg:col-span-8 xl:col-span-9 order-1 lg:order-2">
+                <MobileSort />
+                <DesktopSort />
+                <CoursesList />
+              </section>
+            </div>
           </div>
-        </div>
 
-        <MobileSortOptions />
-        <MobileFilterOptions />
-      </CoursesContextProvider>
+          <MobileSortOptions />
+          <MobileFilterOptions />
+        </CoursesContextProvider>
+      </CoursesSortContextProvider>
     </main>
   );
 });

@@ -50,7 +50,7 @@ const CourseBox = memo(
 
               <Link to={`/course/${shortName}`} className="mb-2 inline-block">
                 <span className="text-xl font-bold text-gray-800 dark:hover:text-blue-450 dark:text-white hover:text-blue-700 duration-200 transition">
-                  {shortName}
+                  {name}
                 </span>
               </Link>
               <p className="mb-2 text-gray-360 dark:text-gray-940 text-sm font-normal  overflow-hidden leading-6">

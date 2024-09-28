@@ -9,7 +9,7 @@ const sortByLessExpensive = (courses: CourseBoxType[]) : CourseBoxType[] => {
   return sortedCourses;
 }
 const sortByPopular = (courses: CourseBoxType[]) : CourseBoxType[] => {
-  const sortedCourses = courses.sort((a, b) => b.courseAverageScore - a.courseAverageScore);
+  const sortedCourses = courses.sort((a, b) => b.registers - a.registers);
   return sortedCourses;
 }
 
