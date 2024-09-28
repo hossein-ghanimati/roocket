@@ -1,5 +1,5 @@
 import { CoursesContext } from "@/assets/contexts/site/courses.context";
-import { useContext, useMemo } from "react";
+import { useContext } from "react";
 import { Pagination } from "@nextui-org/pagination";
 import { setUrlParam } from "@/assets/ts/utils/url";
 

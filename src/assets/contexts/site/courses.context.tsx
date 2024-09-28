@@ -47,19 +47,14 @@ const CoursesContextProvider: FC<PropsWithChildren> = ({ children }) => {
   useEffect(() => {
     setShownCourses(() => {
       let sortedCourses = renderCoursesSort(
-        mainCourses ? [...mainCourses] : [],
+        mainCourses || [],
         courseSortSetting?.sortOption || "all"
       );
-      console.log("in set courses", sortedCourses);
 
       return sortedCourses;
     });
     setPaginationNumber(Number(getUrlParam("page")) || 1);
   }, [mainCourses, courseSortSetting?.sortOption]);
-
-  useEffect(() => {
-    console.log("Shown main Log", shownCourses);
-  }, [shownCourses]);
 
   return (
     <CoursesContext.Provider

@@ -1,6 +1,6 @@
 import { getUrlParam, setUrlParam } from "@/assets/ts/utils/url"
 import SortOptionsType from "@/assets/types/site/sortOptions.type"
-import { Dispatch, FC, PropsWithChildren, SetStateAction, createContext, useEffect, useState } from "react"
+import { FC, PropsWithChildren, createContext, useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
 
 type CoursesSortContextType = {

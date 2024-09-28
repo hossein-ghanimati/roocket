@@ -35,7 +35,7 @@ const renderCourses = async (
 
 const renderCoursesSort = (courses: CourseBoxType[],courseOption: SortOptionsType): CourseBoxType[] => {
   
-  let sortedCourses: CourseBoxType[] = courses;
+  let sortedCourses: CourseBoxType[] = [...courses];
   switch (courseOption) {
     case "all":
       sortByLast(courses)

@@ -9,7 +9,6 @@ const CoursesWrapper = memo(() => {
   return (
     <>
       {useMemo(() => {
-        console.log("Wrapper Courses -->", coursesSetting?.shownCourses);
         return (
           <div className="grid grid-cols-8 xs:grid-cols-12 lg:grid-cols-8 xl:lg:grid-cols-9 gap-6 sm:gap-7 mt-20">
             {coursesSetting?.shownCourses?.length

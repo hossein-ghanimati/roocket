@@ -1,7 +1,6 @@
 import { FC, useEffect, useMemo, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import {
-  type Container,
   type ISourceOptions,
   MoveDirection,
   OutMode,
@@ -32,10 +31,6 @@ const ParticleEl: FC<ParticleElProps> = ({id}) => {
       setInit(true);
     });
   }, []);
-
-  const particlesLoaded = async (container?: Container): Promise<void> => {
-    console.log(container);
-  };
 
   const options: ISourceOptions = useMemo(
     () => ({
@@ -111,7 +106,6 @@ const ParticleEl: FC<ParticleElProps> = ({id}) => {
       <Particles
         id={`tsparticles-${id}`}
         className="size-full absolute top-0 right-0"
-        particlesLoaded={particlesLoaded}
         options={options}
       />
     );
