@@ -38,21 +38,19 @@ const renderCoursesSort = (courses: CourseBoxType[],courseOption: SortOptionsTyp
   let sortedCourses: CourseBoxType[] = [...courses];
   switch (courseOption) {
     case "all":
-      sortByLast(courses)
+      sortedCourses = sortByLast(sortedCourses)
       break
 
     case "more-expensive":
-      sortedCourses = sortByMoreExpensive(courses)   
+      sortedCourses = sortByMoreExpensive(sortedCourses)   
       break;
     case "less-expensive":
-      sortedCourses = sortByLessExpensive(courses)
+      sortedCourses = sortByLessExpensive(sortedCourses)
       break;
     case "popular":
-      sortedCourses = sortByPopular(courses)
+      sortedCourses = sortByPopular(sortedCourses)
       break;
   }
-
-  
 
   return sortedCourses
 }
