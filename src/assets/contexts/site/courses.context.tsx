@@ -42,6 +42,9 @@ const CoursesContextProvider: FC<PropsWithChildren> = ({ children }) => {
 
   useEffect(() => {
     renderCourses(navigate, params.category || "", setMainCourses);
+    console.log(params?.category);
+    document.title = params?.category || "همه دوره ها"
+    
   }, [params?.category]);
 
   useEffect(() => {
