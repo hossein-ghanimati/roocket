@@ -37,12 +37,11 @@ const ParticleEl: FC<ParticleElProps> = ({id}) => {
       fullScreen: {
         enable: false
       },
-      fpsLimit: 120,
+      fpsLimit: 1080,
       interactivity: {
         events: {
           onClick: {
             enable: true,
-            mode: "push",
           },
           onHover: {
             enable: true,
@@ -84,7 +83,7 @@ const ParticleEl: FC<ParticleElProps> = ({id}) => {
           density: {
             enable: true,
           },
-          value: 50,
+          value: 150,
         },
         opacity: {
           value: 0.7,

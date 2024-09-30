@@ -11,7 +11,6 @@ const CoursesPagination = () => {
       {coursesSetting?.shownCourses?.length !== undefined &&
       coursesSetting?.shownCourses?.length > 6 ? (
         <div className="flex items-center justify-center">
-          {coursesSetting.paginationNumber}
           <Pagination
             total={Math.ceil(coursesSetting?.shownCourses.length / 6)}
             page={coursesSetting.paginationNumber}

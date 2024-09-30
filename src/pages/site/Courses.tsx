@@ -5,10 +5,7 @@ import MobileSortOptions from "@/assets/components/site/courses/mobileSortOption
 import MobileSort from "@/assets/components/site/courses/mobileSort/MobileSort";
 import MobileFilterOptions from "@/assets/components/site/courses/mobileFilterOptions/MobileFilterOptions";
 import Sidebar from "@/assets/components/site/courses/sidebar/Sidebar";
-import { renderCourses } from "@/assets/ts/courses/shared";
-import { CourseBoxType } from "@/assets/types/share/course.type";
-import { memo, useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { memo } from "react";
 import { CoursesContextProvider } from "@/assets/contexts/site/courses.context";
 import { CoursesSortContextProvider } from "@/assets/contexts/site/coursesSort.context";
 import { CoursesSortMenuContextProvider } from "@/assets/contexts/site/coursesSortMenuContext";
