@@ -31,7 +31,7 @@ const Courses = memo(() => {
                 </section>
               </div>
             </div>
-            <MobileSortOptions/>
+            <MobileSortOptions />
             <MobileFilterOptions />
           </CoursesSortMenuContextProvider>
         </CoursesContextProvider>

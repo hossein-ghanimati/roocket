@@ -1,4 +1,5 @@
 import { CourseBoxType } from "@/assets/types/share/course.type";
+import { getUrlParam } from "../../utils/url";
 
 const sortByMoreExpensive = (courses: CourseBoxType[]) : CourseBoxType[] => {  
   const sortedCourses = courses.sort((a, b) => b.price - a.price);  
@@ -18,9 +19,18 @@ const sortByLast = (courses: CourseBoxType[]) : CourseBoxType[] => {
   return sortedCourses
 }
 
+const filterBySearch = (courses: CourseBoxType[]) => {
+  const searchedValue = getUrlParam("s") || ""
+  const filteredCourses = courses.filter(course => course.name.toLowerCase().includes(searchedValue.toLowerCase()))
+  console.log("Filterd Courses in func ==>", filteredCourses);
+  
+  return filteredCourses
+}
+
 export {
   sortByMoreExpensive,
   sortByLessExpensive,
   sortByPopular,
-  sortByLast
+  sortByLast,
+  filterBySearch
 }

@@ -4,7 +4,9 @@ import { NavigateFunction } from "react-router-dom"
 import sendGetReq from "../utils/requests/sendGetReq"
 import { showConfirmSwal } from "../utils/swal"
 import SortOptionsType from "@/assets/types/site/sortOptions.type"
-import { sortByLast, sortByLessExpensive, sortByMoreExpensive, sortByPopular } from "./funcs/shared"
+import { filterBySearch, sortByLast, sortByLessExpensive, sortByMoreExpensive, sortByPopular } from "./funcs/shared"
+import { CoursesContextProps } from "@/assets/contexts/site/courses.context"
+import { getUrlParam, setUrlParam } from "../utils/url"
 
 
 const renderCourses = async (
@@ -55,8 +57,21 @@ const renderCoursesSort = (courses: CourseBoxType[],courseOption: SortOptionsTyp
   return sortedCourses
 }
 
+const applyFilters = (coursesSetting: CoursesContextProps | null) => {
+  let courses = coursesSetting?.mainCourses ? [...coursesSetting.mainCourses] : []
+
+  courses = renderCoursesSort(courses, getUrlParam("sort") as SortOptionsType || "all")
+  courses = filterBySearch(courses)
+
+  console.log("Filtered Courses -->", courses);
+  
+  coursesSetting?.setPaginationNumber(1)
+  setUrlParam("page", 1)
+  coursesSetting?.setShownCourses(courses) 
+}
 
 export {
   renderCourses,
-  renderCoursesSort
+  renderCoursesSort,
+  applyFilters
 }

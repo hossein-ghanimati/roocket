@@ -16,14 +16,13 @@ const CoursesSortContextProvider: FC<PropsWithChildren> = ({children}) => {
 
   
   const setOption = (option: SortOptionsType) => {
-    setUrlParam("page", 1)
     setSortOption(option)
     setUrlParam("sort", option)
     
   }
 
   useEffect(() => {    
-    setSortOption(getUrlParam("sort") as SortOptionsType || "all")
+    setOption(getUrlParam("sort") as SortOptionsType || "all")
   }, [params?.category])
 
   return (

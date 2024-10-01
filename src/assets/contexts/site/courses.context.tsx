@@ -1,5 +1,9 @@
-import { renderCourses, renderCoursesSort } from "@/assets/ts/courses/shared";
-import { getUrlParam } from "@/assets/ts/utils/url";
+import {
+  applyFilters,
+  renderCourses,
+  renderCoursesSort,
+} from "@/assets/ts/courses/shared";
+import { getUrlParam, setUrlParam } from "@/assets/ts/utils/url";
 import { CourseBoxType } from "@/assets/types/share/course.type";
 // import SortOptionsType from "@/assets/types/site/sortOptions.type";
 import {
@@ -26,8 +30,7 @@ type CoursesContextProps = {
 const CoursesContext = createContext<null | CoursesContextProps>(null);
 
 const CoursesContextProvider: FC<PropsWithChildren> = ({ children }) => {
-  const courseSortSetting = useContext(CoursesSortContext);
-
+  const coursesSortSetting = useContext(CoursesSortContext);
   const [mainCourses, setMainCourses] = useState<CourseBoxType[] | null>(null);
   const [shownCourses, setShownCourses] = useState<CourseBoxType[] | null>(
     null
@@ -43,21 +46,31 @@ const CoursesContextProvider: FC<PropsWithChildren> = ({ children }) => {
   useEffect(() => {
     renderCourses(navigate, params.category || "", setMainCourses);
     console.log(params?.category);
-    document.title = params?.category || "همه دوره ها"
-    
+    document.title = params?.category || "همه دوره ها";
+
   }, [params?.category]);
 
   useEffect(() => {
-    setShownCourses(() => {
-      let sortedCourses = renderCoursesSort(
-        mainCourses || [],
-        courseSortSetting?.sortOption || "all"
-      );
-
-      return sortedCourses;
+    applyFilters({
+      mainCourses,
+      shownCourses,
+      paginationNumber,
+      setPaginationNumber,
+      setShownCourses,
     });
-    setPaginationNumber(Number(getUrlParam("page")) || 1);
-  }, [mainCourses, courseSortSetting?.sortOption]);
+  }, [mainCourses]);
+
+  useEffect(
+    () =>
+      applyFilters({
+        mainCourses,
+        shownCourses,
+        paginationNumber,
+        setPaginationNumber,
+        setShownCourses,
+      }),
+    [coursesSortSetting?.sortOption]
+  );
 
   return (
     <CoursesContext.Provider
@@ -74,4 +87,4 @@ const CoursesContextProvider: FC<PropsWithChildren> = ({ children }) => {
   );
 };
 
-export { CoursesContext, CoursesContextProvider };
+export { CoursesContext, CoursesContextProvider, type CoursesContextProps };
