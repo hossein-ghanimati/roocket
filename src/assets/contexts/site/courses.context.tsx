@@ -1,9 +1,7 @@
 import {
   applyFilters,
   renderCourses,
-  renderCoursesSort,
 } from "@/assets/ts/courses/shared";
-import { getUrlParam, setUrlParam } from "@/assets/ts/utils/url";
 import { CourseBoxType } from "@/assets/types/share/course.type";
 // import SortOptionsType from "@/assets/types/site/sortOptions.type";
 import {
@@ -36,9 +34,7 @@ const CoursesContextProvider: FC<PropsWithChildren> = ({ children }) => {
     null
   );
 
-  const [paginationNumber, setPaginationNumber] = useState<number>(
-    Number(getUrlParam("page")) || 1
-  );
+  const [paginationNumber, setPaginationNumber] = useState<number>(1);
 
   const navigate = useNavigate();
   const params = useParams();
