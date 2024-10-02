@@ -1,5 +1,5 @@
 import { getUser } from "@/assets/ts/auth/auth";
-import { setToLocal } from "@/assets/ts/utils/browserMemo";
+import { removeFromLocal, setToSession } from "@/assets/ts/utils/browserMemo";
 import { UserType } from "@/assets/types/share/user.type";
 import {
   FC,
@@ -26,12 +26,13 @@ const AuthContextProvider: FC<PropsWithChildren> = memo(({ children }) => {
   const getMe = async () => {
     const result = await getUser();
     
+    setToSession("user", result.user)
     setUser(result.user);
     setIsLogin(result.isLogin);
   };
 
   const logout = () => {
-    setToLocal("token", "")
+    removeFromLocal("token")
     getMe()
   }
 

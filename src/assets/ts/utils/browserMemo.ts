@@ -5,6 +5,9 @@ const getFromLocal = (key: string) => {
 const setToLocal = (key: string, value: any) => {
   localStorage.setItem(`roocket-${key}`, JSON.stringify(value));
 }
+const removeFromLocal = (key: string) => {
+  localStorage.removeItem(`roocket-${key}`);
+}
 const getFromSession = (key: string) => {
   const getItem = sessionStorage.getItem(`roocket-${key}`);
   return getItem ? JSON.parse(getItem) : null
@@ -16,6 +19,7 @@ const setToSession = (key: string, value: any) => {
 export  {
   getFromLocal,
   setToLocal,
+  removeFromLocal,
   getFromSession,
   setToSession
 }

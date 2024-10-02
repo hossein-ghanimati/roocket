@@ -4,7 +4,7 @@ import { NavigateFunction } from "react-router-dom"
 import sendGetReq from "../utils/requests/sendGetReq"
 import { showConfirmSwal } from "../utils/swal"
 import SortOptionsType from "@/assets/types/site/sortOptions.type"
-import { filterBySearch, sortByLast, sortByLessExpensive, sortByMoreExpensive, sortByPopular } from "./funcs/shared"
+import { filterBySearch, filterByStaticFilters, sortByLast, sortByLessExpensive, sortByMoreExpensive, sortByPopular } from "./funcs/shared"
 import { CoursesContextProps } from "@/assets/contexts/site/courses.context"
 import { getUrlParam, setUrlParam } from "../utils/url"
 
@@ -62,6 +62,7 @@ const applyFilters = (coursesSetting: CoursesContextProps | null) => {
 
   courses = renderCoursesSort(courses, getUrlParam("sort") as SortOptionsType || "all")
   courses = filterBySearch(courses)
+  courses = filterByStaticFilters(courses)
 
   console.log("Filtered Courses -->", courses);
   

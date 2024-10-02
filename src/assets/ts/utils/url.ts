@@ -15,7 +15,17 @@ const setUrlParam = (param: string, value: ValueType, customSearchParams = "") =
   history.pushState({}, "", `${location.pathname}?${searchParams.toString()}`)
 }
 
+const removeUrlParam = (param: string, customSearchParams = "") => {
+  // const url = new URL(customUrl || location.href)
+  const searchParams = new URLSearchParams(customSearchParams || location.search);
+
+  searchParams.delete(param)
+
+  history.pushState({}, "", `${location.pathname}?${searchParams.toString()}`)
+}
+
 export{
   getUrlParam,
-  setUrlParam 
+  setUrlParam,
+  removeUrlParam
 }

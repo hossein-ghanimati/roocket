@@ -9,8 +9,8 @@ const Sidebar = ({
   return (
     <aside className="col-span-full lg:col-span-4 xl:col-span-3 lg:sticky top-6 space-y-6">
       <FormInput />
-      <ToggleBox title="فقط دوره های رایگان"/>
-      <ToggleBox title="دوره های خریداری شده"/>
+      <ToggleBox name="only-free" title="فقط دوره های رایگان"/>
+      <ToggleBox needUser name="only-bought" title="دوره های خریداری شده"/>
     </aside>
   )
 }
