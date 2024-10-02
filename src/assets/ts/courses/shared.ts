@@ -6,7 +6,7 @@ import { showConfirmSwal } from "../utils/swal"
 import SortOptionsType from "@/assets/types/site/sortOptions.type"
 import { filterBySearch, filterByStaticFilters, sortByLast, sortByLessExpensive, sortByMoreExpensive, sortByPopular } from "./funcs/shared"
 import { CoursesContextProps } from "@/assets/contexts/site/courses.context"
-import { getUrlParam, setUrlParam } from "../utils/url"
+import { getUrlParam } from "../utils/url"
 
 
 const renderCourses = async (
@@ -67,7 +67,6 @@ const applyFilters = (coursesSetting: CoursesContextProps | null) => {
   console.log("Filtered Courses -->", courses);
   
   coursesSetting?.setPaginationNumber(1)
-  setUrlParam("page", 1)
   coursesSetting?.setShownCourses(courses) 
 }
 

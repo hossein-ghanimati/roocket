@@ -1,7 +1,6 @@
 import { CoursesContext } from "@/assets/contexts/site/courses.context";
 import { useContext } from "react";
 import { Pagination } from "@nextui-org/pagination";
-import { setUrlParam } from "@/assets/ts/utils/url";
 
 const CoursesPagination = () => {
   const coursesSetting = useContext(CoursesContext);
@@ -17,7 +16,6 @@ const CoursesPagination = () => {
             color="success"
             variant={"bordered"}
             onChange={(page) => {
-              setUrlParam("page", page);
               coursesSetting.setPaginationNumber(page);
               scrollTo(0, 0);
             }}
