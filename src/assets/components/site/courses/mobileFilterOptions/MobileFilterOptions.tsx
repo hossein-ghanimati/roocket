@@ -16,6 +16,11 @@ const MobileFilterOptions = () => {
   useEffect(() => setOnlyFree(coursesFilterSetting?.isOnlyFree || false) ,[coursesFilterSetting?.isOnlyFree])
   useEffect(() => setOnlyBought(coursesFilterSetting?.isOnlyBought || false) ,[coursesFilterSetting?.isOnlyBought])
 
+  useEffect(() => {
+    setOnlyFree(coursesFilterSetting?.isOnlyFree || false)
+    setOnlyBought(coursesFilterSetting?.isOnlyBought || false)
+  }, [filterMenuSetting?.isMenuOpen])
+
 
   return (
     <div className={`${filterMenuSetting?.isMenuOpen ? "" : "invisible opacity-0"} md:hidden fixed inset-0 z-20 flex size-full flex-col bg-white dark:bg-gray-900 transition-all`}>
