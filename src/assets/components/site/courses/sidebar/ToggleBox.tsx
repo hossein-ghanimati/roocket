@@ -3,20 +3,20 @@ import { CoursesContext } from "@/assets/contexts/site/courses.context";
 import "@/assets/styles/tailwind/output/site/courses/toggle-box.css";
 import { applyFilters } from "@/assets/ts/courses/shared";
 import {
-  getUrlParam,
   removeUrlParam,
   setUrlParam,
 } from "@/assets/ts/utils/url";
-import { useContext, useEffect, useState } from "react";
+import {useContext, useEffect} from "react";
 
 type ToggleBoxProps = {
   title: string;
   name: string;
   needUser?: boolean;
+  checked: boolean;
+  onChange: (isChecked: boolean) => void;
 };
 
-const ToggleBox = ({ title, name, needUser = false }: ToggleBoxProps) => {
-  const [checked, setChecked] = useState(getUrlParam(name) === "yes");
+const ToggleBox = ({ title, name, needUser = false, onChange, checked }: ToggleBoxProps) => {
   const coursesSetting = useContext(CoursesContext);
   const authSetting = useContext(AuthContext);
 
@@ -40,7 +40,7 @@ const ToggleBox = ({ title, name, needUser = false }: ToggleBoxProps) => {
                 e.target.checked
                   ? setUrlParam(e.target.name, e.target.value)
                   : removeUrlParam(e.target.name);
-                setChecked(e.target.checked);
+                onChange(e.target.checked)
                 applyFilters(coursesSetting);
               }}
             />
@@ -68,7 +68,7 @@ const ToggleBox = ({ title, name, needUser = false }: ToggleBoxProps) => {
               e.target.checked
                 ? setUrlParam(e.target.name, e.target.value)
                 : removeUrlParam(e.target.name);
-              setChecked(e.target.checked);
+              onChange(e.target.checked)
               applyFilters(coursesSetting);
             }}
           />

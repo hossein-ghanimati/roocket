@@ -1,3 +1,4 @@
+import { getUrlParam } from "@/assets/ts/utils/url";
 import {
   Dispatch,
   FC,
@@ -7,29 +8,28 @@ import {
   useState,
 } from "react";
 
-type yesNoType = "yes" | false;
-type coursesFilterContextType = {
-  isOnlyFree: yesNoType;
-  isOnlyBought: yesNoType;
-  setIsOnlyFree: Dispatch<SetStateAction<yesNoType>>;
-  setIsOnlyBought: Dispatch<SetStateAction<yesNoType>>;
+type CoursesFilterContextType = {
+  isOnlyFree: boolean;
+  isOnlyBought: boolean;
+  setIsOnlyFree: Dispatch<SetStateAction<boolean>>;
+  setIsOnlyBought: Dispatch<SetStateAction<boolean>>;
 };
 
-const coursesFilterContext = createContext<coursesFilterContextType | null>(
+const CoursesFilterContext = createContext<CoursesFilterContextType | null>(
   null
 );
 
-const coursesFilterContextProvider: FC<PropsWithChildren> = ({ children }) => {
-  const [isOnlyFree, setIsOnlyFree] = useState<yesNoType>(false);
-  const [isOnlyBought, setIsOnlyBought] = useState<yesNoType>(false);
+const CoursesFilterContextProvider: FC<PropsWithChildren> = ({ children }) => {
+  const [isOnlyFree, setIsOnlyFree] = useState<boolean>(getUrlParam("only-free") === "yes");
+  const [isOnlyBought, setIsOnlyBought] = useState<boolean>(getUrlParam("only-bought") === "yes");
 
   return (
-    <coursesFilterContext.Provider
+    <CoursesFilterContext.Provider
       value={{ isOnlyFree, isOnlyBought, setIsOnlyFree, setIsOnlyBought }}
     >
       {children}
-    </coursesFilterContext.Provider>
+    </CoursesFilterContext.Provider>
   );
 };
 
-export { coursesFilterContext, coursesFilterContextProvider };
+export { CoursesFilterContext, CoursesFilterContextProvider };
