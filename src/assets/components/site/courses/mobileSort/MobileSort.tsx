@@ -5,9 +5,11 @@ import { useContext, useMemo } from "react";
 import { CoursesSortMenuContext } from "@/assets/contexts/site/coursesSortMenuContext";
 import { OverlayContext } from "@/assets/contexts/site/overlay.context";
 import { CoursesSortContext } from "@/assets/contexts/site/coursesSort.context";
+import { CoursesFilterMenuContext } from "@/assets/contexts/site/coursesFilterMenu.context";
 
 const MobileSort = () => {
   const coursesSortMenuSetting = useContext(CoursesSortMenuContext);
+  const filterMenuSetting = useContext(CoursesFilterMenuContext)
   const courseSortSetting = useContext(CoursesSortContext);
   const overlaySetting = useContext(OverlayContext);
 
@@ -35,7 +37,7 @@ const MobileSort = () => {
     <div className="flex md:hidden items-center gap-6 mb-8">
       {useMemo(
         () => (
-          <SortOption onClick={() => null} title="فیلتر">
+          <SortOption onClick={() => filterMenuSetting?.openMenu()} title="فیلتر">
             <CiFilter className="size-6 shrink-0" />
           </SortOption>
         ),

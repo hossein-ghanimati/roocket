@@ -3,9 +3,11 @@ import { GoTrash } from "react-icons/go";
 import FilterOption from "./FilterOption";
 import { useContext, useEffect, useState } from "react";
 import { CoursesFilterContext } from "@/assets/contexts/site/coursesFilter.context";
+import { CoursesFilterMenuContext } from "@/assets/contexts/site/coursesFilterMenu.context";
 
 const MobileFilterOptions = () => {
   const coursesFilterSetting = useContext(CoursesFilterContext)
+  const filterMenuSetting = useContext(CoursesFilterMenuContext)
   
 
   const [onlyFree, setOnlyFree] = useState(coursesFilterSetting?.isOnlyFree || false)
@@ -16,15 +18,18 @@ const MobileFilterOptions = () => {
 
 
   return (
-    <div className=" fixed inset-0 z-20 flex size-full flex-col bg-white dark:bg-gray-900 transition-all">
+    <div className={`${filterMenuSetting?.isMenuOpen ? "" : "invisible opacity-0"} md:hidden fixed inset-0 z-20 flex size-full flex-col bg-white dark:bg-gray-900 transition-all`}>
       <div className="flex h-24 items-center justify-between bg-custom-white dark:bg-gray-800 px-5">
         <div className="flex items-center justify-center gap-2">
-          <button className="filter__close-btn flex items-center justify-center">
+          <button onClick={() => filterMenuSetting?.hideMenu()} className="filter__close-btn flex items-center justify-center">
             <IoMdCloseCircleOutline className="size-6" />
           </button>
           <span className="font-danaDemiBold text-lg">فیلترها</span>
         </div>
-        <button className="text-red-700 dark:text-red-500 flex items-center justify-center gap-2">
+        <button onClick={() => {
+          setOnlyFree(false);
+          setOnlyBought(false);
+        }} className="text-red-700 dark:text-red-500 flex items-center justify-center gap-2">
           حذف فیلتر ها
           <GoTrash className="size-6" />
         </button>

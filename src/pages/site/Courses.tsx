@@ -10,6 +10,7 @@ import { CoursesContextProvider } from "@/assets/contexts/site/courses.context";
 import { CoursesSortContextProvider } from "@/assets/contexts/site/coursesSort.context";
 import { CoursesSortMenuContextProvider } from "@/assets/contexts/site/coursesSortMenuContext";
 import { CoursesFilterContextProvider } from "@/assets/contexts/site/coursesFilter.context";
+import { CoursesFilterMenuContextProvider } from "@/assets/contexts/site/coursesFilterMenu.context";
 
 const Courses = memo(() => {
   return (
@@ -20,22 +21,24 @@ const Courses = memo(() => {
       <CoursesSortContextProvider>
         <CoursesContextProvider>
           <CoursesSortMenuContextProvider>
-            <CoursesFilterContextProvider>
-              <div className="container">
-                <Label />
+            <CoursesFilterMenuContextProvider>
+              <CoursesFilterContextProvider>
+                <div className="container">
+                  <Label />
 
-                <div className="grid grid-cols-12 gap-y-5 md:gap-x-7">
-                  <Sidebar />
-                  <section className="col-span-full lg:col-span-8 xl:col-span-9 order-1 lg:order-2">
-                    <MobileSort />
-                    <DesktopSort />
-                    <CoursesList />
-                  </section>
+                  <div className="grid grid-cols-12 gap-y-5 md:gap-x-7">
+                    <Sidebar />
+                    <section className="col-span-full lg:col-span-8 xl:col-span-9 order-1 lg:order-2">
+                      <MobileSort />
+                      <DesktopSort />
+                      <CoursesList />
+                    </section>
+                  </div>
                 </div>
-              </div>
-              <MobileSortOptions />
-              <MobileFilterOptions />
-            </CoursesFilterContextProvider>
+                <MobileSortOptions />
+                <MobileFilterOptions />
+              </CoursesFilterContextProvider>
+            </CoursesFilterMenuContextProvider>
           </CoursesSortMenuContextProvider>
         </CoursesContextProvider>
       </CoursesSortContextProvider>
