@@ -9,7 +9,7 @@ import { memo } from "react";
 import { CoursesContextProvider } from "@/assets/contexts/site/courses.context";
 import { CoursesSortContextProvider } from "@/assets/contexts/site/coursesSort.context";
 import { CoursesSortMenuContextProvider } from "@/assets/contexts/site/coursesSortMenuContext";
-import { CoursesFilterContextProvider } from "@/assets/contexts/site/coursesFilterContext";
+import { CoursesFilterContextProvider } from "@/assets/contexts/site/coursesFilter.context";
 
 const Courses = memo(() => {
   return (
