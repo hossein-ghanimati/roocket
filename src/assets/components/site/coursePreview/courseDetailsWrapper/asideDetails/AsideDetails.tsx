@@ -1,11 +1,12 @@
 import { memo } from "react"
+import CourseScore from "./courseScore/CourseScore"
 
 const AsideDetails = memo(() => {
   return (
     <aside
-      className=" col-span-4 xl:col-span-3 lg:order-last border h-max"
+      className=" col-span-4 xl:col-span-3 lg:order-last  h-max"
     >
-      AsideDetails
+      <CourseScore/>
     </aside>
   )
 })

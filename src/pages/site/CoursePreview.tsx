@@ -7,7 +7,7 @@ const CoursePreview = memo(() => {
   return (
     <main id="course-preview">
       <CourseContextProvider>
-        <div id="course-preview" className="container">
+        <div className="container">
           <CourseMainInfo />
           <CourseDetailsWrapper />
         </div>
