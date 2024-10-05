@@ -9,7 +9,8 @@ import { TbStar } from "react-icons/tb";
 const CourseScore = () => {
   const courseSetting = useContext(CourseContext);
   const averageScore = getCourseAverageScore(courseSetting?.comments || [])
-
+  console.log(averageScore);
+  
 
   return (
     <div className="bg-white dark:bg-gray-900 py-4 px-5 justify-between flex rounded-lg shadow-sm mb-4 overflow-hidden relative">
@@ -30,10 +31,10 @@ const CourseScore = () => {
         <div className="relative" >
           <span className="!text-yellow-400 dark:!text-yellow-300 cursor-pointer  z-40 overflow-hidden whitespace-nowrap flex top-0">
             {
-              Array(averageScore).fill(1).map(() => <PiStarFill className="size-5"/>)
+              Array.from(Array(averageScore).keys()).map(i => <PiStarFill key={i} className="size-5"/>)
             }
             {
-              Array(5 - averageScore).fill(1).map(() => <TbStar className="size-5"/>)
+              Array.from(Array(5 - averageScore).keys()).map(i => <TbStar key={i} className="size-5"/>)
             }
           </span>
         </div>

@@ -1,10 +1,10 @@
 import { NavigateFunction } from "react-router-dom";
-import { getFromLocal, setToLocal } from "../utils/browserMemo";
-import { showConfirmSwal, showInputSwal, showMsgSwal } from "../utils/swal";
+import { showConfirmSwal, showInputSwal } from "../utils/swal";
 import { checkUserToken } from "../utils/useActions";
-import { getCodePercent, getCourseData, registerToCourse, sendRegisterRequest, validateCode } from "./funcs/utils"
+import { getCourseData, registerToCourse, validateCode } from "./funcs/utils"
 import { SingleCourseType } from "@/assets/types/share/course.type";
 import CommentType from "@/assets/types/share/comment.type";
+import SessionType from "@/assets/types/share/session.type";
 
 const renderCourseData = async (navigate: NavigateFunction, courseName: string, set: Function) => {
   const courseData:SingleCourseType = await getCourseData(courseName)
@@ -68,11 +68,29 @@ const getCourseAverageScore = (comments: CommentType[]) => {
   comments.forEach(comment => score += comment.score)
   score = score / comments.length || 0;
   
-  return score;
+  return Math.ceil(score);
+}
+
+const calculateCourseTime = (sesssions: SessionType[]) => {
+  let h = 0;
+  let m = 0;
+  let s = 0;
+  
+  sesssions.forEach(session => m += Number(session.time.slice(0, 2)))
+  sesssions.forEach(session => s += Number(session.time.slice(3, 5)))
+
+  m += Math.floor(s / 60)
+  s = s % 60
+
+  h += Math.floor(m / 60)
+  m = m % 60
+
+  return h ? `${h}:${m}:${s}` : `${m}:${s}`
 }
 
 export {
   renderCourseData,
   renderRegisterToCourse,
-  getCourseAverageScore
+  getCourseAverageScore,
+  calculateCourseTime
 }

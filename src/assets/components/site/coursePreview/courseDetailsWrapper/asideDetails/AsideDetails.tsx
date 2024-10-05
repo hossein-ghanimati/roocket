@@ -1,5 +1,8 @@
 import { memo } from "react"
-import CourseScore from "./courseScore/CourseScore"
+import CourseScore from "./CourseScore"
+import CourseWidgets from "./courseWidgets/CourseWidgets"
+import TeacherInfo from "./TeacherInfo"
+import RelatedCourses from "./relatedCourses/RelatedCourses"
 
 const AsideDetails = memo(() => {
   return (
@@ -7,6 +10,9 @@ const AsideDetails = memo(() => {
       className=" col-span-4 xl:col-span-3 lg:order-last  h-max"
     >
       <CourseScore/>
+      <CourseWidgets/>
+      <TeacherInfo/>
+      <RelatedCourses/>
     </aside>
   )
 })
