@@ -11,10 +11,12 @@ import {
   createContext,
   useCallback,
   useContext,
+  useEffect,
   useState,
 } from "react";
 import { CoursesContext } from "./courses.context";
 import { CoursesFilterMenuContext } from "./coursesFilterMenu.context";
+import { AuthContext } from "../share/auth.context";
 
 type CoursesFilterContextType = {
   isOnlyFree: boolean;
@@ -29,6 +31,7 @@ const CoursesFilterContext = createContext<CoursesFilterContextType | null>(
 );
 
 const CoursesFilterContextProvider: FC<PropsWithChildren> = ({ children }) => {
+  const authSetting = useContext(AuthContext)
   const coursesSetting = useContext(CoursesContext);
   const filterMenuSetting = useContext(CoursesFilterMenuContext)
 
@@ -38,6 +41,7 @@ const CoursesFilterContextProvider: FC<PropsWithChildren> = ({ children }) => {
   const [isOnlyBought, setIsOnlyBought] = useState<boolean>(
     getUrlParam("only-bought") === "yes"
   );
+
 
   const changeOnlyFree: ChangeEventHandler<HTMLInputElement> = useCallback((e) => {
     e.target.checked
@@ -55,7 +59,7 @@ const CoursesFilterContextProvider: FC<PropsWithChildren> = ({ children }) => {
     applyFilters(coursesSetting);
   }, [coursesSetting])
 
-  const acceptChange = (isOnlyFree: boolean ,isOnlyBought: boolean) => {
+  const acceptChange =useCallback( (isOnlyFree: boolean ,isOnlyBought: boolean) => {
     isOnlyFree
       ? setUrlParam("only-free", "yes")
       : removeUrlParam("only-free");
@@ -67,7 +71,13 @@ const CoursesFilterContextProvider: FC<PropsWithChildren> = ({ children }) => {
     setIsOnlyBought(isOnlyBought)
     applyFilters(coursesSetting)
     filterMenuSetting?.hideMenu()
-  }
+  }, [coursesSetting])
+
+  useEffect(() => {
+    removeUrlParam("only-bought")
+    setIsOnlyBought(false);
+    applyFilters(coursesSetting)
+  } , [authSetting?.isLogin])
 
   return (
     <CoursesFilterContext.Provider
