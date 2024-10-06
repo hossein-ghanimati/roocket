@@ -7,7 +7,7 @@ import RelatedCourses from "./relatedCourses/RelatedCourses"
 const AsideDetails = memo(() => {
   return (
     <aside
-      className=" col-span-4 xl:col-span-3 lg:order-last  h-max"
+      className=" col-span-4 xl:col-span-3 md:order-last  h-max"
     >
       <CourseScore/>
       <CourseWidgets/>

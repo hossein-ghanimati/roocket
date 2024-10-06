@@ -29,7 +29,7 @@ const Courses = () => {
                 <span className="w-1 h-full bg-blue-700 dark:bg-blue-400 rounded-l-md -right-4 absolute"></span>
                 <Link
                   to={`/course/${course.shortName}`}
-                  className="text-biscay-700 dark:text-white dark:hover:text-blue-400 font-bold text-15 hover:text-blue-700 transition duration-200"
+                  className="text-biscay-700 dark:text-white dark:hover:text-blue-400 font-bold text-15 hover:text-blue-700 transition duration-200 line-clamp-1"
                 >
                   {course.name}
                 </Link>
