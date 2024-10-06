@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import RegisterCommentBtn from "./RegisterCommentBtn";
 
 type SendingFooterProps = {
