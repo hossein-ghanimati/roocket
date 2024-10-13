@@ -10,7 +10,7 @@ const ContentHeader = () => {
       <div className="flex mb-4 space-x-4 space-x-reverse">
           <Avatar
             className="!size-14"
-            color="success"
+            color={auth?.isLogin ? "success" : "danger"}
             isBordered
             src={
               auth?.user?.profile
@@ -20,7 +20,7 @@ const ContentHeader = () => {
           />
         <div className="flex relative justify-center flex-col space-y-1">
           <h6 className="font-semibold  text-gray-800 dark:text-white leading-6">
-            {auth?.user?.name}
+            {auth?.user?.name || "کاربر مهمان"}
           </h6>
           <span className="text-xs">
             {auth?.user?.username}

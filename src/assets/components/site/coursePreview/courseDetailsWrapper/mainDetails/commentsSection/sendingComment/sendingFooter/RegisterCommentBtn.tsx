@@ -1,8 +1,8 @@
 import SmallLoader from "@/assets/components/elems/SmallLoader";
+import { AuthContext } from "@/assets/contexts/share/auth.context";
 import { CourseCommentTextContext } from "@/assets/contexts/site/courseCommentText.context";
 import sendPostReq from "@/assets/ts/utils/requests/sendPostReq";
-import { showConfirmSwal, showMsgSwal } from "@/assets/ts/utils/swal";
-import { getUrlParam } from "@/assets/ts/utils/url";
+import { showMsgSwal } from "@/assets/ts/utils/swal";
 import { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 
@@ -10,11 +10,13 @@ const RegisterCommentBtn = () => {
   const [isSending, setIsSending] = useState(false);
   const commentSetting = useContext(CourseCommentTextContext);
   const params = useParams();
+  const auth = useContext(AuthContext)
 
   return (
     <div>
       {!isSending ? (
         <button
+          disabled={!auth?.isLogin}
           onClick={async () => {
             setIsSending(true);
             const commentBody = {
