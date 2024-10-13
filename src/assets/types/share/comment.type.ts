@@ -8,7 +8,8 @@ type CommentAnswerType = {
   updatedAt: string;
   mainCommendID: string;
   __v: number;
-  score: number
+  score: number;
+  body: string;
 }
 
 type CommentType = {

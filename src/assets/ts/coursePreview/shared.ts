@@ -1,6 +1,6 @@
 import { NavigateFunction } from "react-router-dom";
 import { showConfirmSwal, showInputSwal } from "../utils/swal";
-import { checkUserToken } from "../utils/useActions";
+import { checkUserToken } from "../utils/userActions";
 import { getCourseData, registerToCourse, validateCode } from "./funcs/utils"
 import { SingleCourseType } from "@/assets/types/share/course.type";
 import CommentType from "@/assets/types/share/comment.type";

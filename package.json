@@ -6,7 +6,8 @@
   "scripts": {
     "build:tailwind-main": "npx tailwindcss -i ./src/assets/styles/tailwind/input/input.css -o ./src/assets/styles/tailwind/output/output.css --watch",
     "build:tailwind-toggle": "npx tailwindcss -i ./src/assets/styles/tailwind/input/site/courses/toggle-box.css -o ./src/assets/styles/tailwind/output/site/courses/toggle-box.css",
-    "t": "run-p  build:tailwind-main build:tailwind-toggle",
+    "build:tailwind-comment__answer": "npx tailwindcss -i ./src/assets/styles/tailwind/input/site/coursePreview/comment-answer.css -o ./src/assets/styles/tailwind/output/site/coursePreview/comment-answer.css",
+    "t": "run-p  build:tailwind-main build:tailwind-toggle build:tailwind-comment__answer",
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint -c .eslintrc.json ./src/**/**/*.{ts,tsx} --fix",

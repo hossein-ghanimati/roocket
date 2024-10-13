@@ -1,0 +1,54 @@
+.comment-answer-section:before {
+  content: "";
+  @apply 
+    block
+    h-full
+    absolute
+    right-[25px]
+    -top-[21px]
+    w-[3px]
+    bg-gray-400 
+    dark:bg-gray-700
+  ;
+}
+
+
+
+
+
+
+
+
+.comment-answer-section .sub-item:before {
+  content: "";
+  @apply 
+    bg-gray-400 
+    dark:bg-gray-700
+    rotate-90
+    block
+    h-[3px]
+    relative
+    right-0
+    -top-[25px]
+    w-[21px]
+    sm:rotate-0
+    sm:right-[-53px]
+    sm:top-[57px]
+    sm:w-7
+  ;
+}
+
+
+.comment-answer-section .sub-item:after {
+  content: "";  
+  height: calc(100% - 60px);
+  @apply
+    bg-white 
+    dark:bg-gray-900
+    block
+    absolute
+    -right-[35px]
+    top-[84px]
+    w-2
+  ;
+}
