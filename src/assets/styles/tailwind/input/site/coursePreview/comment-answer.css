@@ -10,6 +10,7 @@
     bg-gray-400 
     dark:bg-gray-700
     -z-10
+    sm:z-0
   ;
 }
 
@@ -51,5 +52,7 @@
     -right-[35px]
     top-[84px]
     w-2
+    opacity-0
+    sm:opacity-100
   ;
 }
