@@ -9,6 +9,7 @@
     w-[3px]
     bg-gray-400 
     dark:bg-gray-700
+    -z-10
   ;
 }
 

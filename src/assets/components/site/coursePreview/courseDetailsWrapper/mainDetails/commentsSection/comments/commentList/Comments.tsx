@@ -32,6 +32,7 @@ const Comments = memo(() => {
                   variant={"bordered"}
                   onChange={(page) => {
                     setPaginationNumber(page);
+                    scrollBy(0, -800)
                   }}
                   className="mb-1"
                 ></Pagination>
