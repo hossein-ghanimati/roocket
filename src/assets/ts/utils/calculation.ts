@@ -32,7 +32,7 @@ const calculateRelativeTimeDifference = (createdAt: string) => {
     const calculatedTime = Math.floor(time / month);
     date = `${calculatedTime} ماه پیش`;
   } else if (time >= week) {
-    const calculatedTime = Math.floor(time / week);
+    const calculatedTime = Math.floor(time / year);
     date = `${calculatedTime} سال پیش`;
   }
 

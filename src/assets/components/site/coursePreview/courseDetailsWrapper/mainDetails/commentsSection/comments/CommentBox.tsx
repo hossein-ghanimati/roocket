@@ -4,10 +4,13 @@ import { calculateRelativeTimeDifference } from "@/assets/ts/utils/calculation";
 
 type CommentBoxProps = CommentType;
 
-const CommentBox = ({ 
-  _id, 
-  isAnswer,
-  answerContent
+const CommentBox = ({
+  _id,
+  answerContent,
+  creator,
+  createdAt,
+  score,
+  body
 }: CommentBoxProps) => {
   return (
     <div key={_id} className="mb-10">
@@ -20,60 +23,31 @@ const CommentBox = ({
             <div className="ml-2 pb-5">
               <div className="relative ">
                 <div className="sm:w-14 sm:h-14 w-12 h-12 bg-gray-300 group relative rounded-full overflow-hidden border-4 border-solid border-gray-80">
-                  <a href="/@piranzad">
-                    <img
-                      className="transition duration-200 transform group-hover:scale-110 w-full h-full lozad"
-                      data-src="https://static.roocket.ir/images/avatar/2022/12/3/es2C4oyTfzaCu5dhIfj3cXHr0VavYCT7GaLmrZgJ.png"
-                      alt="user-avatar"
-                      src="https://static.roocket.ir/images/avatar/2022/12/3/es2C4oyTfzaCu5dhIfj3cXHr0VavYCT7GaLmrZgJ.png"
-                      data-loaded="true"
-                    />
-                    <div className="w-full h-full absolute top-0 right-0 bg-biscay-700 bg-opacity-20 z-0"></div>
-                  </a>
+                  <img
+                    className="transition duration-200 transform group-hover:scale-110 w-full h-full lozad"
+                    alt="user-avatar"
+                    src={
+                      creator.profile
+                        ? `http://192.168.235.220:4000/courses/covers${creator.profile}`
+                        : "/public/image/user/none.png"
+                    }
+                  />
                 </div>
-              </div>{" "}
+              </div>
             </div>
 
             <div className="flex relative justify-center flex-col pb-5 space-y-1">
               <b className="font-semibold sm:text-xl text-base text-chambray-700 dark:text-white dark:hover:text-blue-450 hover:text-blue-700 transition duration-200 ">
-                <a href="/@piranzad">پویا</a>
+                {creator.name}
               </b>
               <span className="text-gray-360 dark:text-gray-200 text-sm">
-                3 ماه پیش
+                {
+                  calculateRelativeTimeDifference(createdAt)
+                }
               </span>
             </div>
           </div>
-          <div className="flex sm:items-start sm:justify-start justify-end sm:mb-0 mb-2">
-            <a
-              x-data=""
-              href="#answer-109816"
-              className="flex items-center ml-2 text-sm text-gray-450 font-medium bg-gray-500 dark:hover:bg-dark-400 dark:bg-dark-930 bg-opacity-10 h-6 px-2 dark:text-gray-920 rounded hover:bg-opacity-100 hover:text-white transition duration-200"
-            >
-              <svg
-                className="ml-1"
-                width="14"
-                height="15"
-                viewBox="0 0 14 15"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke="currentColor"
-                  d="M5.25065 8.23266L2.33398 5.29242L5.25065 2.35217"
-                  stroke-width="0.857886"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                ></path>
-                <path
-                  stroke="currentColor"
-                  d="M11.6673 11.7609V7.64455C11.6673 7.02071 11.4215 6.42242 10.9839 5.9813C10.5463 5.54018 9.95282 5.29236 9.33398 5.29236H2.33398"
-                  stroke-width="0.857886"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                ></path>
-              </svg>
-              پاسخ
-            </a>
+          <div className="flex sm:items-start sm:justify-start justify-end sm:mb-0 mb-2">           
 
             <button className="flex items-center text-sm text-red-450 dark:hover:bg-dark-930 dark:text-red-650 font-medium bg-red-700 dark:bg-opacity-20 bg-opacity-10 h-6 px-2 rounded hover:bg-opacity-100 hover:text-white transition duration-200">
               <svg
@@ -90,17 +64,14 @@ const CommentBox = ({
                   stroke-width="0.771644"
                 ></path>
               </svg>
-              2
+              {score}
             </button>
           </div>
         </div>
         <div className="content-area comment-area">
-          <p>سلام روزتون بخیر </p>
-          <p>
-            من اومدم این دوره رو بخرم ولی اکثرش رو بلدم کاش میشد تیکه تیکه خرید
-            و این مبلغ خیلی برای این دوره زیاد هست. این رو تو یوتوب سرچ کنی حتی
-            با این تایتل ها رایگان میاره
-          </p>
+          {
+            body
+          }
         </div>
       </div>
 
@@ -116,30 +87,32 @@ const CommentBox = ({
                   <div className="ml-2 pb-5">
                     <div className="relative">
                       <div className="sm:w-14 sm:h-14 w-12 h-12 bg-gray-300 group relative rounded-full overflow-hidden border-4 border-solid border-gray-80">
-                          <img
-                            className="transition duration-200 transform group-hover:scale-110 w-full h-full lozad"
-                            alt="user-avatar"
-                            src={answerContent?.creator.profile ? `http://192.168.235.220:4000/courses/covers${answerContent.creator.profile}` : "/public/image/user/none.png"}                            
-                          />
-                          <div className="w-full h-full absolute top-0 right-0 bg-biscay-700 bg-opacity-20 z-0"></div>
+                        <img
+                          className="transition duration-200 transform group-hover:scale-110 w-full h-full lozad"
+                          alt="user-avatar"
+                          src={
+                            answerContent.creator.profile
+                              ? `http://192.168.235.220:4000/courses/covers${answerContent.creator.profile}`
+                              : "/public/image/user/none.png"
+                          }
+                        />
+                        <div className="w-full h-full absolute top-0 right-0 bg-biscay-700 bg-opacity-20 z-0"></div>
                       </div>
                     </div>
                   </div>
 
                   <div className="flex relative justify-center flex-col pb-5 space-y-1">
                     <b className="font-semibold sm:text-xl text-base text-chambray-700 dark:text-white dark:hover:text-blue-450 hover:text-blue-700 transition duration-200 ">
-                      <span>{answerContent?.creator.name}</span>
+                      <span>{answerContent.creator.name}</span>
                     </b>
                     <span className="text-gray-360 dark:text-gray-200 text-sm">
                       {calculateRelativeTimeDifference(
-                        answerContent?.createdAt || ""
+                        answerContent.createdAt || ""
                       )}
-                      <span>{answerContent?.createdAt}</span>
                     </span>
                   </div>
                 </div>
-                <div className="flex sm:items-start sm:justify-start justify-end sm:mb-0 mb-2">                  
-
+                <div className="flex sm:items-start sm:justify-start justify-end sm:mb-0 mb-2">
                   <button className="flex items-center text-sm text-red-450 dark:hover:bg-dark-930 dark:text-red-650 font-medium bg-red-700 dark:bg-opacity-20 bg-opacity-10 h-6 px-2 rounded hover:bg-opacity-100 hover:text-white transition duration-200">
                     <svg
                       className="ml-1"
@@ -155,18 +128,12 @@ const CommentBox = ({
                         stroke-width="0.771644"
                       ></path>
                     </svg>
-                    {
-                      answerContent?.score
-                    }
+                    {answerContent.score}
                   </button>
                 </div>
               </div>
               <div className="content-area comment-area">
-                <p>
-                  {
-                    answerContent?.body
-                  }
-                </p>
+                <p>{answerContent.body}</p>
               </div>
             </div>
           </div>

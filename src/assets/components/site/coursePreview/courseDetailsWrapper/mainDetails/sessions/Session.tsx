@@ -47,7 +47,7 @@ const Session = memo((props: SessionProps) => {
           <CiClock2 className="text-gray-600 dark:text-white"/>
         </span>
         <div className="flex items-center   justify-end">
-          <button
+          <span
             className="flex items-center text-gray-500 bg-gray-500 bg-opacity-10 pt-2 pb-1.5 md:mr-6 mr-3 px-3 rounded-md text-13 font-semibold hover:bg-opacity-100 group transition duration-200 hover:text-white"
           >
             {
@@ -74,7 +74,7 @@ const Session = memo((props: SessionProps) => {
                 </button>
             }          
             
-          </button>
+          </span>
         </div>
       </div>
     </div>
