@@ -7,7 +7,7 @@ const CourseDetailsWrapper = memo(() => {
   const course = useContext(CourseContext)
 
   return (
-    course ? <section className="lg:grid grid-cols-12 relative gap-5 xl:gap-8">
+    course ? <section className="lg:grid grid-cols-12 gap-5 xl:gap-8">
       <AsideDetails/>
       <MainDetails/>
     </section>

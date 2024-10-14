@@ -69,9 +69,12 @@ const CommentBox = ({
           </div>
         </div>
         <div className="content-area comment-area">
+          <p className="text-gray-600 dark:text-gray-400  my-5 leading-6">
           {
             body
           }
+
+          </p>
         </div>
       </div>
 
@@ -133,7 +136,7 @@ const CommentBox = ({
                 </div>
               </div>
               <div className="content-area comment-area">
-                <p>{answerContent.body}</p>
+                <p className="text-gray-600 dark:text-gray-400 my-5">{answerContent.body}</p>
               </div>
             </div>
           </div>

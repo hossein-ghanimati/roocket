@@ -4,9 +4,10 @@ import { NavigateFunction } from "react-router-dom"
 import sendGetReq from "../utils/requests/sendGetReq"
 import { showConfirmSwal } from "../utils/swal"
 import SortOptionsType from "@/assets/types/site/sortOptions.type"
-import { filterBySearch, filterByStaticFilters, sortByLast, sortByLessExpensive, sortByMoreExpensive, sortByPopular } from "./funcs/shared"
+import { filterBySearch, filterByStaticFilters, sortByLessExpensive, sortByMoreExpensive, sortByPopular } from "./funcs/shared"
 import { CoursesContextProps } from "@/assets/contexts/site/courses.context"
 import { getUrlParam } from "../utils/url"
+import { sortByLast } from "../utils/calculation"
 
 
 const renderCourses = async (

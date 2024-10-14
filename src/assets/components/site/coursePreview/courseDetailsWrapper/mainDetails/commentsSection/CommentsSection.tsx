@@ -1,6 +1,6 @@
 import { memo } from "react";
 import SendingComment from "./sendingComment/SendingComment";
-import Comments from "./comments/Comments";
+import Comments from "./comments/commentList/Comments";
 
 const CommentsSection = memo(() => {
   return (

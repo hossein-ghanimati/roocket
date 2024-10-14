@@ -16,10 +16,7 @@ const sortByPopular = (courses: CourseBoxType[]) : CourseBoxType[] => {
   return sortedCourses;
 }
 
-const sortByLast = (courses: CourseBoxType[]) : CourseBoxType[] => {
-  const sortedCourses = courses.sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime());
-  return sortedCourses
-}
+
 
 const filterBySearch = (courses: CourseBoxType[]) => {
   const searchedValue = getUrlParam("s") || ""
@@ -48,7 +45,6 @@ export {
   sortByMoreExpensive,
   sortByLessExpensive,
   sortByPopular,
-  sortByLast,
   filterBySearch,
   filterByStaticFilters
 }
