@@ -1,4 +1,4 @@
-import { getUser } from "@/assets/ts/auth/auth";
+import { getUser } from "@/assets/ts/utils/auth";
 import { removeFromLocal, setToSession } from "@/assets/ts/utils/browserMemo";
 import { UserType } from "@/assets/types/share/user.type";
 import {

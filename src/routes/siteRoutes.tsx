@@ -8,7 +8,6 @@ import Episode from "@/pages/site/Episode"
 import Home from "@/pages/site/Home"
 import Login from "@/pages/site/Login"
 import Search from "@/pages/site/Search"
-import SignUp from "@/pages/site/Register"
 import { RouteObject } from "react-router-dom"
 import Register from "@/pages/site/Register"
 

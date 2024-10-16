@@ -1,4 +1,4 @@
-import { memo, useContext, useEffect, useMemo } from "react";
+import { memo, useContext, useMemo } from "react";
 import { Badge } from "@nextui-org/badge";
 import { Avatar } from "@nextui-org/avatar";
 import { FaArrowLeftLong } from "react-icons/fa6";
@@ -7,7 +7,7 @@ import { TbLogin } from "react-icons/tb";
 import { PiStudentBold } from "react-icons/pi";
 
 import { OverlayContext } from "@/assets/contexts/site/overlay.context";
-import { Link, useLocation, useParams, useSearchParams } from "react-router-dom";
+import { Link, useLocation} from "react-router-dom";
 
 import { BsCameraVideo } from "react-icons/bs";
 import { TbMessageQuestion } from "react-icons/tb";
