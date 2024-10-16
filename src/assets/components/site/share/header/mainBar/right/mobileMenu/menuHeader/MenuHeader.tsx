@@ -1,7 +1,7 @@
 import { memo} from "react"
 import HeaderCloseBtn from "./HeaderCloseBtn";
-import MenuLogo from "./MenuLogo";
 import MenuForm from "./MenuForm";
+import StaticLogo from "@/assets/components/elems/StaticLogo";
 
 
 const MenuHeader = memo(() => {
@@ -12,7 +12,7 @@ const MenuHeader = memo(() => {
     <div>
       <HeaderCloseBtn/>
 
-      <MenuLogo/>
+      <StaticLogo customClass="mt-1 flex items-center justify-center"/>
 
       <MenuForm/>
     </div>

@@ -85,6 +85,9 @@ module.exports = {
       },
       maxHeight: {
         "2/5vh": "40vh"
+      },
+      spacing: {
+        "calc-form": "calc(100vh - 450px)"
       }
     },
   },

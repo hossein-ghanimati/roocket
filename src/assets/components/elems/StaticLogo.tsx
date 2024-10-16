@@ -1,8 +1,9 @@
+import { memo } from "react";
 import { Link } from "react-router-dom";
 
-const MenuLogo = () => {
+const StaticLogo = memo(({customClass} : {customClass?: string}) => {
   return (
-    <Link to="/" className="mt-1 flex items-center justify-center">
+    <Link to="/" className={customClass}>
       <img
         className="dark:hidden inline-block w-36"
         src="/public/image/header/logo.svg"
@@ -15,6 +16,6 @@ const MenuLogo = () => {
       />
     </Link>
   );
-};
+});
 
-export default MenuLogo;
+export default StaticLogo;
