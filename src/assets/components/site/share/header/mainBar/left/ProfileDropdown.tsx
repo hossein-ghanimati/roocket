@@ -1,4 +1,4 @@
-import { memo, useContext, useMemo } from "react";
+import { memo, useContext, useEffect, useMemo } from "react";
 import { Badge } from "@nextui-org/badge";
 import { Avatar } from "@nextui-org/avatar";
 import { FaArrowLeftLong } from "react-icons/fa6";
@@ -7,7 +7,7 @@ import { TbLogin } from "react-icons/tb";
 import { PiStudentBold } from "react-icons/pi";
 
 import { OverlayContext } from "@/assets/contexts/site/overlay.context";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useParams, useSearchParams } from "react-router-dom";
 
 import { BsCameraVideo } from "react-icons/bs";
 import { TbMessageQuestion } from "react-icons/tb";
@@ -24,6 +24,8 @@ import { AuthContext } from "@/assets/contexts/share/auth.context";
 const ProfileDropdown = memo(() => {
   const overlaySetting = useContext(OverlayContext);
   const auth = useContext(AuthContext);
+  const location = useLocation()
+  
 
   return (
     <>
@@ -77,7 +79,7 @@ const ProfileDropdown = memo(() => {
                     ) : (
                       <Link
                         onClick={() => overlaySetting?.hideOverlay()}
-                        to="/login"
+                        to={`/login?after=${location.pathname === "/login" || location.pathname === "/register" ? "/" : location.pathname}`}
                         className="font-yekan text-lg"
                       >
                         ورود به حساب کاربری
@@ -102,7 +104,7 @@ const ProfileDropdown = memo(() => {
                 <DropdownItem onClick={() => overlaySetting?.hideOverlay()}>
                   <Link
                     onClick={() => overlaySetting?.hideOverlay()}
-                    to="/login"
+                    to={`/login?after=${location.pathname === "/login" || location.pathname === "/register" ? "/" : location.pathname}`}
                     className="flex items-center gap-3 text-base"
                   >
                     <TbLogin className="size-5" />
@@ -126,7 +128,7 @@ const ProfileDropdown = memo(() => {
                 <DropdownItem onClick={() => overlaySetting?.hideOverlay()}>
                   <Link
                     onClick={() => overlaySetting?.hideOverlay()}
-                    to="/register"
+                    to={`/register?after=${location.pathname === "/login" || location.pathname === "/register" ? "/" : location.pathname}`}
                     className="flex items-center gap-3 text-base"
                   >
                     <PiStudentBold className="size-5" />
@@ -153,7 +155,7 @@ const ProfileDropdown = memo(() => {
             </DropdownMenu>
           </Dropdown>
         ),
-        [auth?.user]
+        [auth?.user, location]
       )}
     </>
   );

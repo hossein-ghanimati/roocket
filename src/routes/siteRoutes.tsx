@@ -6,8 +6,11 @@ import CoursePreview from "@/pages/site/CoursePreview"
 import Courses from "@/pages/site/Courses"
 import Episode from "@/pages/site/Episode"
 import Home from "@/pages/site/Home"
+import Login from "@/pages/site/Login"
 import Search from "@/pages/site/Search"
+import SignUp from "@/pages/site/Register"
 import { RouteObject } from "react-router-dom"
+import Register from "@/pages/site/Register"
 
 
 const siteRoutes: RouteObject[] = [
@@ -29,6 +32,9 @@ const siteRoutes: RouteObject[] = [
 
   {path: "basket", element: <Basket/>},
   {path: "contact-us", element: <ContactUs/>},
+
+  {path: "login", element: <Login/>},
+  {path: "register", element: <Register/>},
 
 ]
 

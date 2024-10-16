@@ -17,6 +17,7 @@ import {
 import { CoursesContext } from "./courses.context";
 import { CoursesFilterMenuContext } from "./coursesFilterMenu.context";
 import { AuthContext } from "../share/auth.context";
+import { useParams } from "react-router-dom";
 
 type CoursesFilterContextType = {
   isOnlyFree: boolean;
@@ -34,6 +35,7 @@ const CoursesFilterContextProvider: FC<PropsWithChildren> = ({ children }) => {
   const authSetting = useContext(AuthContext)
   const coursesSetting = useContext(CoursesContext);
   const filterMenuSetting = useContext(CoursesFilterMenuContext)
+  const params = useParams()
 
   const [isOnlyFree, setIsOnlyFree] = useState<boolean>(
     getUrlParam("only-free") === "yes"
@@ -78,6 +80,11 @@ const CoursesFilterContextProvider: FC<PropsWithChildren> = ({ children }) => {
     setIsOnlyBought(false);
     applyFilters(coursesSetting)
   } , [authSetting?.isLogin])
+
+  useEffect(() => {    
+    setIsOnlyFree(getUrlParam("only-free") === "yes")
+    setIsOnlyBought(getUrlParam("only-bought") === "yes")
+  }, [params?.category])
 
   return (
     <CoursesFilterContext.Provider
