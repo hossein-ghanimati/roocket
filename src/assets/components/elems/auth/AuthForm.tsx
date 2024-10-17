@@ -14,8 +14,8 @@ const AuthForm: FC<PropsWithChildren<AuthFormProps>> = ({
   title,
   subTitle,
   footer,
-  submitHandler,
   submitText,
+  submitHandler,
 }) => {
   return (
     <div className="max-w-[330px] w-full pt-5 pb-6 px-6 text-center bg-gray-200 dark:bg-gray-700 rounded-2xl">
