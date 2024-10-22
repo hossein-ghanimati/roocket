@@ -8,8 +8,9 @@ const Router = memo(() => {
   
   return (
     <>
-      <ScrollToTop/>
+
       {router}
+            <ScrollToTop/>
     </>
   )
 })
