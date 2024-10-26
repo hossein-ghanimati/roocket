@@ -54,7 +54,8 @@
     "tailwind-variants": "0.1.20",
     "tailwindcss": "3.4.3",
     "tailwindcss-animate": "^1.0.7",
-    "yup": "^1.4.0"
+    "yup": "^1.4.0",
+    "dotenv": "^16.4.7"
   },
   "devDependencies": {
     "@types/react": "18.3.3",

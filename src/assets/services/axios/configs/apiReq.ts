@@ -1,7 +1,6 @@
 /* eslint-disable prettier/prettier */
 import axios from "axios";
 import { getFromLocal } from "../../../ts/utils/browserMemo";
-
 const sendApiReq = (includeAuthorization = false) => {
   const apiReq = axios.create({
     baseURL: "https://academic.liara.run/v1",
