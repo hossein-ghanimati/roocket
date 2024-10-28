@@ -1,4 +1,5 @@
 import { AuthContext } from "@/assets/contexts/share/auth.context";
+import { generateAuthPagesLink } from "@/assets/ts/utils/auth";
 import { memo, useContext, useEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 
@@ -7,8 +8,8 @@ const PanelApp = memo(() => {
   const auth = useContext(AuthContext);
 
   useEffect(() => {
-    auth?.isLogin ? "" : navigate("/login");
-  }, [auth]);
+    auth?.isLogin ? "" : navigate(generateAuthPagesLink("login"));
+  }, []);
 
   return (
     auth?.isLogin && (
