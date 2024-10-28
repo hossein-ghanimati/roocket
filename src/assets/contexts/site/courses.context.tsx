@@ -16,10 +16,13 @@ import {
 } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { CoursesSortContext } from "./coursesSort.context";
+import useCourses from "@/assets/hooks/shared/useCourses";
+
+type noneType = null | undefined
 
 type CoursesContextProps = {
-  mainCourses: CourseBoxType[] | null;
-  shownCourses: CourseBoxType[] | null;
+  mainCourses: CourseBoxType[] | noneType;
+  shownCourses: CourseBoxType[] | noneType;
   paginationNumber: number;
   setPaginationNumber: Dispatch<SetStateAction<number>>;
   setShownCourses: Dispatch<SetStateAction<CourseBoxType[] | null>>;
@@ -28,8 +31,11 @@ type CoursesContextProps = {
 const CoursesContext = createContext<null | CoursesContextProps>(null);
 
 const CoursesContextProvider: FC<PropsWithChildren> = ({ children }) => {
+
+  const params = useParams();
+
   const coursesSortSetting = useContext(CoursesSortContext);
-  const [mainCourses, setMainCourses] = useState<CourseBoxType[] | null>(null);
+  const {courses: mainCourses} = useCourses(params?.category)
   const [shownCourses, setShownCourses] = useState<CourseBoxType[] | null>(
     null
   );
@@ -37,14 +43,13 @@ const CoursesContextProvider: FC<PropsWithChildren> = ({ children }) => {
   const [paginationNumber, setPaginationNumber] = useState<number>(1);
 
   const navigate = useNavigate();
-  const params = useParams();
 
-  useEffect(() => {
-    renderCourses(navigate, params.category || "", setMainCourses);
-    console.log("category =>", params?.category || null);
-    document.title = params?.category || "همه دوره ها";
+  // useEffect(() => {
+  //   renderCourses(navigate, params.category || "", setMainCourses);
+  //   console.log("category =>", params?.category || null);
+  //   document.title = params?.category || "همه دوره ها";
 
-  }, [params?.category]);
+  // }, [params?.category]);
 
   useEffect(() => {
     applyFilters({
