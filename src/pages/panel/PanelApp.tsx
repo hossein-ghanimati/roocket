@@ -1,13 +1,21 @@
-import { memo } from "react"
-import { Outlet } from "react-router-dom"
-
+import { AuthContext } from "@/assets/contexts/share/auth.context";
+import { memo, useContext, useEffect } from "react";
+import { Outlet, useNavigate } from "react-router-dom";
 
 const PanelApp = memo(() => {
+  const navigate = useNavigate();
+  const auth = useContext(AuthContext);
+
+  useEffect(() => {
+    auth?.isLogin ? "" : navigate("/login");
+  }, [auth]);
+
   return (
-    <div id="panel-app">
-      <Outlet />
-    </div>
-  )
-}
-)
-export default PanelApp
+    auth?.isLogin && (
+      <div id="panel-app">
+        <Outlet />
+      </div>
+    )
+  );
+});
+export default PanelApp;

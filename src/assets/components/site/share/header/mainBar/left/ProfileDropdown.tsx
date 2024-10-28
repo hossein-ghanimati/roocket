@@ -20,6 +20,7 @@ import {
   DropdownItem,
 } from "@nextui-org/dropdown";
 import { AuthContext } from "@/assets/contexts/share/auth.context";
+import { generateAuthPagesLink } from "@/assets/ts/utils/auth";
 
 const ProfileDropdown = memo(() => {
   const overlaySetting = useContext(OverlayContext);
@@ -104,7 +105,7 @@ const ProfileDropdown = memo(() => {
                 <DropdownItem onClick={() => overlaySetting?.hideOverlay()}>
                   <Link
                     onClick={() => overlaySetting?.hideOverlay()}
-                    to={`/login?after=${location.pathname === "/login" || location.pathname === "/register" ? "/" : location.pathname}`}
+                    to={generateAuthPagesLink("login")}
                     className="flex items-center gap-3 text-base"
                   >
                     <TbLogin className="size-5" />
@@ -128,7 +129,7 @@ const ProfileDropdown = memo(() => {
                 <DropdownItem onClick={() => overlaySetting?.hideOverlay()}>
                   <Link
                     onClick={() => overlaySetting?.hideOverlay()}
-                    to={`/register?after=${location.pathname === "/login" || location.pathname === "/register" ? "/" : location.pathname}`}
+                    to={generateAuthPagesLink("register")}
                     className="flex items-center gap-3 text-base"
                   >
                     <PiStudentBold className="size-5" />
