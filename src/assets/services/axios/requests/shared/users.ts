@@ -1,5 +1,5 @@
 import { UserType } from "@/assets/types/share/user.type";
-import sendApiReq from "../configs/apiReq"
+import sendApiReq from "../../configs/apiReq"
 
 const getUsers = async () => {
   const response = await sendApiReq().get("/users")
