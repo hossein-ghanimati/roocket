@@ -11,7 +11,7 @@ import {
 } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../share/auth.context";
-import useDocTitle from "@/assets/hooks/useDocTitle";
+import useDocTitle from "@/assets/hooks/shared/useDocTitle";
 
 
 

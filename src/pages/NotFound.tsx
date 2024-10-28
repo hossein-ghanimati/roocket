@@ -1,4 +1,4 @@
-import useDocTitle from "@/assets/hooks/useDocTitle"
+import useDocTitle from "@/assets/hooks/shared/useDocTitle"
 import { memo } from "react"
 
 const NotFound = memo(() => {

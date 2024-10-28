@@ -8,7 +8,9 @@ const PanelApp = memo(() => {
   const auth = useContext(AuthContext);
 
   useEffect(() => {
-    auth?.isLogin ? "" : navigate(generateAuthPagesLink("login"));
+    auth?.isLogin 
+      ? "" 
+      : navigate(generateAuthPagesLink("login"));
   }, []);
 
   return (
