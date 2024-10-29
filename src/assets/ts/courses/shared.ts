@@ -1,7 +1,7 @@
 import { CourseBoxType } from "@/assets/types/share/course.type"
 import { Dispatch, SetStateAction } from "react"
 import { NavigateFunction } from "react-router-dom"
-import sendGetReq from "../utils/requests/sendGetReq"
+// import sendGetReq from "../utils/requests/sendGetReq"
 import { showConfirmSwal } from "../utils/swal"
 import SortOptionsType from "@/assets/types/site/sortOptions.type"
 import { filterBySearch, filterByStaticFilters, sortByLessExpensive, sortByMoreExpensive, sortByPopular } from "./funcs/shared"
@@ -15,25 +15,25 @@ const renderCourses = async (
   categoryName: string,
   setCourses: Dispatch<SetStateAction<CourseBoxType[] | null>>
 ) => {
-  const courses: CourseBoxType[] = await sendGetReq(`courses${categoryName.length ? `/category/${categoryName}` : ""}`)
-  console.log("Courses -->", courses);
+  // const courses: CourseBoxType[] = await sendGetReq(`courses${categoryName.length ? `/category/${categoryName}` : ""}`)
+  // console.log("Courses -->", courses);
   
-  if (courses?.length) {
-    setCourses(courses)
-  }else{
-    setCourses([])
-    document.title = "دوره ای ثبت نشده"
-    showConfirmSwal({
-      title: "دوره ای یافت نشد",
-      text: `${categoryName.length ? "برای این دسته بندی" : ""} هیچ دوره ای وجود ندارد`,
-      icon: "warning",
-      btnText: "رفتن به خانه",
-      callBack: result => {
-        result.isConfirmed ? navigate("/") : window.close()
-      }
+  // if (courses?.length) {
+  //   setCourses(courses)
+  // }else{
+  //   setCourses([])
+  //   document.title = "دوره ای ثبت نشده"
+  //   showConfirmSwal({
+  //     title: "دوره ای یافت نشد",
+  //     text: `${categoryName.length ? "برای این دسته بندی" : ""} هیچ دوره ای وجود ندارد`,
+  //     icon: "warning",
+  //     btnText: "رفتن به خانه",
+  //     callBack: result => {
+  //       result.isConfirmed ? navigate("/") : window.close()
+  //     }
       
-    })
-  }  
+  //   })
+  // }  
 }
 
 const renderCoursesSort = (courses: CourseBoxType[],courseOption: SortOptionsType): CourseBoxType[] => {
