@@ -32,17 +32,14 @@ const CoursesContext = createContext<null | CoursesContextProps>(null);
 
 const CoursesContextProvider: FC<PropsWithChildren> = ({ children }) => {
 
-  const params = useParams();
 
   const coursesSortSetting = useContext(CoursesSortContext);
-  const {courses: mainCourses} = useCourses(params?.category)
+  const {courses: mainCourses} = useCourses()
   const [shownCourses, setShownCourses] = useState<CourseBoxType[] | null>(
     null
   );
 
   const [paginationNumber, setPaginationNumber] = useState<number>(1);
-
-  const navigate = useNavigate();
 
   // useEffect(() => {
   //   renderCourses(navigate, params.category || "", setMainCourses);

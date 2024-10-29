@@ -1,3 +1,5 @@
+import { WithCreatedAt } from "@/assets/types/share/WithCreatedAt";
+
 const MILLISECONDS_IN_SECOND = 1000;
 const MILLISECONDS_IN_MINUTE = MILLISECONDS_IN_SECOND * 60;
 const MILLISECONDS_IN_HOUR = MILLISECONDS_IN_MINUTE * 60;
@@ -40,10 +42,7 @@ const calculateRelativeTimeDifference = (createdAt: string) => {
 
 
 
-type WithCreatedAt = {
-  createdAt: string;
-  [key: string]: any;
-};
+
 
 const sortByLast = <T extends WithCreatedAt>(array: T[]): T[] => {
   const sortedCourses = [...array].sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());

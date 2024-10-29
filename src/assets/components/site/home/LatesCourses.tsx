@@ -1,20 +1,11 @@
 import SectionHeader from "@/assets/components/elems/SectionHeader";
 import CourseBox from "@/assets/components/elems/boxes/CourseBox";
 import SkeletonBox from "@/assets/components/elems/boxes/SkeletonBox";
-import sendGetReq from "@/assets/ts/utils/requests/sendGetReq";
-import { CourseBoxType } from "@/assets/types/share/course.type";
-import { memo, useEffect, useState } from "react";
+import useCourses from "@/assets/hooks/shared/useCourses";
+import { memo } from "react";
 
 const LatesCourses = memo(() => {
-  const [courses, setCourses] = useState<CourseBoxType[]>([]);
-
-  useEffect(() => {
-    (async function () {
-      const coursesData: CourseBoxType[] = await sendGetReq("courses");
-      
-      setCourses(coursesData.splice(0, 8))
-    })();
-  }, []);
+  const {courses} = useCourses();
 
   return (
     <section className="mb-13">
@@ -26,7 +17,7 @@ const LatesCourses = memo(() => {
           hrefTitle="مشاهده همه دوره ها"
         />
         <div className="grid grid-cols-12 gap-6 ">
-          {courses.length
+          {courses?.length
             ? courses.map((course) => (
                 <CourseBox key={course._id} {...course} />
               ))

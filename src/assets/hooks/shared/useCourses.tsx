@@ -1,8 +1,12 @@
 import { getCourses } from "@/assets/services/axios/requests/shared/courses"
 import { useQuery } from "react-query"
+import { useParams } from "react-router-dom";
 
-const useCourses = (courseCategory: (null | string) = null) => {
-  const {data: courses} = useQuery(["courses", courseCategory], getCourses)
+const useCourses = () => {
+  const params = useParams();
+
+  const {data: courses} = useQuery(["courses", params.category], getCourses)
+  
 
   return {courses}
 }
