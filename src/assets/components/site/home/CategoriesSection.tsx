@@ -1,8 +1,6 @@
 import SectionHeader from "@/assets/components/elems/SectionHeader";
 import SkeletonBox from "@/assets/components/elems/boxes/SkeletonBox";
-import CategoryType from "@/assets/types/share/category.type";
-import { memo, useEffect, useState } from "react";
-import sendGetReq from "@/assets/ts/utils/requests/sendGetReq";
+import { memo} from "react";
 import CategoryBox from "@/assets/components/elems/boxes/CategoryBox";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
@@ -11,16 +9,10 @@ import SwiperNextPrev from "@/assets/components/elems/SwiperNextPrev";
 import "swiper/css";
 import "swiper/css/pagination";
 import "@/assets/styles/swiper-custom.css";
+import useCategories from "@/assets/hooks/shared/useCategories";
 
 const CategoriesSection = memo(() => {
-  const [categories, setCategories] = useState<CategoryType[] | null>([]);
-
-  useEffect(() => {
-    (async function () {
-      const categoriesData = await sendGetReq("category");
-      setCategories(categoriesData);
-    })();
-  }, []);
+  const {categories} = useCategories()
 
   return (
     <section>
