@@ -43,7 +43,7 @@ const ProfileDropdown = memo(() => {
                     isBordered
                     color={auth?.isLogin ? "primary" : "warning"}
                     radius="full"
-                    src={auth?.user?.profile ? `http://192.168.235.220:4000/courses/covers${auth.user.profile}` : "/public/image/user/none.png"}
+                    src={auth?.user?.profile ? `http://192.168.235.193:4000/courses/covers${auth.user.profile}` : "/public/image/user/none.png"}
                   />
                 </Badge>
               </button>
@@ -56,7 +56,7 @@ const ProfileDropdown = memo(() => {
                     isBordered
                     color={auth?.isLogin ? "success" : "danger"}
                     radius="full"
-                    src={auth?.user?.profile ? `http://192.168.235.220:4000/courses/covers${auth.user.profile}` : "/public/image/user/none.png"}
+                    src={auth?.user?.profile ? `http://192.168.235.193:4000/courses/covers${auth.user.profile}` : "/public/image/user/none.png"}
                   />
                   <div className="flex flex-col">
                     {auth?.isLogin ? (

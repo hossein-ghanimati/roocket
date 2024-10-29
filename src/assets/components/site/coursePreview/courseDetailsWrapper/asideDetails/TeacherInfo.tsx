@@ -9,7 +9,7 @@ const TeacherInfo = () => {
     <div className=" bg-white dark:bg-gray-900 p-6 flex flex-col items-center  rounded-lg shadow-sm mb-4">
       <div className="relative hvr-ripple-out">
           <Avatar 
-            src={courseSetting?.creator.profile ? `http://192.168.235.220:4000/courses/covers${courseSetting.creator.profile}` : "/public/image/user/none.png"}
+            src={courseSetting?.creator.profile ? `http://192.168.235.193:4000/courses/covers${courseSetting.creator.profile}` : "/public/image/user/none.png"}
             className="border-2 border-green-400 dark:border-green-400 !size-16"
           />
       </div>

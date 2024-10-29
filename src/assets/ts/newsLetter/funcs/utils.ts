@@ -1,6 +1,6 @@
 const sendRegisterReq = async (email: string) => {
   try {
-    const sendReq = await fetch("http://192.168.235.220:4000/v1/newsletters", {
+    const sendReq = await fetch("http://192.168.235.193:4000/v1/newsletters", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

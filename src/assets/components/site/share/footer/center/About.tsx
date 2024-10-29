@@ -1,7 +1,7 @@
 import SmallLoader from "@/assets/components/elems/SmallLoader";
 import { AuthContext } from "@/assets/contexts/share/auth.context";
 import { formSubmitHandler } from "@/assets/ts/newsLetter/shared";
-import { memo, useContext, useEffect, useMemo, useState } from "react";
+import { memo, useContext, useMemo} from "react";
 import {Form, Formik} from "formik"
 import { Link } from "react-router-dom";
 import { newsLetterSchema } from "@/assets/services/validation/newsLetter";

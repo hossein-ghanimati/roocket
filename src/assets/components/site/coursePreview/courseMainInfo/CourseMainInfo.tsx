@@ -133,14 +133,14 @@ const CourseMainInfo = memo(() => {
                   {course ? (
                     course.sessions.length ? 
                      (<video 
-                        src={`http://192.168.235.220:4000/courses/covers/${course?.sessions[0].video}`}
-                        poster={`http://192.168.235.220:4000/courses/covers/${course?.cover}`}
+                        src={`http://192.168.235.193:4000/courses/covers/${course?.sessions[0].video}`}
+                        poster={`http://192.168.235.193:4000/courses/covers/${course?.cover}`}
                         className="size-full bg-cover shadow-lg rounded h-max"
                         controls
                       ></video>)
                     : (<img
                       className="size-full bg-cover transform transition duration-200 hover:scale-110"
-                      src={`http://192.168.235.220:4000/courses/covers/${course?.cover}`}
+                      src={`http://192.168.235.193:4000/courses/covers/${course?.cover}`}
                       alt={course.name}
                     />)
                   ) : (
