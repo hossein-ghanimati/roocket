@@ -1,21 +1,16 @@
-import { Dispatch, FormEvent, SetStateAction } from "react";
 import { showMsgSwal } from "../utils/swal";
-import sendGetReq from "../utils/requests/sendGetReq";
-import { sendRegisterReq } from "./funcs/utils";
+import { FormikHelpers } from "formik";
+import { getNewsLetters, sendNewsLetter } from "@/assets/services/axios/requests/shared/newsLetters";
 
 const formSubmitHandler = async (
-  event: FormEvent<HTMLFormElement>,
-  inputValue: string,
-  setInput: Dispatch<SetStateAction<string>>,
-  setIsSending: Dispatch<SetStateAction<boolean>>
-
+  values: {email: string},
+  configs: FormikHelpers<{
+    email: string;
+}>
 ) => {
-  event.preventDefault();
-  setIsSending(true);
-  const allNewsLetters: NewLetterType[] = await sendGetReq("newsletters")
-  const wasAdd = allNewsLetters.some(newsLetter => newsLetter.email === inputValue);
+  const allNewsLetters = await getNewsLetters()
+  const wasAdd = allNewsLetters?.some(newsLetter => newsLetter.email === values.email.trim());
   if (wasAdd) {
-    setIsSending(false)
     showMsgSwal({
       title: "شما قبلا در خبرنامه ثبت نام کرده اید",
       icon: "warning",
@@ -23,11 +18,10 @@ const formSubmitHandler = async (
       btnText: "متوجه شدم"
     })
   }else{
-    const registerReq = await sendRegisterReq(inputValue.trim())
-    setIsSending(false)
+    const registerReq = await sendNewsLetter(values.email.trim())
 
     if (registerReq) {
-      setInput("")
+      configs.resetForm()
       showMsgSwal({
         title: "با موفقیت انجام شد",
         icon: "success",

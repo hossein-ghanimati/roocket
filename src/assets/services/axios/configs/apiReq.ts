@@ -15,7 +15,8 @@ const sendApiReq = (includeAuthorization = false) => {
     
     includeAuthorization ? config.headers.set({
       Authorization: `Bearer ${getFromLocal("token")}`
-    }) : ""    
+    }) : "";
+
 
     return config
   })
