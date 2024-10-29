@@ -1,11 +1,25 @@
-import { CourseBoxType } from "@/assets/types/share/course.type";
+import { CourseBoxType, SingleCourseType } from "@/assets/types/share/course.type";
 import sendApiReq from "../../configs/apiReq"
+import { QueryFunction } from "react-query/types/core";
 
 const getCourses = async () => {
   const response = await sendApiReq().get("/courses")
   const courses: CourseBoxType[] = response.data;
 
   return response.status < 300 ? courses : null
+}
+const getRelatedCourses = async (mainCourse: string) => {
+  const response = await sendApiReq().get(`/courses/related/${mainCourse}`)
+  const courses: CourseBoxType[] = response.data;
+
+  return response.status < 300 ? courses : null
+}
+
+const getCourse = async (courseShortName: string) => {
+  const response = await sendApiReq(true).get(`/courses/${courseShortName}`)
+  const course: SingleCourseType = response.data;
+  
+  return response.status < 300 ? course : null
 }
 
 // const sendCourse = async (courseData: Omit<CourseType, "createdAt" | "id">) => {
@@ -22,4 +36,6 @@ export {
   getCourses,
   // sendCourse,
   deleteCourse,
+  getRelatedCourses,
+  getCourse
 }

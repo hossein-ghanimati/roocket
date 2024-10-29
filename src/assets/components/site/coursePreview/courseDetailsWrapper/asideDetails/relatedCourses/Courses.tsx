@@ -1,21 +1,14 @@
 import { CourseContext } from "@/assets/contexts/site/course.context";
-import sendGetReq from "@/assets/ts/utils/requests/sendGetReq";
-import { CourseBoxType } from "@/assets/types/share/course.type";
-import { useContext, useEffect, useState } from "react";
+import { getRelatedCourses } from "@/assets/services/axios/requests/shared/courses";
+import { useContext } from "react";
+import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 
 const Courses = () => {
   const courseSetting = useContext(CourseContext);
-  const [courses, setCourses] = useState<CourseBoxType[] | null>(null);
-
-  useEffect(() => {
-    (async function () {
-      const data = await sendGetReq(
-        `courses/related/${courseSetting?.shortName}`
-      );
-      setCourses(data);
-    })();
-  }, [courseSetting?._id]);
+  const {data :courses} = useQuery(["related-courses", courseSetting?.shortName], {
+    queryFn: () => getRelatedCourses(courseSetting?.shortName || "")
+  })
 
   return (
     <div className="mb-8">

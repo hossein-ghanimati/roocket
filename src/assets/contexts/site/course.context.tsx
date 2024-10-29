@@ -12,23 +12,24 @@ import {
 import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../share/auth.context";
 import useDocTitle from "@/assets/hooks/shared/useDocTitle";
+import { useQuery, useQueryClient } from "react-query";
+import { getCourse } from "@/assets/services/axios/requests/shared/courses";
 
 
 
-const CourseContext = createContext<SingleCourseType | null>(null);
+const CourseContext = createContext<SingleCourseType | null | undefined>(null);
 
 const CourseContextProvider: FC<PropsWithChildren> =
   memo(({ children }) => {
-    const [course, setCourse] = useState<SingleCourseType | null>(null);
-    const navigate = useNavigate();
+    const queryClient = useQueryClient()
+    
     const params = useParams();
     const auth = useContext(AuthContext)
+    const {data: course} = useQuery(["course", params.name], {
+      queryFn: () => getCourse(params?.name || "")
+    })
 
     useDocTitle(course?.name || "جزئیات دوره", [course?.name])
-
-    useEffect(() => {
-      renderCourseData(navigate, params.name || "", setCourse);
-    }, [params.name, auth?.user?._id]);
 
     return (
       <CourseContext.Provider value={course}>
