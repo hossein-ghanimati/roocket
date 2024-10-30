@@ -1,16 +1,17 @@
 import { NavigateFunction } from "react-router-dom";
 import { showConfirmSwal, showInputSwal } from "../utils/swal";
 import { checkUserToken } from "../utils/userActions";
-import { getCourseData, registerToCourse, validateCode } from "./funcs/utils"
+import { registerToCourse, validateCode } from "./funcs/utils"
 import { SingleCourseType } from "@/assets/types/share/course.type";
 import CommentType from "@/assets/types/share/comment.type";
 import SessionType from "@/assets/types/share/session.type";
+import { getCourse } from "@/assets/services/axios/requests/shared/courses";
 
-const renderCourseData = async (navigate: NavigateFunction, courseName: string, set: Function) => {
-  const courseData:SingleCourseType = await getCourseData(courseName)
+const renderCourseData = async (navigate: NavigateFunction, courseName: string) => {
+  const courseData:SingleCourseType | null = await getCourse(courseName)
   if (courseData) {
-    set(courseData)
     console.log("CourseData =>", courseData);    
+    return courseData
   }else{
     document.title = "دوره ای یافت نشد"
     showConfirmSwal({
@@ -24,6 +25,7 @@ const renderCourseData = async (navigate: NavigateFunction, courseName: string, 
       }
       
     })
+    return null
   }
 }
 
