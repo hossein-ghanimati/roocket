@@ -9,7 +9,6 @@ import { TbStar } from "react-icons/tb";
 const CourseScore = () => {
   const courseSetting = useContext(CourseContext);
   const averageScore = getCourseAverageScore(courseSetting?.comments || [])
-  console.log(averageScore);
   
 
   return (

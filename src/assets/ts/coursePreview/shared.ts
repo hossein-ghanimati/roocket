@@ -9,8 +9,7 @@ import { getCourse } from "@/assets/services/axios/requests/shared/courses";
 
 const renderCourseData = async (navigate: NavigateFunction, courseName: string) => {
   const courseData:SingleCourseType | null = await getCourse(courseName)
-  if (courseData) {
-    console.log("CourseData =>", courseData);    
+  if (courseData) {    
     return courseData
   }else{
     document.title = "دوره ای یافت نشد"

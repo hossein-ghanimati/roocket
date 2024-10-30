@@ -44,9 +44,15 @@ const calculateRelativeTimeDifference = (createdAt: string) => {
 
 
 
-const sortByLast = <T extends WithCreatedAt>(array: T[]): T[] => {
-  const sortedCourses = [...array].sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
-  return sortedCourses
+const sortByLast = <T extends WithCreatedAt>(param: T[]) => {
+  if (param instanceof Array && param.every(item => item.createdAt)) {
+    const sortedCourses = [...param].sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+    return sortedCourses
+  } else {
+    return param
+  }
+
+
 }
 
 export {
