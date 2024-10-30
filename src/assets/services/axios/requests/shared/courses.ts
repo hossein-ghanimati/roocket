@@ -1,6 +1,5 @@
 import { CourseBoxType, SingleCourseType } from "@/assets/types/share/course.type";
 import sendApiReq from "../../configs/apiReq"
-import { QueryFunction } from "react-query/types/core";
 
 const getCourses = async () => {
   const response = await sendApiReq().get("/courses")

@@ -8,6 +8,7 @@ const formSubmitHandler = async (
     email: string;
 }>
 ) => {
+  
   const allNewsLetters = await getNewsLetters()
   const wasAdd = allNewsLetters?.some(newsLetter => newsLetter.email === values.email.trim());
   if (wasAdd) {

@@ -1,14 +1,11 @@
 import SmallLoader from "@/assets/components/elems/SmallLoader";
-import { AuthContext } from "@/assets/contexts/share/auth.context";
 import { formSubmitHandler } from "@/assets/ts/newsLetter/shared";
-import { memo, useContext, useMemo} from "react";
-import {Form, Formik} from "formik"
+import { memo, useMemo} from "react";
+import {Field, Form, Formik} from "formik"
 import { Link } from "react-router-dom";
 import { newsLetterSchema } from "@/assets/services/validation/newsLetter";
 
 const About = memo(() => {
-  const authSetting = useContext(AuthContext)
-  
 
   return (
     <div className="md:col-span-4">
@@ -67,11 +64,13 @@ const About = memo(() => {
 
       <div className="relative mt-11 dark:bg-dark-890">
         <Formik
-          initialValues={{email: authSetting?.user?.email || ""}}
+
+          initialValues={{email: ""}}
           onSubmit={formSubmitHandler}
           validationSchema={newsLetterSchema}
         >
-          {({ isSubmitting }) => (
+          
+          {({ isSubmitting, errors }) => (
             <Form>
             <svg
                   className="dark:text-gray-880 text-gray-990 absolute top-2/4 transform -translate-y-2/4 right-4"
@@ -104,28 +103,29 @@ const About = memo(() => {
   
             
                 <div className="h-10 rounded dark:bg-dark-890 dark:border-gray-880 border-gray-100 border-t border-r border-b dark:border-opacity-5 border-1">
-                  <input
+                  <Field
                     type="email"
                     name="email"
                     className="border-none dark:rounded outline-none dark:bg-transparent m-0 h-full w-full pl-24 dark:placeholder-gray-880 dark:text-white  placeholder-gray-400 text-gray-400 text-xs py-2 pr-8"
-                    placeholder="ایمیل عضویت در خبرنامه ..."
+                    placeholder={errors.email || "ایمیل عضویت در خبرنامه ..."}
                   />
                 </div>
               
   
-            
-                {isSubmitting ? (
-                  <button className="h-full bg-blue-700 absolute top-0 left-0 px-5 text-white rounded-l text-13 hover:bg-dark-700 transition duration-200 ease-linear">
-                    <SmallLoader/>
-                  </button>
-                ) : (
+
+                
                   <button
+                    disabled={isSubmitting}
                     type="submit"
                     className="h-full bg-blue-700 absolute top-0 left-0 px-5 text-white rounded-l text-13 hover:bg-dark-700 transition duration-200 ease-linear"
                   >
-                    ثبت
+                    {
+                    
+                    
+                    isSubmitting ? <SmallLoader/> : "ثبت"
+                    }
                   </button>
-                )}
+                
             </Form>
           )}
         </Formik>

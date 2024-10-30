@@ -6,14 +6,11 @@ import {
   createContext,
   memo,
   useContext,
-  useEffect,
-  useState,
 } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../share/auth.context";
 import useDocTitle from "@/assets/hooks/shared/useDocTitle";
 import { useQuery } from "react-query";
-import { getCourse } from "@/assets/services/axios/requests/shared/courses";
 
 
 
