@@ -93,4 +93,10 @@
       opacity-50
     ;
   }
+  input{
+    @apply
+      outline-none
+      border-none
+    ;
+  }
 }
