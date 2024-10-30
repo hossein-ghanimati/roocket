@@ -22,7 +22,8 @@ const CourseContextProvider: FC<PropsWithChildren> =
     const params = useParams();
     const auth = useContext(AuthContext)
     const {data: course} = useQuery(["course", params.name, auth?.user?._id], {
-      queryFn: () => renderCourseData(navigate, params.name || "")
+      queryFn: () => renderCourseData(navigate, params.name || ""),
+      keepPreviousData: false
     })
 
 
