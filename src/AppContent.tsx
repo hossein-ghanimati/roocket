@@ -6,7 +6,7 @@ import { AuthContextProvider } from "./assets/contexts/share/auth.context";
 import { MobileMenuContextProvider } from "./assets/contexts/site/mobileMenu.context";
 import { MILLISECONDS_IN_MINUTE, sortByLast } from "./assets/ts/utils/calculation";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { WithCreatedAt } from "./assets/types/share/WithCreatedAt";
+import { WithCreatedAt } from "./assets/types/share/withCreatedAt.type";
 
 const AppContent = memo(() => {
   const client = new QueryClient({
@@ -15,7 +15,7 @@ const AppContent = memo(() => {
         staleTime: 5 * MILLISECONDS_IN_MINUTE,
         keepPreviousData: true,
         select: (queryData ) => {
-          const data: [{[key: string]: any, createdAt: string }] = queryData as [{[key: string]: any, createdAt: string }];
+          const data: [WithCreatedAt] = queryData as [WithCreatedAt];
           return sortByLast(data);
         }
       },

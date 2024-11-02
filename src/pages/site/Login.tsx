@@ -1,13 +1,25 @@
+import { MdOutlineLocalPostOffice } from "react-icons/md";
+import { FaRegEyeSlash } from "react-icons/fa";
+import { FaRegEye } from "react-icons/fa";
+
+
 import StaticLogo from "@/assets/components/elems/StaticLogo";
 import AuthForm from "@/assets/components/elems/auth/AuthForm";
 import { loginSchema } from "@/assets/services/validation/login";
 import { Field, Formik, Form } from "formik";
-import { FormEventHandler, memo, useState } from "react";
-import { Link } from "react-router-dom";
+import { memo, useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { generateAuthPagesLink } from "@/assets/ts/utils/auth";
+import { login } from "@/assets/services/axios/requests/shared/auth";
+import { showToastSwal } from "@/assets/ts/utils/swal";
+import { getUrlParam } from "@/assets/ts/utils/url";
+import { setToLocal } from "@/assets/ts/utils/browserMemo";
+import { AuthContext } from "@/assets/contexts/share/auth.context";
 
 const Login = memo(() => {
   const [isPasswordHide, setIsPasswordHide] = useState(true);
-
+  const auth = useContext(AuthContext)
+  const navigate = useNavigate()
   return (
     <main className="flex items-center flex-col relative px-4 py-6 min-h-calc-form justify-center">
       <StaticLogo customClass="flex items-center gap-x-3.5 mb-10" />
@@ -19,7 +31,7 @@ const Login = memo(() => {
             حساب کاربری ندارید؟
             {
               <Link
-                to={`/register?afret=${location.pathname}`}
+                to={generateAuthPagesLink("register")}
                 className="mr-2 text-green-500 font-medium"
               >
                 ثبت نام کنید.
@@ -34,7 +46,7 @@ const Login = memo(() => {
               مرا به خاطر بسپار
             </label>
             <Link
-              to={`/register?afret=${location.pathname}`}
+              to={generateAuthPagesLink("register")}
               className="underline underline-offset-2"
             >
               فراموشی رمز عبور
@@ -47,19 +59,43 @@ const Login = memo(() => {
             identifier: "",
             password: "",
           }}
-          onSubmit={() => {}}
+          onSubmit={async (values) => {
+            const token = await login(values)
+            if (token) {
+              showToastSwal({
+                title: "ثبت نام با موفقیت انجام شد.",
+                icon: "success"
+              })
+              setToLocal("token", token)
+              auth?.getMe()
+              navigate(getUrlParam("after") || "/")
+            }else{
+              showToastSwal({
+                title: "ثبت نام با خطا مواجه شد.",
+                icon: "error",
+                timer: 10_000
+              })
+            }
+          }}
           validationSchema={loginSchema}
         >
           {({ errors }) => (
-            <Form>
-              <div>
+            <Form className="space-y-4">
+              <div
+                className="space-y-2"
+              >
                 <div
-                  className="flex items-center "
+                  className="flex items-center relative"
                 >
                   <Field 
                     type="text" 
                     name="identifier" 
-                    className="w-full px-9 bg-custom-white dark:bg-gray-800 h-12 rounded-lg border border-transparent focus:!border-black focus:dark:!border-white transition-all"
+                    className="w-full pl-9 pr-3 bg-custom-white dark:bg-gray-800 h-12 rounded-lg border border-transparent focus:!border-black focus:dark:!border-white transition-all text-sm"
+                    placeholder="ایمیل یا شناسه کاربری..."
+                  />
+
+                  <MdOutlineLocalPostOffice
+                    className="absolute left-3 size-7 text-slate-500"
                   />
                 </div>
                 {errors.identifier && (
@@ -71,13 +107,23 @@ const Login = memo(() => {
 
               <div>
                 <div
-                  className="flex items-center "
+                  className="flex items-center relative"
                 >
                   <Field
                     type={isPasswordHide ? "password" : "text"}
                     name="password"
-                    className="w-full px-9 bg-custom-white dark:bg-gray-800 h-12 rounded-lg border border-transparent focus:!border-black focus:dark:!border-white transition-all"
+                    className="w-full pl-9 pr-3 bg-custom-white dark:bg-gray-800 h-12 rounded-lg border border-transparent focus:!border-black focus:dark:!border-white transition-all text-sm"
+                    placeholder="گذرواژه..."
                   />
+
+                  <div
+                    onClick={() => setIsPasswordHide(!isPasswordHide)}
+                    className="absolute left-3 [&>*]:size-6 text-slate-500 cursor-pointer"
+                  >
+                    {
+                      isPasswordHide ? <FaRegEyeSlash/> : <FaRegEye/>
+                    }
+                  </div>
                 </div>
 
                 {errors.password && (

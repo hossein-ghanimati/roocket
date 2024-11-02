@@ -21,7 +21,15 @@ const getCourse = async (courseShortName: string) => {
   return response.status < 300 ? course : null
 }
 
+const sendRegisterRequest = async (courseID: string, price: number) => {  
+  const response = await sendApiReq(true).post(`/courses/${courseID}/register`, {price})
+  return response.status < 300
+}
 
+const getCodePercent = async (courseID: string, code: string) => {
+  const response = await sendApiReq(true).post(`/offs/${code}`, {course : courseID})
+  return response.status < 300 ? Number(response.data.percent) : null
+}
 
 // const sendCourse = async (courseData: Omit<CourseType, "createdAt" | "id">) => {
 //   return sendApiReq().post("/courses", {
@@ -38,5 +46,7 @@ export {
   // sendCourse,
   deleteCourse,
   getCourse,
-  getRelatedCourses
+  getRelatedCourses,
+  sendRegisterRequest,
+  getCodePercent
 }

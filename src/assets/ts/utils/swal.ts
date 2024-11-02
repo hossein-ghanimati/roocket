@@ -1,35 +1,57 @@
 import Swal, { SweetAlertIcon, SweetAlertInput, SweetAlertResult } from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 
-type showMsgSwalType =  {
+type showMsgSwalType = {
   title: string
   icon: SweetAlertIcon
   hasClose?: boolean,
   btnText?: string,
 }
 
-const showMsgSwal = ({title, icon, hasClose = false, btnText = "باشه"}: showMsgSwalType) => {
+const showMsgSwal = ({ title, icon, hasClose = false, btnText = "باشه" }: showMsgSwalType) => {
   withReactContent(Swal).fire({
-    title,   
+    title,
     icon,
     showCloseButton: hasClose,
     confirmButtonText: btnText
   })
 }
 
-type showConfirmSwalType =  {
+type showToastSwalType = {
   title: string
-  text? : string
+  icon: SweetAlertIcon
+  timer?: number
+}
+
+const showToastSwal = ({
+  title,
+  icon,
+  timer = 2500
+}: showToastSwalType) => {
+  withReactContent(Swal).fire({
+    title,
+    icon,
+    timer, // مدت زمان نمایش به میلی‌ثانیه
+    timerProgressBar: true,
+    toast: true,
+    position: "top-right",
+    showConfirmButton: false,
+  })
+}
+
+type showConfirmSwalType = {
+  title: string
+  text?: string
   icon: SweetAlertIcon
   hasClose?: boolean
   btnText?: string
   cancelText?: string
-  callBack: (result : SweetAlertResult) => void
+  callBack: (result: SweetAlertResult) => void
 }
 
-const showConfirmSwal = ({title, text, icon, cancelText = "نه", btnText = "باشه", callBack, hasClose = false}: showConfirmSwalType) => {
+const showConfirmSwal = ({ title, text, icon, cancelText = "نه", btnText = "باشه", callBack, hasClose = false }: showConfirmSwalType) => {
   withReactContent(Swal).fire({
-    title,   
+    title,
     text,
     icon,
     showCloseButton: hasClose,
@@ -42,18 +64,18 @@ const showConfirmSwal = ({title, text, icon, cancelText = "نه", btnText = "ب�
 
 type showInputSwalType = {
   title: string
-  text? : string
+  text?: string
   icon: SweetAlertIcon
   inputType?: SweetAlertInput
   hasClose?: boolean
   btnText?: string
   cancelText?: string
-  callBack: (result : SweetAlertResult) => void
+  callBack: (result: SweetAlertResult) => void
 }
 
-const showInputSwal = ({title, text, icon, inputType : input = "text", cancelText = "نه", btnText = "باشه", callBack, hasClose = false}: showInputSwalType) => {
-withReactContent(Swal).fire({
-    title,   
+const showInputSwal = ({ title, text, icon, inputType: input = "text", cancelText = "نه", btnText = "باشه", callBack, hasClose = false }: showInputSwalType) => {
+  withReactContent(Swal).fire({
+    title,
     text,
     icon,
     input,
@@ -66,6 +88,7 @@ withReactContent(Swal).fire({
 }
 
 export {
+  showToastSwal,
   showMsgSwal,
   showConfirmSwal,
   showInputSwal
