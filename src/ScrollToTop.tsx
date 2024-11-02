@@ -9,10 +9,10 @@ const ScrollToTop = memo(() => {
   const mobileMenuSetting = useContext(MobileMenuContext)
 
   useEffect(() => {
+    scrollTo(0, 0);
     console.clear()
     overlaySetting?.hideOverlay()
-    mobileMenuSetting?.closeMenu()
-    scrollTo(0, 0);
+    mobileMenuSetting?.closeMenu() 
   }, [pathname]);
 
   return null;
