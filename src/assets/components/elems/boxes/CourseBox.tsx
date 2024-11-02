@@ -22,7 +22,7 @@ const CourseBox = memo(
             >
               <img
                 className="w-full h-full bg-cover transform transition duration-200 hover:scale-110"
-                src={`http://192.168.235.193:4000/courses/covers/${cover}`}
+                src={`http://192.168.120.198:4000/courses/covers/${cover}`}
                 alt={name}
               />
             </Link>

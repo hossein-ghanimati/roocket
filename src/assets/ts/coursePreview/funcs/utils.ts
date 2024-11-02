@@ -4,7 +4,7 @@ import { showConfirmSwal, showMsgSwal } from "../../utils/swal";
 
 const getCourseData = async (courseName: string) => {
   try {
-    const getReq = await fetch(`http://192.168.235.193:4000/v1/courses/${courseName}`, {
+    const getReq = await fetch(`http://192.168.120.198:4000/v1/courses/${courseName}`, {
       headers: {
         Authorization: `Bearer ${getFromLocal("token")}`
       }
@@ -24,7 +24,7 @@ const getCourseData = async (courseName: string) => {
 
 const sendRegisterRequest = async (courseID: string, price: number): Promise<boolean> => {
   try {
-    const getReq = await fetch(`http://192.168.235.193:4000/v1/courses/${courseID}/register`, {
+    const getReq = await fetch(`http://192.168.120.198:4000/v1/courses/${courseID}/register`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${getFromLocal("token")}`,
@@ -46,7 +46,7 @@ const sendRegisterRequest = async (courseID: string, price: number): Promise<boo
 const getCodePercent = async (courseID: string, code: string): Promise<null | number> => {
   
   try {
-    const getReq = await fetch(`http://192.168.235.193:4000/v1/offs/${code}`, {
+    const getReq = await fetch(`http://192.168.120.198:4000/v1/offs/${code}`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${getFromLocal("token")}`,

@@ -95,8 +95,8 @@
   }
   input{
     @apply
-      outline-none
-      border-none
+      outline-0
+      border-0
     ;
   }
 }

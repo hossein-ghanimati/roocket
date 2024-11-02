@@ -14,7 +14,7 @@ const ContentHeader = () => {
             isBordered
             src={
               auth?.user?.profile
-                ? `http://192.168.235.193:4000/courses/covers${auth.user.profile}`
+                ? `http://192.168.120.198:4000/courses/covers${auth.user.profile}`
                 : "/public/image/user/none.png"
             }
           />
