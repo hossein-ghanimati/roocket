@@ -19,7 +19,7 @@ const ArtilceBox = memo(({
           <img            
             className="lozad w-full h-full bg-cover transform transition duration-200 hover:scale-110"
             alt={shortName}
-            src={`http://192.168.120.198:4000/courses/covers/${cover}`}
+            src={`http://192.168.78.80:4000/courses/covers/${cover}`}
           />
         </Link>
 
@@ -41,7 +41,7 @@ const ArtilceBox = memo(({
                 <img
                   className="rounded-full border-2 w-6 h-6 object-cover ml-1 lozad"
                   alt={creator.name}
-                  src={creator.profile ? `http://192.168.120.198:4000/courses/covers${creator.profile}` : "/public/image/user/none.png"}
+                  src={creator.profile ? `http://192.168.78.80:4000/courses/covers${creator.profile}` : "/public/image/user/none.png"}
                 />
                 <b>
                   <span

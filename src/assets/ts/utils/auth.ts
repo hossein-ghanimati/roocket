@@ -2,7 +2,7 @@ import { UserType } from "@/assets/types/share/user.type";
 import { getFromLocal } from "./browserMemo";
 
 const getUser = async () => {
-  const getReq = await fetch("http://192.168.120.198:4000/v1/auth/me", {
+  const getReq = await fetch("http://192.168.78.80:4000/v1/auth/me", {
     headers: {
       Authorization: `Bearer ${getFromLocal("token")}`
     }

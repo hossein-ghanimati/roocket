@@ -6,7 +6,8 @@ import { getCodePercent, sendRegisterRequest } from "@/assets/services/axios/req
 
 
 
-const registerToCourse = async (navigate: NavigateFunction, courseID: string, price: number) => {
+const registerToCourse = async (refetch: () => void, navigate: NavigateFunction, courseID: string, price: number) => {
+
   const walletValue = getFromLocal("wallet") || 0;
   if (walletValue < price) {
     showConfirmSwal({
@@ -35,7 +36,7 @@ const registerToCourse = async (navigate: NavigateFunction, courseID: string, pr
         cancelText: "فعلا نه",
         btnText: "رفرش کن",
         callBack: result => {
-          result.isConfirmed && navigate(0)
+          result.isConfirmed && refetch()
         }
       })
     } else {
@@ -48,11 +49,11 @@ const registerToCourse = async (navigate: NavigateFunction, courseID: string, pr
   }
 }
 
-const validateCode = async (navigate: NavigateFunction, courseID: string, price: number, code: string) => {
+const validateCode = async (refetch: () => void, navigate: NavigateFunction, courseID: string, price: number, code: string) => {
   const codePercent = await getCodePercent(courseID, code);
 
   if (codePercent !== null) {
-    registerToCourse(navigate, courseID, (price - (price * codePercent / 100)))
+    registerToCourse(refetch, navigate, courseID, (price - (price * codePercent / 100)))
   } else {
     showMsgSwal({
       title: "کد معتبر نمی باشد",

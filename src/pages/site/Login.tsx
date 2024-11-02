@@ -62,14 +62,14 @@ const Login = memo(() => {
           onSubmit={async (values) => {
             const token = await login(values)
             if (token) {
+              setToLocal("token", token)
+              auth?.getMe()
+              navigate(getUrlParam("after") || "/")
               showToastSwal({
                 title: "ورود با موفقیت انجام شد",
                 icon: "success",
                 timer: 5000
-              })
-              setToLocal("token", token)
-              auth?.getMe()
-              navigate(getUrlParam("after") || "/")
+              })              
             }else{
               showConfirmSwal({
                 title: "مشخصات اشتباه است",

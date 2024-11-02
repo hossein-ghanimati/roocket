@@ -7,7 +7,7 @@ const sendApiReq = (includeAuthorization = false) => {
   
 
   const apiReq = axios.create({
-    baseURL: 'http://192.168.120.198:4000/v1',
+    baseURL: 'http://192.168.78.80:4000/v1',
   });
 
   apiReq.interceptors.request.use((config) => {

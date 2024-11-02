@@ -7,12 +7,13 @@ import CommentType from "@/assets/types/share/comment.type";
 import SessionType from "@/assets/types/share/session.type";
 import { getCourse } from "@/assets/services/axios/requests/shared/courses";
 import { generateAuthPagesLink } from "../utils/auth";
+import { QueryObserverResult, RefetchOptions, RefetchQueryFilters } from "react-query";
 
 const renderCourseData = async (navigate: NavigateFunction, courseName: string) => {
-  const courseData:SingleCourseType | null = await getCourse(courseName)
-  if (courseData) {    
+  const courseData: SingleCourseType | null = await getCourse(courseName)
+  if (courseData) {
     return courseData
-  }else{
+  } else {
     document.title = "دوره ای یافت نشد"
     showConfirmSwal({
       title: "دوره ای یافت نشد",
@@ -23,14 +24,19 @@ const renderCourseData = async (navigate: NavigateFunction, courseName: string) 
       callBack: result => {
         result.isConfirmed ? navigate("/courses") : navigate("/")
       }
-      
+
     })
     return null
   }
 }
 
 
-const renderRegisterToCourse = (navigate: NavigateFunction, courseID: string, price: number) => {
+const renderRegisterToCourse = (
+  refetch: () => void, 
+  navigate: NavigateFunction,
+  courseID: string, 
+  price: number
+) => {
   const isLogin = checkUserToken();
   if (isLogin) {
     price > 0 ?
@@ -44,12 +50,12 @@ const renderRegisterToCourse = (navigate: NavigateFunction, courseID: string, pr
         hasClose: true,
         callBack: reuslt => {
           reuslt.isConfirmed ?
-            validateCode(navigate, courseID, price, reuslt.value) 
-          :          
-            reuslt?.dismiss === "cancel" && registerToCourse(navigate, courseID, price)
+            validateCode(refetch, navigate, courseID, price, reuslt.value)
+            :
+            reuslt?.dismiss === "cancel" && registerToCourse(refetch, navigate, courseID, price)
         }
       })
-      : registerToCourse(navigate, courseID, price)
+      : registerToCourse(refetch, navigate, courseID, price)
   } else {
     showConfirmSwal({
       title: "باید وارد حسابی شوید",
@@ -69,7 +75,7 @@ const getCourseAverageScore = (comments: CommentType[]) => {
   let score = 0;
   comments.forEach(comment => score += comment.score)
   score = score / comments.length || 0;
-  
+
   return Math.ceil(score);
 }
 
@@ -77,7 +83,7 @@ const calculateCourseTime = (sesssions: SessionType[]) => {
   let h = 0;
   let m = 0;
   let s = 0;
-  
+
   sesssions.forEach(session => m += Number(session.time.slice(0, 2)))
   sesssions.forEach(session => s += Number(session.time.slice(3, 5)))
 

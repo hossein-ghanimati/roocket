@@ -45,7 +45,7 @@ const CourseMainInfo = memo(() => {
                   <div className="flex lg:flex-row flex-col items-center justify-between lg:ml-3">
                     <div className="flex items-center lg:flex-row flex-col">
                       <button
-                        onClick={() => (course?._id !== undefined && course?.price !== undefined) && renderRegisterToCourse(navigate, course?._id, course?.price)}
+                        onClick={() => (course?._id !== undefined && course?.price !== undefined) && renderRegisterToCourse(course.refetch ,navigate, course?._id, course?.price)}
                         disabled={course?.price === undefined || course?.isUserRegisteredToThisCourse}
                         className="flex items-center font-bold md:text-lg text-sm group text-white bg-blue-700 disabled:bg-opacity-50 disabled:border-opacity-30 md:h-14 h-10 md:px-9 px-4 rounded \ transition duration-200 hover:bg-transparent hover:text-blue-700 border border-blue-700"
                       >
@@ -133,14 +133,14 @@ const CourseMainInfo = memo(() => {
                   {course ? (
                     course.sessions.length ? 
                      (<video 
-                        src={`http://192.168.120.198:4000/courses/covers/${course?.sessions[0].video}`}
-                        poster={`http://192.168.120.198:4000/courses/covers/${course?.cover}`}
+                        src={`http://192.168.78.80:4000/courses/covers/${course?.sessions[0].video}`}
+                        poster={`http://192.168.78.80:4000/courses/covers/${course?.cover}`}
                         className="size-full bg-cover shadow-lg rounded h-max"
                         controls
                       ></video>)
                     : (<img
                       className="size-full bg-cover transform transition duration-200 hover:scale-110"
-                      src={`http://192.168.120.198:4000/courses/covers/${course?.cover}`}
+                      src={`http://192.168.78.80:4000/courses/covers/${course?.cover}`}
                       alt={course.name}
                     />)
                   ) : (
