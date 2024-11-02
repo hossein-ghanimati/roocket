@@ -6,7 +6,12 @@
   :root{
     @apply 
       scroll-smooth
+      font-shabnam 
+      font-normal 
+      text-base 
+      select-none
     ;
+    direction: rtl
   }
 
   ::-webkit-scrollbar-track,
@@ -66,11 +71,6 @@
     src: url("/public/font/shabnam/Shabnam-Bold-FD.woff");
     font-weight: 700;
   }
-
-
-  #app{
-    direction: rtl;
-  }
 }
 
 @layer utilities{
@@ -97,6 +97,12 @@
     @apply
       outline-0
       border-0
+    ;
+  }
+
+  div:where(.swal2-container) div:where(.swal2-popup) {
+    @apply
+    bg-custom-white dark:bg-gray-800 text-gray-700 dark:text-gray-100
     ;
   }
 }

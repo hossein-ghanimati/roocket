@@ -11,7 +11,7 @@ import { memo, useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { generateAuthPagesLink } from "@/assets/ts/utils/auth";
 import { login } from "@/assets/services/axios/requests/shared/auth";
-import { showToastSwal } from "@/assets/ts/utils/swal";
+import { showConfirmSwal, showToastSwal } from "@/assets/ts/utils/swal";
 import { getUrlParam } from "@/assets/ts/utils/url";
 import { setToLocal } from "@/assets/ts/utils/browserMemo";
 import { AuthContext } from "@/assets/contexts/share/auth.context";
@@ -63,17 +63,23 @@ const Login = memo(() => {
             const token = await login(values)
             if (token) {
               showToastSwal({
-                title: "ثبت نام با موفقیت انجام شد.",
-                icon: "success"
+                title: "ورود با موفقیت انجام شد",
+                icon: "success",
+                timer: 5000
               })
               setToLocal("token", token)
               auth?.getMe()
               navigate(getUrlParam("after") || "/")
             }else{
-              showToastSwal({
-                title: "ثبت نام با خطا مواجه شد.",
+              showConfirmSwal({
+                title: "مشخصات اشتباه است",
+                text: "آیا مایل به ثبت نام هستید ؟",
+                btnText: "بله",
                 icon: "error",
-                timer: 10_000
+                hasClose: true,
+                callBack: (result) => {                  
+                  result.isConfirmed && navigate(generateAuthPagesLink("register"))
+                }
               })
             }
           }}

@@ -6,6 +6,7 @@ import { SingleCourseType } from "@/assets/types/share/course.type";
 import CommentType from "@/assets/types/share/comment.type";
 import SessionType from "@/assets/types/share/session.type";
 import { getCourse } from "@/assets/services/axios/requests/shared/courses";
+import { generateAuthPagesLink } from "../utils/auth";
 
 const renderCourseData = async (navigate: NavigateFunction, courseName: string) => {
   const courseData:SingleCourseType | null = await getCourse(courseName)
@@ -58,7 +59,7 @@ const renderRegisterToCourse = (navigate: NavigateFunction, courseID: string, pr
       cancelText: "فعلا نه",
       hasClose: true,
       callBack: result => {
-        result.isConfirmed && navigate("/login")
+        result.isConfirmed && navigate(generateAuthPagesLink("login"))
       }
     })
   }
