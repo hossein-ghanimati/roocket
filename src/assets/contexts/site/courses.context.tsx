@@ -1,6 +1,5 @@
 import {
   applyFilters,
-  renderCourses,
 } from "@/assets/ts/courses/shared";
 import { CourseBoxType } from "@/assets/types/share/course.type";
 // import SortOptionsType from "@/assets/types/site/sortOptions.type";
@@ -14,7 +13,6 @@ import {
   useEffect,
   useState,
 } from "react";
-import { useNavigate, useParams } from "react-router-dom";
 import { CoursesSortContext } from "./coursesSort.context";
 import useCourses from "@/assets/hooks/shared/useCourses";
 
