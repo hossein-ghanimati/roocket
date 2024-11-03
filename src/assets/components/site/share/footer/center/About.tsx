@@ -1,11 +1,13 @@
 import SmallLoader from "@/assets/components/elems/SmallLoader";
 import { formSubmitHandler } from "@/assets/ts/newsLetter/shared";
-import { memo, useMemo} from "react";
+import { memo, useContext, useMemo} from "react";
 import {Field, Form, Formik} from "formik"
 import { Link } from "react-router-dom";
 import { newsLetterSchema } from "@/assets/services/validation/newsLetter";
+import { AuthContext } from "@/assets/contexts/share/auth.context";
 
 const About = memo(() => {
+  const auth = useContext(AuthContext)
 
   return (
     <div className="md:col-span-4">
@@ -64,8 +66,8 @@ const About = memo(() => {
 
       <div className="relative mt-11 dark:bg-dark-890">
         <Formik
-
-          initialValues={{email: ""}}
+          enableReinitialize={true}
+          initialValues={{email: auth?.user?.email || ""}}
           onSubmit={formSubmitHandler}
           validationSchema={newsLetterSchema}
         >

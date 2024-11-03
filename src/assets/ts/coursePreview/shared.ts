@@ -7,7 +7,6 @@ import CommentType from "@/assets/types/share/comment.type";
 import SessionType from "@/assets/types/share/session.type";
 import { getCourse } from "@/assets/services/axios/requests/shared/courses";
 import { generateAuthPagesLink } from "../utils/auth";
-import { QueryObserverResult, RefetchOptions, RefetchQueryFilters } from "react-query";
 
 const renderCourseData = async (navigate: NavigateFunction, courseName: string) => {
   const courseData: SingleCourseType | null = await getCourse(courseName)
