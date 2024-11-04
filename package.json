@@ -1,9 +1,12 @@
-{
+  {
   "name": "Roocket",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://hossein-ghanimati.github.io/roocket",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build:tailwind-main": "npx tailwindcss -i ./src/assets/styles/tailwind/input/input.css -o ./src/assets/styles/tailwind/output/output.css --watch",
     "build:tailwind-toggle": "npx tailwindcss -i ./src/assets/styles/tailwind/input/site/courses/toggle-box.css -o ./src/assets/styles/tailwind/output/site/courses/toggle-box.css",
     "build:tailwind-comment__answer": "npx tailwindcss -i ./src/assets/styles/tailwind/input/site/coursePreview/comment-answer.css -o ./src/assets/styles/tailwind/output/site/coursePreview/comment-answer.css",
@@ -37,6 +40,7 @@
     "clsx": "2.1.1",
     "formik": "^2.4.6",
     "framer-motion": "~11.1.1",
+    "gh-pages": "^6.2.0",
     "lucide-react": "^0.427.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
