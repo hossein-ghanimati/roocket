@@ -1,6 +1,6 @@
 const Counter = () => {
   return (
-    <div>Counter</div>
+    <span>38</span>
   )
 }
 

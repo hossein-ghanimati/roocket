@@ -2,18 +2,20 @@ import Logo from "@/assets/components/elems/Logo";
 import { FormEventHandler, memo, useContext, useMemo, useState } from "react";
 import { CiSearch } from "react-icons/ci";
 import { OverlayContext } from "@/assets/contexts/site/overlay.context";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Center = memo(() => {
   const [inputValue, setInputValue] = useState<string>("");
   const overlaySetting = useContext(OverlayContext);
   const [isShowingInput, setIsShowingInput] = useState<boolean>(false);
   const navigate = useNavigate();
+  const {pathname} = useLocation()
 
   const formSubmitHandler: FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
-    navigate(`search/${inputValue.trim()}`);
+    navigate(`/courses?s=${inputValue.trim()}`);
     overlaySetting?.hideOverlay();
+    setInputValue("")
   };
 
   return (
@@ -39,10 +41,11 @@ const Center = memo(() => {
               htmlFor="main-search-input"
               className="w-full flex items-center justify-start gap-2 px-2 h-full"
             >
-              <button type="submit">
+              <button type="submit" disabled={pathname.includes("courses")}>
                 <CiSearch className="size-5" />
               </button>
               <input
+                disabled={pathname.includes("courses")}
                 id="main-search-input"
                 type="text"
                 placeholder="جستجو کنید..."
@@ -58,7 +61,7 @@ const Center = memo(() => {
             </label>
           </div>
         </form>
-      ), [isShowingInput, inputValue])}
+      ), [isShowingInput, inputValue, pathname])}
     </div>
   );
 });

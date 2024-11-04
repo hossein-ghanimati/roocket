@@ -1,4 +1,4 @@
 export type WithCreatedAt = {
-  CreatedAt: string;
+  createdAt: string;
   [key: string]: any;
 };

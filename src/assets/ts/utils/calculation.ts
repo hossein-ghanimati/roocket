@@ -54,6 +54,16 @@ const sortByLast = <T extends WithCreatedAt>(param: T[]) => {
 
 
 }
+const sortByFirst = <T extends WithCreatedAt>(param: T[]) => {
+  if (param instanceof Array && param.every(item => item.createdAt)) {
+    const sortedCourses = [...param].sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime());
+    return sortedCourses
+  } else {
+    return param
+  }
+
+
+}
 
 export {
   MILLISECONDS_IN_SECOND,
@@ -64,5 +74,6 @@ export {
   MILLISECONDS_IN_MONTH,
   MILLISECONDS_IN_YEAR,
   calculateRelativeTimeDifference,
-  sortByLast
+  sortByLast,
+  sortByFirst
 }

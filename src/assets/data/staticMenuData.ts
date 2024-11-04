@@ -5,7 +5,7 @@ const staticMenuData: {
   {href: "/", title: "خانه"},
   {href: "/courses", title: "دوره ها"},
   
-  {href: "/contact-us", title: "ارتباط با ما"}
+  {href: "https://hossein-ghanimati.github.io/asancode/panel/main", title: "پنل مدیریت"}
 ]
 
 export default staticMenuData;

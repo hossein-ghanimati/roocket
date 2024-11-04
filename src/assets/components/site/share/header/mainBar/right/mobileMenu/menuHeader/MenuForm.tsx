@@ -1,14 +1,15 @@
 import { FormEventHandler, useMemo, useState } from "react";
 import { CiSearch } from "react-icons/ci";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const MenuForm = () => {
   const navigate = useNavigate()
   const [inputValue, setInputValue] = useState("")
-
+  const {pathname} = useLocation()
   const formSubmitHandler: FormEventHandler<HTMLFormElement> = event => {
     event.preventDefault()
-    navigate(`search/${inputValue.trim()}`)
+    navigate(`/courses?s=${inputValue.trim()}`)
+    setInputValue("")
   }
 
 
@@ -27,16 +28,17 @@ const MenuForm = () => {
           <input
             id="main-search-input"
             type="text"
+            disabled={pathname.includes("courses")}
             placeholder="جستجو کنید..."
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             className="bg-transparent w-8/12 border-none outline-none"
           />
           {useMemo(() => (
-            <button type="submit">
+            <button type="submit" disabled={pathname.includes("courses")}>
               <CiSearch className="size-5" />
             </button>
-          ), [])}
+          ), [pathname])}
         </label>
       </div>
     </form>

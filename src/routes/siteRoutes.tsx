@@ -1,7 +1,6 @@
 import ArticlePreview from "@/pages/site/ArticlePreview"
 import Articles from "@/pages/site/Articles"
 import Basket from "@/pages/site/Basket"
-import ContactUs from "@/pages/site/ContactUs"
 import CoursePreview from "@/pages/site/CoursePreview"
 import Courses from "@/pages/site/Courses"
 import Episode from "@/pages/site/Episode"
@@ -30,7 +29,6 @@ const siteRoutes: RouteObject[] = [
   {path: "search", element: <Search/>},
 
   {path: "basket", element: <Basket/>},
-  {path: "contact-us", element: <ContactUs/>},
 
   {path: "login", element: <Login/>},
   {path: "register", element: <Register/>},
