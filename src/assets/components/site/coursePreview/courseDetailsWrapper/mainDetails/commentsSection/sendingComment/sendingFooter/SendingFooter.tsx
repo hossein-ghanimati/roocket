@@ -1,5 +1,3 @@
-import RegisterCommentBtn from "../sendingContent/RegisterCommentBtn";
-
 type SendingFooterProps = {
   cancelClickHandler: () => void;
 };

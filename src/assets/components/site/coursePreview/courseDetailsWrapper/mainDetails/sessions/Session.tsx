@@ -4,9 +4,10 @@ import { FaLock } from "react-icons/fa";
 import { FaUnlock } from "react-icons/fa";
 import { CiClock2 } from "react-icons/ci";
 
-import { memo } from "react";
+import { memo, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { renderRegisterToCourse } from "@/assets/ts/coursePreview/shared";
+import { CourseContext } from "@/assets/contexts/site/course.context";
 
 type SessionProps = SessionType & {
   number: number;
@@ -16,6 +17,7 @@ type SessionProps = SessionType & {
 };
 
 const Session = memo((props: SessionProps) => {
+  const course = useContext(CourseContext)
   const navigate = useNavigate()
   return (
     <div className=" overflow-hidden md:flex-row flex-col flex relative dark:!bg-dark-900 bg-gray-210  dark:bg-opacity-0  bg-opacity-10 md:items-center  justify-between border rounded-lg dark:border-opacity-0 border-gray-210  md:py-4 py-2 md:pl-5 pl-2 md:pr-0 pr-12 mb-2">
@@ -67,7 +69,7 @@ const Session = memo((props: SessionProps) => {
               : 
                 <button
                   className="flex items-center justify-center gap-2"
-                  onClick={() => renderRegisterToCourse(navigate, props.courseID, props.coursePrice)}
+                  onClick={() => renderRegisterToCourse(course?.refetch || function(){}, navigate, props.courseID, props.coursePrice)}
                 >
                   ثبت نام
                   <FaLock/>

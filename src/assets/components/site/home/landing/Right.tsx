@@ -82,7 +82,7 @@ const Right = memo(() => {
             ></path>
           </svg>
           <span className="text-gray-450 dark:text-white font-semibold text-22">
-            بیش از <Counter speed={100} maxNumber={12}/> دوره آموزشی
+            بیش از <Counter  /> دوره آموزشی
           </span>
         </li>
         <li className="xl:w-5/12 sm:w-1/2 w-full flex justify-start  mb-6 rounded-xl">
@@ -198,7 +198,7 @@ const Right = memo(() => {
             ></circle>
           </svg>
           <span className="text-gray-450 dark:text-white font-semibold text-22">
-            پشتیبانی <Counter maxNumber={24} speed={100}/> ساعته
+            پشتیبانی <Counter  /> ساعته
           </span>
         </li>
       </ul>

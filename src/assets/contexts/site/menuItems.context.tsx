@@ -6,8 +6,6 @@ import {
   PropsWithChildren,
   createContext,
   memo,
-  useEffect,
-  useState,
 } from "react";
 
 const MenuItemsContext = createContext<undefined | null | MenuItemType[]>(null);
