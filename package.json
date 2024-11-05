@@ -3,7 +3,6 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://hossein-ghanimati.github.io/roocket/",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
