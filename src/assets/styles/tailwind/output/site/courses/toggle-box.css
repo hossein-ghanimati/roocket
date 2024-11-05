@@ -1,8 +1,0 @@
-.toggle__input:checked ~ .toggle__marker {
-  --tw-bg-opacity: 1;
-  background-color: rgb(96 165 250 / var(--tw-bg-opacity))
-}
-
-.toggle__input:checked ~ .toggle__marker > .toggle__marker-circle {
-  right: 26px
-}
