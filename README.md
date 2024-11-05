@@ -1,24 +1,21 @@
-# Vite & NextUI Template
+# Rocket Project
 
-This is a template for creating applications using Vite and NextUI (v2).
-
-[Try it on CodeSandbox](https://githubbox.com/nextui-org/vite-template)
+This Is My First Project By React & TS And Some React Libs.
 
 ## Technologies Used
 
 - [Vite](https://vitejs.dev/guide/)
 - [NextUI](https://nextui.org)
 - [Tailwind CSS](https://tailwindcss.com)
-- [Tailwind Variants](https://tailwind-variants.org)
 - [TypeScript](https://www.typescriptlang.org)
-- [Framer Motion](https://www.framer.com/motion)
+- [ReactQuery](https://tanstack.com/query/latest/docs/framework/react/overview)
 
 ## How to Use
 
 To clone the project, run the following command:
 
 ```bash
-git clone https://github.com/nextui-org/vite-template.git
+git clone https://github.com/hossein-ghanimati/roocket.git
 ```
 
 ### Install dependencies
@@ -28,23 +25,28 @@ You can use one of them `npm`, `yarn`, `pnpm`, `bun`, Example using `npm`:
 ```bash
 npm install
 ```
+#### If You Haven't Installed npm-run-all Before, Run The Following Command.
 
+```bash
+npm i -d npm-run-all
+```
+
+### Build The Tailwind Codes
+
+```bash
+npm run t
+```
 ### Run the development server
 
 ```bash
 npm run dev
 ```
 
-### Setup pnpm (optional)
-
-If you are using `pnpm`, you need to add the following code to your `.npmrc` file:
-
-```bash
-public-hoist-pattern[]=*@nextui-org/*
-```
-
-After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
-
-## License
-
-Licensed under the [MIT license](https://github.com/nextui-org/vite-template/blob/main/LICENSE).
+# Project Demo Pictures
+![Project Screenshot](https://raw.githubusercontent.com/hossein-ghanimati/roocket/refs/heads/main/demo/1.png)
+![Project Screenshot](https://raw.githubusercontent.com/hossein-ghanimati/roocket/refs/heads/main/demo/2.png)
+![Project Screenshot](https://raw.githubusercontent.com/hossein-ghanimati/roocket/refs/heads/main/demo/3.png)
+![Project Screenshot](https://raw.githubusercontent.com/hossein-ghanimati/roocket/refs/heads/main/demo/4.png)
+![Project Screenshot](https://raw.githubusercontent.com/hossein-ghanimati/roocket/refs/heads/main/demo/5.png)
+![Project Screenshot](https://raw.githubusercontent.com/hossein-ghanimati/roocket/refs/heads/main/demo/6.png)
+![Project Screenshot](https://raw.githubusercontent.com/hossein-ghanimati/roocket/refs/heads/main/demo/7.png)
