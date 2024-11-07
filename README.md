@@ -1,14 +1,31 @@
-# Rocket Project
+<h1 align="center">-  Fastkart  -</h1>
 
-This Is My First Project By React & TS And Some React Libs.
 
-## Technologies Used
+<h2>Developers : </h2>
+<ul>
+  <li>🖥 &nbsp; Front End Developer : <a href="github.com/hossein-ghanimati">Hossein Ghanimati</a></li>
+</ul>
 
-- [Vite](https://vitejs.dev/guide/)
-- [NextUI](https://nextui.org)
-- [Tailwind CSS](https://tailwindcss.com)
-- [TypeScript](https://www.typescriptlang.org)
-- [ReactQuery](https://tanstack.com/query/latest/docs/framework/react/overview)
+<br/>
+<br/>
+
+<h2>Front End Packages : </h2>
+<ul>
+  <li>
+  <img src="https://skillicons.dev/icons?i=react,tailwind,ts" data-canonical-src="https://skillicons.dev/icons?i=react,tailwind,react-query,axios" style="max-width: 100%;">
+  </li>
+  <li>
+    React-query
+  </li>
+  <li>
+    Axios
+  </li>
+</ul>
+
+<br/>
+<br/>
+
+
 
 ## How to Use
 
@@ -42,7 +59,11 @@ npm run t
 npm run dev
 ```
 
-# Project Demo Pictures
+<br/>
+<br/>
+
+<h2>Demo Images :</h2>
+
 ![Project Screenshot](https://raw.githubusercontent.com/hossein-ghanimati/roocket/refs/heads/main/demo/1.png)
 <br>  
 <br>  
