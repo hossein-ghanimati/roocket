@@ -1,6 +1,6 @@
 const sendRegisterReq = async (email: string) => {
   try {
-    const sendReq = await fetch("http://192.168.78.80:4000/v1/newsletters", {
+    const sendReq = await fetch("https://sabzlearnsite-backend.liara.run/v1/newsletters", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

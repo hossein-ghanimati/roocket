@@ -14,7 +14,7 @@ const ContentHeader = () => {
             isBordered
             src={
               auth?.user?.profile
-                ? `http://192.168.78.80:4000/courses/covers${auth.user.profile}`
+                ? `https://sabzlearnsite-backend.liara.run/courses/covers${auth.user.profile}`
                 : "/public/image/user/none.png"
             }
           />

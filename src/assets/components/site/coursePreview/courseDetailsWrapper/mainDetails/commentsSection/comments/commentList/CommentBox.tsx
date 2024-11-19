@@ -28,7 +28,7 @@ const CommentBox = ({
                     alt="user-avatar"
                     src={
                       creator.profile
-                        ? `http://192.168.78.80:4000/courses/covers${creator.profile}`
+                        ? `https://sabzlearnsite-backend.liara.run/courses/covers${creator.profile}`
                         : "/public/image/user/none.png"
                     }
                   />
@@ -95,7 +95,7 @@ const CommentBox = ({
                           alt="user-avatar"
                           src={
                             answerContent.creator.profile
-                              ? `http://192.168.78.80:4000/courses/covers${answerContent.creator.profile}`
+                              ? `https://sabzlearnsite-backend.liara.run/courses/covers${answerContent.creator.profile}`
                               : "/public/image/user/none.png"
                           }
                         />
