@@ -1,3 +1,5 @@
+import instagramImg from "/public/image/landing/index_instagram_phone.png"
+
 import { memo } from "react";
 
 const Propaganda = memo(() => {
@@ -7,8 +9,8 @@ const Propaganda = memo(() => {
         <div className="flex xl:flex-row flex-col sm:mx-10 relative items-center justify-end xl:py-12 pb-12 pt-24 sm:px-16 px-9 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 rounded-3xl">
           <img
             className="absolute xl:right-0  xl:scale-100 scale-75 right-1/2 transform xl:translate-x-0 translate-x-1/2  xl:-top-20  sm:-top-28 -top-24"
-            src="/public/image/landing/index_instagram_phone.png"
-            alt=""
+            src={instagramImg}
+            alt="hossein ghanimati instagram"
           />
           <h6 className="xl:ml-10 md:text-2xl text-lg text-white font-extrabold xl:mb-0 mb-5 xl:mt-0 sm:mt-8 md:text-right text-center">
             ما هر روز کلی مطالب آموزشی جالب در اینستاگراممون منتشر می‌کنیم!

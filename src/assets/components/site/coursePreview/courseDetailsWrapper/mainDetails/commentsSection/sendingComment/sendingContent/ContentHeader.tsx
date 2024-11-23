@@ -1,3 +1,4 @@
+import noneUserImg from "/public/image/user/none.png"
 import { AuthContext } from "@/assets/contexts/share/auth.context";
 import { Avatar } from "@nextui-org/avatar";
 import { useContext } from "react";
@@ -15,7 +16,7 @@ const ContentHeader = () => {
             src={
               auth?.user?.profile
                 ? `https://sabzlearnsite-backend.liara.run/courses/covers${auth.user.profile}`
-                : "/public/image/user/none.png"
+                : noneUserImg
             }
           />
         <div className="flex relative justify-center flex-col space-y-1">

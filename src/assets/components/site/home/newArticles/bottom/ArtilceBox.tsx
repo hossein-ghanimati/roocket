@@ -1,3 +1,4 @@
+import noneUserImg from "/public/image/user/none.png"
 import ArticleType from "@/assets/types/share/article.type";
 import { memo } from "react";
 import { Link } from "react-router-dom";
@@ -41,7 +42,7 @@ const ArtilceBox = memo(({
                 <img
                   className="rounded-full border-2 w-6 h-6 object-cover ml-1 lozad"
                   alt={creator.name}
-                  src={creator.profile ? `https://sabzlearnsite-backend.liara.run/courses/covers${creator.profile}` : "/public/image/user/none.png"}
+                  src={creator.profile ? `https://sabzlearnsite-backend.liara.run/courses/covers${creator.profile}` : noneUserImg}
                 />
                 <b>
                   <span

@@ -1,3 +1,4 @@
+import propagandaImg from "/public/image/propaganda/hs2QtzGeVDvW8nPnts5rBYgEhwWKeIGv5zuoiUsi.jpg"
 import { memo } from "react";
 
 const Propaganda = memo(() => {
@@ -11,7 +12,7 @@ const Propaganda = memo(() => {
         <div className="inline-block overflow-hidden w-full ">
           <img
             className="w-full h-full object-cover transform transition duration-200"
-            src="/public/image/propaganda/hs2QtzGeVDvW8nPnts5rBYgEhwWKeIGv5zuoiUsi.jpg"
+            src={propagandaImg}
           />
         </div>
       </a>

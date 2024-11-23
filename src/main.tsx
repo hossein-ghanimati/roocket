@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom/client";
-import { HashRouter } from "react-router-dom";
+import {  HashRouter } from "react-router-dom";
 import { ThemeContextProvider } from "./assets/contexts/site/theme.context";
 import AppWrapper from "./AppWrapper";
 

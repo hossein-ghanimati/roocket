@@ -1,10 +1,11 @@
 import { memo } from "react";
+import landingImg from "/public/image/landing/monitoring.png"
 
 const Left = memo(() => {
   return (
     <div className="col-span-6 xl:-top-3.5 xl:left-36 z-negative">
       <img
-        src="/public/image/landing/monitoring.png"
+        src={landingImg}
         alt="roocket"
         className="mx-auto mb-4 md:mb-6"
       />

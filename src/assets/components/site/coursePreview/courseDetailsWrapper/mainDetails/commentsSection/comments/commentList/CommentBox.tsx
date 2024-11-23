@@ -1,3 +1,5 @@
+import noneUserImg from "/public/image/user/none.png"
+
 import CommentType from "@/assets/types/share/comment.type";
 import "@/assets/styles/tailwind/output/site/coursePreview/comment-answer.css";
 import { calculateRelativeTimeDifference } from "@/assets/ts/utils/calculation";
@@ -29,7 +31,7 @@ const CommentBox = ({
                     src={
                       creator.profile
                         ? `https://sabzlearnsite-backend.liara.run/courses/covers${creator.profile}`
-                        : "/public/image/user/none.png"
+                        : noneUserImg
                     }
                   />
                 </div>
@@ -96,7 +98,7 @@ const CommentBox = ({
                           src={
                             answerContent.creator.profile
                               ? `https://sabzlearnsite-backend.liara.run/courses/covers${answerContent.creator.profile}`
-                              : "/public/image/user/none.png"
+                              : noneUserImg
                           }
                         />
                         <div className="w-full h-full absolute top-0 right-0 bg-biscay-700 bg-opacity-20 z-0"></div>

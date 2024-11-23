@@ -1,3 +1,5 @@
+import noneUserImg from "/public/image/user/none.png"
+
 import { memo, useContext, useMemo } from "react";
 import { Badge } from "@nextui-org/badge";
 import { Avatar } from "@nextui-org/avatar";
@@ -43,7 +45,7 @@ const ProfileDropdown = memo(() => {
                     isBordered
                     color={auth?.isLogin ? "primary" : "warning"}
                     radius="full"
-                    src={auth?.user?.profile ? `https://sabzlearnsite-backend.liara.run/courses/covers${auth.user.profile}` : "/public/image/user/none.png"}
+                    src={auth?.user?.profile ? `https://sabzlearnsite-backend.liara.run/courses/covers${auth.user.profile}` : noneUserImg}
                   />
                 </Badge>
               </button>
@@ -56,7 +58,7 @@ const ProfileDropdown = memo(() => {
                     isBordered
                     color={auth?.isLogin ? "success" : "danger"}
                     radius="full"
-                    src={auth?.user?.profile ? `https://sabzlearnsite-backend.liara.run/courses/covers${auth.user.profile}` : "/public/image/user/none.png"}
+                    src={auth?.user?.profile ? `https://sabzlearnsite-backend.liara.run/courses/covers${auth.user.profile}` : noneUserImg}
                   />
                   <div className="flex flex-col">
                     {auth?.isLogin ? (

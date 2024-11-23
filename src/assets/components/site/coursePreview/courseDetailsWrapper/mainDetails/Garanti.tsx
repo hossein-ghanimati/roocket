@@ -1,3 +1,4 @@
+import garantiImg from "/public/image/propaganda/garanti.png"
 import { memo } from "react";
 
 const Garanti = memo(() => {
@@ -14,7 +15,7 @@ const Garanti = memo(() => {
       <div className="flex ">
         <img
           className="sm:-mr-6 mr-0 sm:relative absolute sm:top-0 top-9 sm:right-0 right-1/2  transform sm:translate-x-0 translate-x-1/2 flex-shrink-0 w-52 h-40 -mt-2"
-          src="/public/image/propaganda/garanti.png"
+          src={garantiImg}
           alt=""
         />
         <div className="sm:-mr-3 flex flex-col sm:items-start items-center">
