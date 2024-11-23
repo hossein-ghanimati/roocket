@@ -11,7 +11,7 @@ import { memo, useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { generateAuthPagesLink } from "@/assets/ts/utils/auth";
 import { login } from "@/assets/services/axios/requests/shared/auth";
-import { showConfirmSwal, showToastSwal } from "@/assets/ts/utils/swal";
+import { showConfirmSwal, showLoadingSwal, showToastSwal } from "@/assets/ts/utils/swal";
 import { getUrlParam } from "@/assets/ts/utils/url";
 import { setToLocal } from "@/assets/ts/utils/browserMemo";
 import { AuthContext } from "@/assets/contexts/share/auth.context";
@@ -60,10 +60,14 @@ const Login = memo(() => {
             password: "",
           }}
           onSubmit={async (values) => {
+            const loadingSwal = showLoadingSwal({task: "ورود"})
             const token = await login(values)
+            loadingSwal.close()
+            
             if (token) {
-              setToLocal("token", token)
-              auth?.getMe()
+              setToLocal("token", token)   
+
+              await auth?.getMe()
               navigate(getUrlParam("after") || "/")
               showToastSwal({
                 title: "ورود با موفقیت انجام شد",

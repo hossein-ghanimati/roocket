@@ -12,7 +12,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { renderUserRegistering } from "@/assets/ts/register/shared";
 import { setToLocal } from "@/assets/ts/utils/browserMemo";
 import { getUrlParam } from "@/assets/ts/utils/url";
-import { showToastSwal } from "@/assets/ts/utils/swal";
+import { showLoadingSwal, showToastSwal } from "@/assets/ts/utils/swal";
 import { registerSchema } from "@/assets/services/validation/register";
 
 const Register = memo(() => {
@@ -47,11 +47,16 @@ const Register = memo(() => {
           }}
           validationSchema={registerSchema}
           onSubmit={async (values) => {
+            const loadinSwal = showLoadingSwal({task: "ثبت نام"})
             const token = await renderUserRegistering(values)
+            loadinSwal.close()
+            
             if (token) {
               setToLocal("token", token)
+
               auth?.getMe()
               navigate(getUrlParam("after") || "/")
+
               showToastSwal({
                 title: "ثبت نام با موفقیت انجام شد",
                 icon: "success",

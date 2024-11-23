@@ -13,8 +13,8 @@ import {
 type AuthContextType = {
   isLogin: boolean;
   user: UserType | null;
-  getMe : () => void;
-  logout : () => void;
+  getMe : () => Promise<void>
+  logout :  () => Promise<void>;
 };
 
 const AuthContext = createContext<AuthContextType | null>(null);
@@ -31,7 +31,7 @@ const AuthContextProvider: FC<PropsWithChildren> = memo(({ children }) => {
     setIsLogin(result.isLogin);
   };
 
-  const logout = () => {
+  const logout = async () => {
     removeFromLocal("token")
     getMe()
   }

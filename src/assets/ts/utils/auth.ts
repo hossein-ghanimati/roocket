@@ -15,8 +15,12 @@ const getUser = async () => {
   }
 }
 
-const generateAuthPagesLink = (page : "login" | "register") => 
-  `/${page}?after=${location.pathname === "/login" || location.pathname === "/register" ? "/" : location.pathname}`
+const generateAuthPagesLink = (page : "login" | "register") => {
+  const slicedHash = location.hash.slice(1)
+  const path = location.hash.slice(1, location.hash.indexOf("?"))
+  const afterPage = slicedHash.startsWith("/login") || slicedHash.startsWith("/register") ? "/" : path
+  return `/${page}?after=${afterPage}`
+}
 
 
 export {

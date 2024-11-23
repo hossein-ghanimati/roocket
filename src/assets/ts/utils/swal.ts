@@ -62,6 +62,20 @@ const showConfirmSwal = ({ title, text, icon, cancelText = "نه", btnText = "ب
   }).then(callBack)
 }
 
+const showLoadingSwal =  ({task}: {task: string;}) => (
+  withReactContent(Swal).fire({
+    title: `در حال ${task}...`,
+    icon: "info",
+    toast: true,
+    position: "top-right",
+    showConfirmButton: false,
+    allowOutsideClick: false,
+    didOpen: () => {
+      Swal.showLoading();
+    }
+  })
+)
+
 type showInputSwalType = {
   title: string
   text?: string
@@ -91,5 +105,6 @@ export {
   showToastSwal,
   showMsgSwal,
   showConfirmSwal,
-  showInputSwal
+  showInputSwal,
+  showLoadingSwal
 }
