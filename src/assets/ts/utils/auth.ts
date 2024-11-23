@@ -17,7 +17,11 @@ const getUser = async () => {
 
 const generateAuthPagesLink = (page : "login" | "register") => {
   const slicedHash = location.hash.slice(1)
-  const path = location.hash.slice(1, location.hash.indexOf("?"))
+  const isSearchParam = slicedHash.includes("?")
+  const path 
+    = isSearchParam 
+    ? slicedHash.slice(0, slicedHash.indexOf("?")) 
+    : slicedHash
   const afterPage = slicedHash.startsWith("/login") || slicedHash.startsWith("/register") ? "/" : path
   return `/${page}?after=${afterPage}`
 }
