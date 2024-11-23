@@ -1,6 +1,6 @@
 import { NavigateFunction } from "react-router-dom";
 import { getFromLocal, setToLocal } from "../../utils/browserMemo";
-import { showConfirmSwal, showMsgSwal } from "../../utils/swal";
+import { showConfirmSwal, showLoadingSwal, showMsgSwal } from "../../utils/swal";
 import { getCodePercent, sendRegisterRequest } from "@/assets/services/axios/requests/shared/courses";
 
 
@@ -22,10 +22,11 @@ const registerToCourse = async (refetch: () => void, navigate: NavigateFunction,
       }
     })
   } else {
+    const loadingSwal = showLoadingSwal({task: "ثبت نام در دوره"})
     const registerReq = await sendRegisterRequest(courseID, price);
-    if (registerReq) {
-      console.log(price);
+    loadingSwal.close();
 
+    if (registerReq) {
       const newWalletValue = walletValue - price;
       setToLocal("wallet", newWalletValue)
 
@@ -35,8 +36,12 @@ const registerToCourse = async (refetch: () => void, navigate: NavigateFunction,
         icon: "success",
         cancelText: "فعلا نه",
         btnText: "رفرش کن",
-        callBack: result => {
-          result.isConfirmed && refetch()
+        callBack: async result => {
+          if (result.isConfirmed) {
+            const loadingSwal = showLoadingSwal({task: "دریافت اطلاعات"})
+            await refetch();
+            loadingSwal.close();
+          }
         }
       })
     } else {
