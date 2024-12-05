@@ -11,7 +11,7 @@ const TeacherInfo = () => {
     <div className=" bg-white dark:bg-gray-900 p-6 flex flex-col items-center  rounded-lg shadow-sm mb-4">
       <div className="relative hvr-ripple-out">
           <Avatar 
-            src={courseSetting?.creator.profile ? `https://sabzlearnsite-backend.liara.run/courses/covers${courseSetting.creator.profile}` : noneUserImg}
+            src={courseSetting?.creator.profile ? `https://roocket.liara.run/courses/covers${courseSetting.creator.profile}` : noneUserImg}
             className="border-2 border-green-400 dark:border-green-400 !size-16"
           />
       </div>

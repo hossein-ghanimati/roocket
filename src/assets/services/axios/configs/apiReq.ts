@@ -7,7 +7,7 @@ const sendApiReq = (includeAuthorization = false) => {
   
 
   const apiReq = axios.create({
-    baseURL: 'https://sabzlearnsite-backend.liara.run/v1',
+    baseURL: 'https://roocket.liara.run/v1',
   });
 
   apiReq.interceptors.request.use((config) => {

@@ -45,7 +45,7 @@ const ProfileDropdown = memo(() => {
                     isBordered
                     color={auth?.isLogin ? "primary" : "warning"}
                     radius="full"
-                    src={auth?.user?.profile ? `https://sabzlearnsite-backend.liara.run/courses/covers${auth.user.profile}` : noneUserImg}
+                    src={auth?.user?.profile ? `https://roocket.liara.run/courses/covers${auth.user.profile}` : noneUserImg}
                   />
                 </Badge>
               </button>
@@ -58,7 +58,7 @@ const ProfileDropdown = memo(() => {
                     isBordered
                     color={auth?.isLogin ? "success" : "danger"}
                     radius="full"
-                    src={auth?.user?.profile ? `https://sabzlearnsite-backend.liara.run/courses/covers${auth.user.profile}` : noneUserImg}
+                    src={auth?.user?.profile ? `https://roocket.liara.run/courses/covers${auth.user.profile}` : noneUserImg}
                   />
                   <div className="flex flex-col">
                     {auth?.isLogin ? (
