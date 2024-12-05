@@ -18,7 +18,7 @@ const LatesCourses = memo(() => {
         />
         <div className="grid grid-cols-12 gap-6 ">
           {courses?.length
-            ? [...courses].slice(0, 8).sort(() => 0.5 - Math.random()).map((course) => (
+            ? [...courses].sort(() => 0.5 - Math.random()).slice(0, 8).map((course) => (
                 <CourseBox key={course._id} {...course} />
               ))
             : Array.from(Array(8).keys()).map((i) => <SkeletonBox isGridChild key={i} />)}
