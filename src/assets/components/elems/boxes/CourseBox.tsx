@@ -53,7 +53,7 @@ const CourseBox = memo(
                   {name}
                 </span>
               </Link>
-              <p className="mb-2 text-gray-360 dark:text-gray-940 text-sm font-normal  overflow-hidden leading-6">
+              <p className="mb-2 text-gray-360 dark:text-gray-940 text-sm font-normal  overflow-hidden leading-6 line-clamp-4">
                 {description}
               </p>
             </div>
