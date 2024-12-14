@@ -25,6 +25,9 @@
   <li>
     Axios
   </li>
+  <li>
+    Formik
+  </li>
 </ul>
 
 <br/>
