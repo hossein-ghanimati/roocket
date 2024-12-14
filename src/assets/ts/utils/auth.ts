@@ -2,7 +2,7 @@ import { UserType } from "@/assets/types/share/user.type";
 import { getFromLocal } from "./browserMemo";
 
 const getUser = async () => {
-  const getReq = await fetch("https://roocket.liara.run/v1/auth/me", {
+  const getReq = await fetch("https://academic.liara.run/v1/auth/me", {
     headers: {
       Authorization: `Bearer ${getFromLocal("token")}`
     }

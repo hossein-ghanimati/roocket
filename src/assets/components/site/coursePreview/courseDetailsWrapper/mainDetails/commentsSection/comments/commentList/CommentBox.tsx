@@ -30,7 +30,7 @@ const CommentBox = ({
                     alt="user-avatar"
                     src={
                       creator.profile
-                        ? `https://roocket.liara.run/courses/covers${creator.profile}`
+                        ? `https://academic.liara.run/courses/covers${creator.profile}`
                         : noneUserImg
                     }
                   />
@@ -97,7 +97,7 @@ const CommentBox = ({
                           alt="user-avatar"
                           src={
                             answerContent.creator.profile
-                              ? `https://roocket.liara.run/courses/covers${answerContent.creator.profile}`
+                              ? `https://academic.liara.run/courses/covers${answerContent.creator.profile}`
                               : noneUserImg
                           }
                         />

@@ -1,6 +1,6 @@
 const sendRegisterReq = async (email: string) => {
   try {
-    const sendReq = await fetch("https://roocket.liara.run/v1/newsletters", {
+    const sendReq = await fetch("https://academic.liara.run/v1/newsletters", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

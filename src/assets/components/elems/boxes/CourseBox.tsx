@@ -22,7 +22,7 @@ const CourseBox = memo(
             >
               <img
                 className="w-full h-full bg-cover transform transition duration-200 hover:scale-110"
-                src={`https://roocket.liara.run/courses/covers/${cover}`}
+                src={`https://academic.liara.run/courses/covers/${cover}`}
                 alt={name}
               />
             </Link>

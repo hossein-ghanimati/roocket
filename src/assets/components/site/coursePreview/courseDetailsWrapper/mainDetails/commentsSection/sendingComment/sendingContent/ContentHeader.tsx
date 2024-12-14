@@ -15,7 +15,7 @@ const ContentHeader = () => {
             isBordered
             src={
               auth?.user?.profile
-                ? `https://roocket.liara.run/courses/covers${auth.user.profile}`
+                ? `https://academic.liara.run/courses/covers${auth.user.profile}`
                 : noneUserImg
             }
           />

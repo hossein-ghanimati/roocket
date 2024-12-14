@@ -7,7 +7,7 @@ const sendApiReq = (includeAuthorization = false) => {
   
 
   const apiReq = axios.create({
-    baseURL: 'https://roocket.liara.run/v1',
+    baseURL: 'https://academic.liara.run/v1',
   });
 
   apiReq.interceptors.request.use((config) => {

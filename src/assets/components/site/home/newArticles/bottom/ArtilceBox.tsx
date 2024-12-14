@@ -20,7 +20,7 @@ const ArtilceBox = memo(({
           <img            
             className="lozad w-full h-full bg-cover transform transition duration-200 hover:scale-110"
             alt={shortName}
-            src={`https://roocket.liara.run/courses/covers/${cover}`}
+            src={`https://academic.liara.run/courses/covers/${cover}`}
           />
         </Link>
 
@@ -42,7 +42,7 @@ const ArtilceBox = memo(({
                 <img
                   className="rounded-full border-2 w-6 h-6 object-cover ml-1 lozad"
                   alt={creator.name}
-                  src={creator.profile ? `https://roocket.liara.run/courses/covers${creator.profile}` : noneUserImg}
+                  src={creator.profile ? `https://academic.liara.run/courses/covers${creator.profile}` : noneUserImg}
                 />
                 <b>
                   <span
