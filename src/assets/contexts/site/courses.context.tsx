@@ -1,3 +1,5 @@
+/* eslint-disable import/order */
+/* eslint-disable prettier/prettier */
 import {
   applyFilters,
 } from "@/assets/ts/courses/shared";
