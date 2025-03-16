@@ -1,9 +1,11 @@
 import Counter from "@/assets/components/elems/Counter";
+import useCourses from "@/assets/hooks/shared/useCourses";
 import { memo } from "react";
 import { Link } from "react-router-dom";
 import { Typewriter } from 'react-simple-typewriter'
 
 const Right = memo(() => {
+  const {courses} = useCourses()
   return (
     <div className="col-span-6 z-0 order-1 xl:order-none  xl:text-right text-center xl:mt-0 sm:mt-510 mt-345">
       <h2 className="text-biscay-700 dark:text-white font-yekan font-bold  text-3xl sm:text-4xl md:text-5xl lg:text-6xl  xl:max-w-lg-m xl:mb-4 lg:!leading-21">
@@ -82,7 +84,7 @@ const Right = memo(() => {
             ></path>
           </svg>
           <span className="text-gray-450 dark:text-white font-semibold text-22">
-            بیش از <Counter  /> دوره آموزشی
+            بیش از <Counter initNumber={courses?.length}  /> دوره آموزشی
           </span>
         </li>
         <li className="xl:w-5/12 sm:w-1/2 w-full flex justify-start  mb-6 rounded-xl">

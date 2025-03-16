@@ -1,7 +1,19 @@
-const Counter = () => {
-  return (
-    <span>38</span>
-  )
-}
+import { useEffect, useState } from "react";
 
-export default Counter
+const Counter = ({ initNumber = 24, delay = 75 }) => {
+  const [number, setNumber] = useState(0);
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (!(initNumber <= number)) {
+        setTimeout(() => {
+          setNumber((prev) => prev + 1);
+        }, delay);
+      }
+    }, delay);
+  }, [number]);
+
+  return <span>{number}</span>;
+};
+
+export default Counter;
